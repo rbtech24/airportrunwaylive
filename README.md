@@ -79,6 +79,14 @@ npm run poll:discover     # one search.list, 100 units — do not cron this
 
 Without a key, `npm run poll` writes a catalog fallback and the board still renders.
 
+## Resend (contact / add a stream / host-a-cam)
+
+1. Verify `airportrunwaylive.com` in [Resend](https://resend.com/domains).
+2. Copy `.env.example` to `.env` and set `RESEND_API_KEY`.
+3. On Cloudflare Pages, add the same vars: `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`.
+
+Local `npm run dev` posts to `/api/send` via a Vite middleware. Production uses `functions/api/send.ts`. If the key is missing, the form falls back to mailto.
+
 ## Stack
 
-Astro 7 static site. Client JS: `/live` filters, status-cache badges, i18n chrome, `/multiview`, mailto forms.
+Astro 7 static site. Client JS: `/live` filters, status-cache badges, i18n chrome, `/multiview`, forms (Resend with mailto fallback).

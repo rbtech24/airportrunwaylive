@@ -38,7 +38,9 @@ import { site } from '../data/site';
           <label for="message">Message</label>
           <textarea id="message" name="message" required></textarea>
         </div>
+        <label class="hp" aria-hidden="true">Leave blank<input name="company" tabindex="-1" autocomplete="off" /></label>
         <button class="btn btn-amber" type="submit">Send</button>
+        <p class="tiny" data-form-status hidden></p>
       </form>
     </div>
   </section>

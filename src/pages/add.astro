@@ -54,7 +54,9 @@ import { site } from '../data/site';
           <label for="notes">Notes</label>
           <textarea id="notes" name="notes"></textarea>
         </div>
-        <button class="btn btn-amber" type="submit">Email {site.email}</button>
+        <label class="hp" aria-hidden="true">Leave blank<input name="company" tabindex="-1" autocomplete="off" /></label>
+        <button class="btn btn-amber" type="submit">Send</button>
+        <p class="tiny" data-form-status hidden></p>
       </form>
     </div>
   </section>

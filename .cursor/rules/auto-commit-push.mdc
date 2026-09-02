@@ -1,0 +1,12 @@
+---
+description: Automatically commit and push after making project changes
+alwaysApply: true
+---
+
+# Auto commit and push
+
+After any code or content change in this repo, commit and push to `origin/main` in the same turn. Do not wait to be asked.
+
+- Use a short factual commit message.
+- Do not commit `.env`, secrets, `node_modules/`, or `dist/`.
+- If push fails, say so. Do not force-push unless the user asks.
