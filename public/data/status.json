@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-02T23:27:33.765Z",
+  "updatedAt": "2026-09-02T23:29:11.505Z",
   "source": "youtube",
-  "quotaUnits": 75,
+  "quotaUnits": 1,
   "streams": {
     "arl-mco": {
       "status": "off",
