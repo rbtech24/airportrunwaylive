@@ -18,10 +18,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: npm
-      - run: npm ci
       - name: Check curated channels for lives
-        run: npm run poll:latest
+        run: node scripts/poll-youtube.mjs --refresh-latest
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - name: Commit status cache
