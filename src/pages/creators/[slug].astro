@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StreamCard from '../../components/StreamCard.astro';
+import { creators, getCreator } from '../../data/catalog';
+
+export function getStaticPaths() {
+  return creators().map((c) => ({ params: { slug: c.slug } }));
+}
+
+const slug = Astro.params.slug ?? '';
+const creator = getCreator(slug);
+if (!creator) {
+  return Astro.redirect('/creators');
+}
+const airports = [...new Set(creator.streams.flatMap((s) => s.covers ?? [s.airport]))];
+---
+<BaseLayout
+  title={`${creator.name} | Airport Runways Live`}
+  description={`Official YouTube for ${creator.name}. Airports: ${airports.join(', ')}. We list the channel. We do not restream.`}
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Creator</p>
+      <h1>{creator.name}</h1>
+      <p class="lede">{creator.handle} · {airports.join(' · ')}</p>
+      <p class="note">Official YouTube only. Super Chats stay on their channel.</p>
+      <div class="btn-row">
+        <a class="btn btn-amber" href={creator.url} target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+        <a class="btn btn-ghost" href={creator.url} target="_blank" rel="noopener noreferrer">Notify on YouTube</a>
+        <a class="btn btn-ghost" href="/creators">All creators</a>
+      </div>
+      <div class="grid grid-3" style="margin-top: 28px">
+        {creator.streams.map((s) => <StreamCard stream={s} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

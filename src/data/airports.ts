@@ -315,6 +315,18 @@ export const airports: Airport[] = [
       'If you run a regular, real DXB live on YouTube, send it via Add a stream. We will not fake one.',
     related: ['NRT', 'LHR', 'AMS'],
   },
+  {
+    code: 'SIN',
+    icao: 'WSSS',
+    name: 'Singapore Changi',
+    city: 'Singapore',
+    region: 'asia',
+    country: 'SG',
+    intro:
+      'Often called the world’s best airport. Aerowanderer is the Changi-focused channel we list — hosted spotting and rush-hour films, not a fake 24/7 cam.',
+    ourNote: 'Official @aerowanderer. If you run a regular SIN live, send it via Add a stream.',
+    related: ['NRT', 'MEL', 'LHR'],
+  },
 ];
 
 export const airportByCode = Object.fromEntries(airports.map((a) => [a.code, a])) as Record<

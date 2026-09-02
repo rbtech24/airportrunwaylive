@@ -4,34 +4,53 @@ import { site } from '../data/site';
 ---
 <BaseLayout
   title="Aviation Live Desk | Airport Runways Live"
-  description="Weekly Aviation Live Desk: who’s live right now, weather that matters, heavies due at MCO, and links to the board."
+  description="Weekly Aviation Live Desk: who’s live, weather, heavies at MCO, globe on the second screen. Super Chat stays on YouTube."
 >
   <section class="section">
     <div class="wrap prose">
-      <p class="eyebrow">Product 4</p>
+      <p class="eyebrow">Weekly</p>
       <h1>Aviation Live Desk</h1>
-      <p>
-        The desk is how the directory and the channel feed each other. A weekly hosted stream from home or a Hyatt —
-        not a 24/7 cam, not a restream of someone else.
+      <p class="lede" data-desk-next>
+        Target: Wednesday 4–7pm Eastern. Announced on YouTube until it is weekly.
       </p>
+      <p>
+        The desk is the front page of the stream. This site is the scoreboard — not a competitor.
+        Super Chat and memberships stay on YouTube.
+      </p>
+      <h2>On the show</h2>
       <ul>
-        <li>Here’s who’s live right now on the board</li>
+        <li>Who’s live right now on the board</li>
         <li>Weather that actually changes the show</li>
         <li>Heavies due at MCO</li>
-        <li>Links on screen to airportrunwaylive.com</li>
+        <li>Second screen: the globe. Say “go to airportrunwaylive.com/map?icao=LAS”</li>
       </ul>
-      <p>
-        Target window: Wednesday 4–7pm Eastern, announced on YouTube until it is weekly. Super Chat and memberships
-        stay on YouTube. This domain does not take tips.
-      </p>
-      <p>
-        If a 24/7 roof cam ever exists, it is a tile on the board. It does not replace talking on mic.
-      </p>
+      <h2>Second-screen run of show</h2>
+      <ol>
+        <li>Open <a href="/">airportrunwaylive.com</a> on the desk monitor</li>
+        <li>Open <a href="/map">/map</a> full screen on the other</li>
+        <li>Deep-link a field: <code>/map?icao=MCO</code>, <code>/map?icao=LAS</code>, <code>/map?icao=SXM</code></li>
+        <li>Lower-third overlay for OBS: <a href="/overlay">/overlay</a></li>
+      </ol>
       <div class="btn-row">
-        <a class="btn btn-amber" href={site.youtube} target="_blank" rel="noopener noreferrer">Watch the desk on YouTube</a>
-        <a class="btn btn-ghost" href="/live">Open the board</a>
-        <a class="btn btn-ghost" href="/schedule">Schedule</a>
+        <a class="btn btn-amber" href={site.youtube} target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+        <a class="btn btn-ghost" href={site.youtube} target="_blank" rel="noopener noreferrer">Notify on YouTube</a>
+        <a class="btn btn-ghost" href="/desk.ics">Add to calendar</a>
+        <a class="btn btn-ghost" href="/map">Open the globe</a>
       </div>
     </div>
   </section>
 </BaseLayout>
+<script>
+  fetch('/data/site-config.json', { cache: 'no-store' })
+    .then((r) => r.json())
+    .then((cfg: { deskNext?: string }) => {
+      if (!cfg.deskNext) return;
+      const when = new Date(cfg.deskNext);
+      if (Number.isNaN(when.getTime())) return;
+      const el = document.querySelector('[data-desk-next]');
+      if (el) {
+        el.textContent = `Next Desk: ${when.toLocaleString(undefined, { weekday: 'long', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}`;
+      }
+    })
+    .catch(() => undefined);
+</script>

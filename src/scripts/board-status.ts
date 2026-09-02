@@ -76,19 +76,34 @@ export async function applyBoardStatus() {
 
 export async function applyAlert() {
   const banner = document.querySelector<HTMLElement>('[data-alert-banner]');
-  if (!banner) return;
+  const tonightBar = document.querySelector<HTMLElement>('[data-tonight-bar]');
   try {
     const res = await fetch('/data/site-config.json', { cache: 'no-store' });
     if (!res.ok) return;
-    const cfg = (await res.json()) as { alert?: string };
+    const cfg = (await res.json()) as {
+      alert?: string;
+      tonight?: string;
+      tonightDate?: string;
+    };
     const text = (cfg.alert ?? '').trim();
-    if (!text) {
-      banner.hidden = true;
-      return;
+    if (banner) {
+      if (!text) banner.hidden = true;
+      else {
+        const inner = banner.querySelector('[data-alert-text]');
+        if (inner) inner.textContent = text;
+        banner.hidden = false;
+      }
     }
-    const inner = banner.querySelector('[data-alert-text]');
-    if (inner) inner.textContent = text;
-    banner.hidden = false;
+    const tonight = (cfg.tonight ?? '').trim();
+    if (tonightBar) {
+      if (!tonight) tonightBar.hidden = true;
+      else {
+        const inner = tonightBar.querySelector('[data-tonight-text]');
+        const date = (cfg.tonightDate ?? '').trim();
+        if (inner) inner.textContent = date ? `${date} · ${tonight}` : tonight;
+        tonightBar.hidden = false;
+      }
+    }
   } catch {
     /* keep build-time alert */
   }

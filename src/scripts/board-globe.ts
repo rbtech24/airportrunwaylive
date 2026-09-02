@@ -232,11 +232,10 @@ function initGlobe(root: HTMLElement) {
   requestAnimationFrame(size);
   new ResizeObserver(size).observe(holder);
 
+  const icao = new URLSearchParams(window.location.search).get('icao')?.toUpperCase();
   const last = getPrefs().pin;
-  if (last) {
-    const remembered = points.find((p) => p.code === last);
-    if (remembered) setTimeout(() => openPoint(remembered), 900);
-  }
+  const focus = points.find((p) => p.code === icao) ?? points.find((p) => p.code === last);
+  if (focus) setTimeout(() => openPoint(focus), 700);
 
   fetch('/data/status.json', { cache: 'no-store' })
     .then((r) => r.json())

@@ -571,5 +571,23 @@
     "schedule": "Posted on the channel — Haneda hosted lives",
     "notes": "Tokyo Haneda. Official YouTube. Irregular but real hosted spotting.",
     "covers": ["HND"]
+  },
+  {
+    "id": "aerowanderer-sin",
+    "featured": false,
+    "host": false,
+    "airport": "SIN",
+    "icao": "WSSS",
+    "city": "Singapore",
+    "country": "SG",
+    "region": "asia",
+    "name": "Aerowanderer",
+    "handle": "@aerowanderer",
+    "url": "https://www.youtube.com/@aerowanderer",
+    "type": "scheduled",
+    "status": "scheduled",
+    "schedule": "Posted on the channel — Changi spotting",
+    "notes": "Singapore Changi. Real hosted spotting / rush-hour films. Not a 24/7 cam.",
+    "covers": ["SIN"]
   }
 ]

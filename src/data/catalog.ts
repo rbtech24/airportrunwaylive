@@ -78,7 +78,17 @@ export function youtubeChannelUrl(stream: Stream): string {
   return stream.url;
 }
 
-export function creators(): { handle: string; name: string; url: string; streams: Stream[] }[] {
+export function creatorSlug(handle: string): string {
+  return handle.replace(/^@/, '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
+export function creators(): {
+  handle: string;
+  slug: string;
+  name: string;
+  url: string;
+  streams: Stream[];
+}[] {
   const map = new Map<string, Stream[]>();
   for (const s of sortedStreams) {
     const key = s.handle;
@@ -88,8 +98,13 @@ export function creators(): { handle: string; name: string; url: string; streams
   }
   return [...map.entries()].map(([handle, list]) => ({
     handle,
+    slug: creatorSlug(handle),
     name: list[0].name.replace(/ — .*$/, ''),
     url: youtubeChannelUrl(list[0]),
     streams: list,
   }));
+}
+
+export function getCreator(slug: string) {
+  return creators().find((c) => c.slug === slug);
 }

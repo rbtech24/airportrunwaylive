@@ -21,6 +21,7 @@ const list = creators();
             <p class="muted">{c.streams.map((s) => s.airport).join(' · ')}</p>
             <div class="card-actions">
               <a class="btn btn-amber" href={c.url} target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a class="btn btn-ghost" href={`/creators/${c.slug}`}>Page</a>
             </div>
           </article>
         ))}

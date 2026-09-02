@@ -239,6 +239,27 @@ p {
   font-size: 0.95rem;
 }
 
+.tonight {
+  background: #10243f;
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+  font-size: 0.95rem;
+}
+
+.tonight-inner {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.tonight-kicker {
+  color: var(--amber);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
