@@ -285,6 +285,25 @@
     "covers": ["SFO"]
   },
   {
+    "id": "cali-planes-sfo",
+    "featured": false,
+    "host": false,
+    "airport": "SFO",
+    "icao": "KSFO",
+    "city": "San Francisco",
+    "country": "US",
+    "region": "us",
+    "name": "Cali Planes",
+    "handle": "@caliplanes",
+    "url": "https://www.youtube.com/@caliplanes",
+    "type": "scheduled",
+    "status": "scheduled",
+    "schedule": "Three to four times a week — often SFO; also LAX and other CA fields",
+    "notes": "Hosted IRL spotting with Sal. Official YouTube. Daily video IDs change.",
+    "embedId": "aoqhzsRV5vs",
+    "covers": ["SFO"]
+  },
+  {
     "id": "miami-plane-spotting",
     "featured": false,
     "host": false,

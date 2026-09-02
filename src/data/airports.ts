@@ -95,7 +95,7 @@ export const airports: Airport[] = [
     country: 'US',
     intro:
       'Marine layer, bay approaches, and a Pacific widebody mix. SF FLIGHTS is the hosted channel on this board.',
-    ourNote: 'Scheduled, not 24/7. Check the channel for the next show.',
+    ourNote: 'Scheduled, not 24/7. SF FLIGHTS and Cali Planes are the hosted listings. Check their channels for the next show.',
     related: ['LAX', 'LAS', 'PHX'],
   },
   {
