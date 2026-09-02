@@ -41,6 +41,7 @@ try {
 }
 
 const KEY = process.env.YOUTUBE_API_KEY ?? '';
+const REFERER = process.env.YOUTUBE_API_REFERER || 'https://www.airportrunwayslive.com/';
 const DISCOVER = process.argv.includes('--discover');
 const REFRESH_LATEST = process.argv.includes('--refresh-latest');
 
@@ -54,7 +55,8 @@ async function api(pathname, params) {
   const url = new URL(API + pathname);
   url.searchParams.set('key', KEY);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-  const res = await fetch(url);
+  // Key is HTTP-referrer restricted to the live site. GitHub Actions / Node send none unless we set it.
+  const res = await fetch(url, { headers: { Referer: REFERER } });
   const body = await res.json();
   if (!res.ok) {
     throw new Error(`${pathname} ${res.status} ${JSON.stringify(body.error ?? body)}`);

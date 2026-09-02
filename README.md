@@ -73,7 +73,7 @@ Finished pattern:
 2. **New project** — name it `Airport Runways Live`.
 3. **APIs & Services → Library** → search **YouTube Data API v3** → **Enable**.
 4. **APIs & Services → Credentials → Create credentials → API key**.
-5. Edit the key → **API restrictions** → restrict to **YouTube Data API v3**. Optionally restrict HTTP referrers later; the poller runs on GitHub Actions so IP restrict is harder — API restriction is the important one.
+5. Edit the key → **API restrictions** → restrict to **YouTube Data API v3**. If you also lock **Application restrictions** to HTTP referrers, allow `https://www.airportrunwayslive.com/*`. The poller sends that origin as `Referer` so GitHub Actions is not blocked. Do not use IP restriction — Actions has no fixed IP.
 6. Put the key in local `.env` as `YOUTUBE_API_KEY=`.
 7. GitHub → this repo → **Settings → Secrets and variables → Actions** → new secret named `YOUTUBE_API_KEY`.
 8. Optionally **Run workflow** on **Poll YouTube lives**. It also runs 13:00 / 18:00 / 23:00 UTC.

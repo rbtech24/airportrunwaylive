@@ -1,97 +1,103 @@
 {
-  "updatedAt": "2026-09-02T18:21:46.741Z",
-  "source": "catalog",
-  "quotaUnits": 0,
+  "updatedAt": "2026-09-02T23:27:33.765Z",
+  "source": "youtube",
+  "quotaUnits": 75,
   "streams": {
     "arl-mco": {
       "status": "off",
-      "videoId": null,
-      "title": null,
+      "videoId": "7iCr3bWyDM0",
+      "title": "Outdoor Kitchens Houston",
       "live": false
     },
     "arl-tpa": {
       "status": "off",
-      "videoId": null,
-      "title": null,
+      "videoId": "7iCr3bWyDM0",
+      "title": "Outdoor Kitchens Houston",
       "live": false
     },
     "arl-bog": {
       "status": "off",
-      "videoId": null,
-      "title": null,
+      "videoId": "7iCr3bWyDM0",
+      "title": "Outdoor Kitchens Houston",
       "live": false
     },
     "fr24-las": {
       "status": "247",
       "videoId": "V7_orOtu-oo",
-      "title": null,
+      "title": "LAS Vegas Airport LIVE 24/7 with views of 26R & 26L",
       "live": true
     },
     "fr24-sxm": {
       "status": "247",
       "videoId": "2IQmpCXbOmM",
-      "title": null,
+      "title": "Iconic SXM Airport LIVE 24/7 – Sint Maarten Maho Beach",
       "live": true
     },
     "fr24-lga": {
       "status": "247",
       "videoId": "OUBslrCqREs",
-      "title": null,
+      "title": "LGA Airport LIVE 24/7 • LaGuardia, New York",
       "live": true
     },
     "fr24-msy": {
       "status": "247",
       "videoId": "MH0_mPt-VXE",
-      "title": null,
+      "title": "FR24 - MSY New Orleans LIVE 24/7",
       "live": true
     },
     "fr24-rno": {
       "status": "247",
       "videoId": "fFl0qD108sk",
-      "title": null,
+      "title": "RNO Reno Airport LIVE 24/7",
       "live": true
     },
     "fr24-ace": {
       "status": "247",
       "videoId": "NtbquzembC8",
-      "title": null,
+      "title": "ACE Lanzarote Airport LIVE 24/7 - Canary Islands SPAIN",
       "live": true
     },
     "avl-plus-lax": {
       "status": "247",
       "videoId": "KzsNnyN8D_Q",
-      "title": null,
+      "title": "🔴LIVE 24/7 LAX Airport Action Runways 25L & 25R | LIVE Plane Spotting with ATC!",
       "live": true
     },
     "airline-videos-lax": {
-      "status": "scheduled",
-      "videoId": null,
-      "title": null,
-      "live": false
+      "status": "live",
+      "videoId": "uCJOh0fxIZU",
+      "title": "🔴LIVE LOS ANGELES (LAX) AIRPORT ACTION!  (September 2nd, 2026)",
+      "live": true
     },
     "la-flights-lax": {
-      "status": "scheduled",
-      "videoId": null,
-      "title": null,
-      "live": false
+      "status": "live",
+      "videoId": "jzcl8kXaZiA",
+      "title": "🔴LIVE LOS ANGELES LAX AIRPORT! | September 2, 2026 | LAX PLANE SPOTTING",
+      "live": true
     },
     "runway-dfw": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "wLcU8PBEIgg",
+      "title": "LIVE 🔴 DFW Airport ✈️ plane spotting at night 🌟 September 3, 2026",
       "live": false
     },
     "theplanespotter-phx": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "zhxCU0Doqfs",
+      "title": "Air missions in gta5 online",
       "live": false
     },
     "sf-flights-sfo": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "5MaSmVTG5CM",
+      "title": "British Airways Heading to the Gate After Landing at San Francisco Airport (SFO) ✈️🇬🇧",
       "live": false
+    },
+    "cali-planes-sfo": {
+      "status": "live",
+      "videoId": "aoqhzsRV5vs",
+      "title": "KSFO LIVE |  Sept 2, 2026 | SAN FRANCISCO INT AIRPORT LIVE STREAM WEBCAM IRL PLANESPOTTING",
+      "live": true
     },
     "miami-plane-spotting": {
       "status": "scheduled",
@@ -101,20 +107,20 @@
     },
     "planes-and-friends-mia": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "TdcqJbI7XcY",
+      "title": "🔴 NEW YORK LGA LIVE | NONSTOP RUNWAY 4 ACTION  | MONDAY ARRIVING RUSH",
       "live": false
     },
     "horis-box-fll": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "GhK3hQa3lek",
+      "title": "🔴  LIVE  Fort Lauderdale-Hollywood International Airport | August 30, 2026",
       "live": false
     },
     "813-aviation-tpa": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "gc4ODVew68I",
+      "title": "Live from Tampa International Airport August 30, 2026",
       "live": false
     },
     "captain-will-den": {
@@ -124,21 +130,21 @@
       "live": false
     },
     "logan-in-flight-bos": {
-      "status": "scheduled",
-      "videoId": null,
-      "title": null,
-      "live": false
+      "status": "live",
+      "videoId": "HOEpmh2nCFs",
+      "title": "LIVE Plane Spotting at Boston Logan International Airport | KBOS",
+      "live": true
     },
     "airliners-live-man": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "WLDcp3F6F58",
+      "title": "🔴 Manchester Airport LIVE ✈️",
       "live": false
     },
     "big-jet-tv-lhr": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "UITjMTk79sc",
+      "title": "BIG JET TV is live AS101 Push & start",
       "live": false
     },
     "sdf-plane-spotting": {
@@ -146,7 +152,107 @@
       "videoId": null,
       "title": null,
       "live": false
+    },
+    "ams-live": {
+      "status": "scheduled",
+      "videoId": "SXYgEDtrAy8",
+      "title": "RARE DORNIER 328 Lands at Amsterdam Schiphol! ✈️ | PH-EAE",
+      "live": false
+    },
+    "aviacao-tv-lis": {
+      "status": "live",
+      "videoId": "Iig6K9MqlSA",
+      "title": "🔴 LIVE 24/7 Lisbon Airport Live Cam 02.09.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
+      "live": true
+    },
+    "airliners-live-yvr": {
+      "status": "scheduled",
+      "videoId": "WLDcp3F6F58",
+      "title": "🔴 Manchester Airport LIVE ✈️",
+      "live": false
+    },
+    "melbourne-flyer": {
+      "status": "scheduled",
+      "videoId": "zkeTCJJeLyY",
+      "title": "🔴 NIGHT LIVE ACTION @ Melbourne Airport ( YMML / MEL ) [7.30pm 31/AUGUST/2026]",
+      "live": false
+    },
+    "julia-flights-bne": {
+      "status": "scheduled",
+      "videoId": "UyxtJ0YlZC4",
+      "title": "🔴LIVE SUNDAY SINGLE RUNWAY OPS @ Brisbane Plane Spotting + ATC | 30.8.26🔴",
+      "live": false
+    },
+    "love-flight-jack-nrt": {
+      "status": "scheduled",
+      "videoId": "btDoXRxOEcQ",
+      "title": "9/3 Kelvinhigaさんお誕生日おめでとうございます🎉#shorts #お誕生日 #フライングホヌ #成田空港 #ラニくん#lovefkightjack",
+      "live": false
+    },
+    "live-jet-hnd": {
+      "status": "scheduled",
+      "videoId": "uq9WFOj40Oc",
+      "title": "- LIVE - 羽田空港  ライブカメラ 2026/9/2 TOKYO HANEDA International Airport HND Plane Spotting",
+      "live": false
+    },
+    "aerowanderer-sin": {
+      "status": "scheduled",
+      "videoId": "m-4w5CExZoM",
+      "title": "ASIANA AIRLINES A350-900 takeoff at Seoul Incheon airport #shorts #aviation #seoul #a350 #takeoff",
+      "live": false
+    },
+    "sydsquad-syd": {
+      "status": "scheduled",
+      "videoId": "5OK4ofjK2aI",
+      "title": "🔴LIVE - MORNING RUSH Plane Spotting @ Tokyo Haneda Airport! 2.9.26 🔴",
+      "live": false
+    },
+    "msp-airport-live": {
+      "status": "live",
+      "videoId": "4Dp_DuX8zAY",
+      "title": "🔴 LIVE NONSTOP AIRPORT ACTION & TWIN CITIES PLANE SPOTTING! ✈ MSP/KMSP AIRPORT ✈ 9/2/26",
+      "live": true
+    },
+    "incheon-airport": {
+      "status": "scheduled",
+      "videoId": "gVlBHlOohU4",
+      "title": "오늘 나만의 플랜은?｜Smart Pass💙",
+      "live": false
     }
   },
-  "channelIds": {}
+  "channelIds": {
+    "arl-mco": "UCEDlZHbOBJDUB_qJ3kCbF7A",
+    "arl-tpa": "UCEDlZHbOBJDUB_qJ3kCbF7A",
+    "arl-bog": "UCEDlZHbOBJDUB_qJ3kCbF7A",
+    "fr24-las": "UCcGI_kXwKl_QhyW9jK_8gIA",
+    "fr24-sxm": "UCcGI_kXwKl_QhyW9jK_8gIA",
+    "fr24-lga": "UCcGI_kXwKl_QhyW9jK_8gIA",
+    "fr24-msy": "UCcGI_kXwKl_QhyW9jK_8gIA",
+    "fr24-rno": "UCcGI_kXwKl_QhyW9jK_8gIA",
+    "fr24-ace": "UCcGI_kXwKl_QhyW9jK_8gIA",
+    "avl-plus-lax": "UCox5yCEEjk4iYbhLgyj90EQ",
+    "airline-videos-lax": "UCZpB0MKAHs4k_TTpHllCLSQ",
+    "la-flights-lax": "UC7WAqB7dyv1t8jKunD-8krA",
+    "runway-dfw": "UCxEfOZF4qEwygVVxlpPBObw",
+    "theplanespotter-phx": "UCT9dBRpBiGEdvMTKv-cTXvQ",
+    "sf-flights-sfo": "UCUbhwy4N1HXGvPqz2yqMTRQ",
+    "cali-planes-sfo": "UC5PNUCvYkt6PxAmgvAV8x8g",
+    "planes-and-friends-mia": "UCWRF4e8eNqvbLXDk-rPhx3w",
+    "horis-box-fll": "UCNhKsVHclT2v3JSARoV2IQg",
+    "813-aviation-tpa": "UC1pp6Rs9yoX-4IIAQOwlO5g",
+    "logan-in-flight-bos": "UCXWLm3D9yhffVg4UUOPgC5g",
+    "airliners-live-man": "UCMT8bf9CCfdLb_DTwJidOng",
+    "big-jet-tv-lhr": "UCkQef3Fidr7tm3gNuXgGKPw",
+    "ams-live": "UCDRT7uomQAQFfFzGT4T7Ekg",
+    "aviacao-tv-lis": "UC0R-K3crhMX9jzswbmfIORw",
+    "airliners-live-yvr": "UCMT8bf9CCfdLb_DTwJidOng",
+    "melbourne-flyer": "UCnksJSCumHaxXOOLFXvsK3A",
+    "julia-flights-bne": "UCEkIbxyVuvTQ2N1NKEpDWsw",
+    "love-flight-jack-nrt": "UCH1R8j9ReS3GSV3wi58Xu1A",
+    "live-jet-hnd": "UC_lRCs4pOVJl2Sv_Y4_Qsaw",
+    "aerowanderer-sin": "UCF9PerxOyDKRQUPk40geAmA",
+    "sydsquad-syd": "UC8tLfsImEWybHQB_3CI-JDQ",
+    "msp-airport-live": "UCm9WVBYC-aFjJss4GTGYm0A",
+    "incheon-airport": "UC5rNAdQWDhaw_Z4PEK7TPJw"
+  }
 }
