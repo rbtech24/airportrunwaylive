@@ -37,10 +37,10 @@ export const schedule: ScheduleRow[] = [
     notes: 'Aviation Live Desk: who’s live, weather, heavies due at MCO. Posted on the channel until weekly.',
   },
   {
-    day: 'TBD',
-    airport: 'MCO / TPA / BOG',
+    day: 'Posted on channel',
+    airport: 'MCO · TPA',
     channel: 'Airport Runways Live',
-    notes: 'Hosted spotting. Posted on the channel.',
+    notes: 'Hosted lives from Orlando International and Tampa International.',
   },
   {
     day: 'Posted on channel',

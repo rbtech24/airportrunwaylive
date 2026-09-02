@@ -9,7 +9,7 @@ export const site = {
   tagline: 'Watch the runways. Live.',
   year: 2026,
   description:
-    'Watch airport runways live. A board of YouTube airport streams plus hosted coverage from Orlando (MCO).',
+    'Watch airport runways live. A board of YouTube airport streams plus hosted lives from Orlando (MCO) and Tampa (TPA).',
 } as const;
 
 export type SiteConfig = typeof site;

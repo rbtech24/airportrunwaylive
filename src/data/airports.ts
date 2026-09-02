@@ -22,8 +22,8 @@ export const airports: Airport[] = [
     region: 'us',
     country: 'US',
     intro:
-      'Tampa is our practice field. Local hobby streams exist. We use TPA to test gear. One main complex, water in the background, and a regular mix of domestic trunks plus the occasional heavy.',
-    ourNote: 'Airport Runways Live streams Tampa when we are in town. 813 Aviation covers TPA on evenings and nights.',
+      'Tampa International is one of our two Florida live-stream airports, with Orlando. One main complex, water in the background, domestic trunks, and the occasional heavy. 813 Aviation also covers TPA on evenings and nights.',
+    ourNote: 'Airport Runways Live hosts Tampa International lives on @AirportRunwaysLive. Schedule is posted on the channel.',
     related: ['MCO', 'MIA', 'FLL'],
   },
   {
@@ -337,7 +337,7 @@ export const airports: Airport[] = [
     intro:
       'Delta’s Twin Cities hub. MSP Airport LIVE hosts from the official aircraft viewing area — winter deice ops included.',
     ourNote: 'Scheduled hosted lives. Official channel listing only.',
-    related: ['DEN', 'BOS', 'ORD'],
+    related: ['DEN', 'BOS', 'LAX'],
   },
   {
     code: 'ICN',

@@ -50,7 +50,7 @@ const title = `${airport.code} live — ${airport.city} airport streams | Airpor
 
       <h2>Related airports</h2>
       <div class="related">
-        {airport.related.map((c) => (
+        {airport.related.filter((c) => getAirport(c)).map((c) => (
           <a href={`/airports/${c.toLowerCase()}`}>{c}</a>
         ))}
       </div>

@@ -1,6 +1,6 @@
 # Airport Runways Live
 
-Directory of airport / runway livestreams on YouTube, plus a hosted-channel hub for Airport Runways Live (MCO, TPA, BOG).
+Directory of airport / runway livestreams on YouTube, plus hosted lives from Orlando International (MCO) and Tampa International (TPA).
 
 **Domain:** [airportrunwayslive.com](https://www.airportrunwayslive.com)
 **YouTube:** [@AirportRunwaysLive](https://www.youtube.com/@AirportRunwaysLive)
