@@ -2,7 +2,7 @@
 
 Directory of airport / runway livestreams on YouTube, plus a hosted-channel hub for Airport Runways Live (MCO, TPA, BOG).
 
-**Domain:** [airportrunwaylive.com](https://airportrunwaylive.com)
+**Domain:** [airportrunwayslive.com](https://www.airportrunwayslive.com)
 **YouTube:** [@AirportRunwaysLive](https://www.youtube.com/@AirportRunwaysLive)
 
 ## Hard rules
@@ -81,7 +81,7 @@ Without a key, `npm run poll` writes a catalog fallback and the board still rend
 
 ## Resend (contact / add a stream / host-a-cam)
 
-1. Verify `airportrunwaylive.com` in [Resend](https://resend.com/domains).
+1. Verify `airportrunwayslive.com` in [Resend](https://resend.com/domains).
 2. Copy `.env.example` to `.env` and set `RESEND_API_KEY`.
 3. On Cloudflare Pages, add the same vars: `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`.
 

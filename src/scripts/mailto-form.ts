@@ -23,7 +23,7 @@ export function bindMailtoForm() {
         });
         if (res.ok) {
           form.reset();
-          if (status) status.textContent = 'Sent. We will reply from hello@airportrunwaylive.com.';
+          if (status) status.textContent = `Sent. We will reply from ${site.email}.`;
           return;
         }
       } catch {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://airportrunwaylive.com/sitemap-index.xml
+Sitemap: https://www.airportrunwayslive.com/sitemap-index.xml

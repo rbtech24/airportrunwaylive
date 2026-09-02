@@ -15,8 +15,8 @@ export async function sendBoardEmail(env: MailEnv, payload: MailPayload) {
     return { ok: false as const, status: 503, error: 'RESEND_API_KEY is not set' };
   }
 
-  const from = env.RESEND_FROM?.trim() || 'Airport Runways Live <hello@airportrunwaylive.com>';
-  const to = env.RESEND_TO?.trim() || 'hello@airportrunwaylive.com';
+  const from = env.RESEND_FROM?.trim() || 'Airport Runways Live <hello@airportrunwayslive.com>';
+  const to = env.RESEND_TO?.trim() || 'hello@airportrunwayslive.com';
   const subject = (payload.subject || 'Airport Runways Live').slice(0, 140);
   const lines = Object.entries(payload.fields)
     .filter(([k]) => k !== 'company')

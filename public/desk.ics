@@ -4,14 +4,14 @@ PRODID:-//Airport Runways Live//Desk//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:desk@airportrunwaylive.com
+UID:desk@airportrunwayslive.com
 DTSTAMP:20260902T160000Z
 DTSTART:20260909T200000Z
 DTEND:20260909T230000Z
 RRULE:FREQ=WEEKLY;BYDAY=WE
 SUMMARY:Airport Runways Live — Aviation Live Desk
-DESCRIPTION:Who's live, weather, heavies at MCO. Watch on YouTube @AirportRunwaysLive. Second screen: https://airportrunwaylive.com/map
-URL:https://airportrunwaylive.com/desk
+DESCRIPTION:Who's live, weather, heavies at MCO. Watch on YouTube @AirportRunwaysLive. Second screen: https://www.airportrunwayslive.com/map
+URL:https://www.airportrunwayslive.com/desk
 LOCATION:YouTube @AirportRunwaysLive
 END:VEVENT
 END:VCALENDAR

@@ -51,7 +51,7 @@ function resendDev() {
 }
 
 export default defineConfig({
-  site: 'https://airportrunwaylive.com',
+  site: 'https://www.airportrunwayslive.com',
   trailingSlash: 'never',
   integrations: [sitemap(), resendDev()],
   redirects: {

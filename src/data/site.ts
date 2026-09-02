@@ -1,10 +1,10 @@
 export const site = {
   name: 'Airport Runways Live',
   short: 'ARL',
-  domain: 'https://airportrunwaylive.com',
+  domain: 'https://www.airportrunwayslive.com',
   youtube: 'https://www.youtube.com/@AirportRunwaysLive',
   youtubeHandle: '@AirportRunwaysLive',
-  email: 'hello@airportrunwaylive.com',
+  email: 'hello@airportrunwayslive.com',
   alert: '',
   tagline: 'Watch the runways. Live.',
   year: 2026,

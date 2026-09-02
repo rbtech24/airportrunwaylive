@@ -25,8 +25,8 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
   const key = env.RESEND_API_KEY?.trim();
   if (!key) return json({ ok: false, error: 'RESEND_API_KEY is not set' }, 503);
 
-  const from = env.RESEND_FROM?.trim() || 'Airport Runways Live <hello@airportrunwaylive.com>';
-  const to = env.RESEND_TO?.trim() || 'hello@airportrunwaylive.com';
+  const from = env.RESEND_FROM?.trim() || 'Airport Runways Live <hello@airportrunwayslive.com>';
+  const to = env.RESEND_TO?.trim() || 'hello@airportrunwayslive.com';
   const subject = (payload.subject || 'Airport Runways Live').slice(0, 140);
   const lines = Object.entries(fields)
     .filter(([k]) => k !== 'company')
