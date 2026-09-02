@@ -15,6 +15,9 @@ export function initLiveBoard() {
     if (filter === 'us' && card.dataset.region !== 'us') return false;
     if (filter === 'europe' && card.dataset.region !== 'europe') return false;
     if (filter === 'caribbean' && card.dataset.region !== 'caribbean') return false;
+    if (filter === 'latam' && card.dataset.region !== 'latam') return false;
+    if (filter === 'oceania' && card.dataset.region !== 'oceania') return false;
+    if (filter === 'asia' && card.dataset.region !== 'asia') return false;
     if (filter === 'ours' && card.dataset.host !== '1') return false;
 
     if (!q) return true;

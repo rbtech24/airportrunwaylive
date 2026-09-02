@@ -36,7 +36,8 @@ const other = counterpartPath(Astro.url.pathname.replace(/\/$/, '') || '/', loca
     <link rel="canonical" href={url} />
     {other && <link rel="alternate" hreflang={locale === 'en' ? 'es' : 'en'} href={new URL(other, site.domain).toString()} />}
     {other && <link rel="alternate" hreflang={locale} href={url} />}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/images/logo-mark-256.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/logo-mark-256.png" />
     <meta name="theme-color" content="#0A1F44" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />

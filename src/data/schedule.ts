@@ -43,6 +43,24 @@ export const schedule: ScheduleRow[] = [
     notes: 'Hosted spotting. Posted on the channel.',
   },
   {
+    day: 'Posted on channel',
+    airport: 'AMS',
+    channel: 'AMS LIVE',
+    notes: 'Amsterdam Schiphol hosted lives.',
+  },
+  {
+    day: 'Weekly',
+    airport: 'MEL',
+    channel: 'Melbourne Flyer',
+    notes: 'Tullamarine, Australia time.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'BNE',
+    channel: 'Julia Flights',
+    notes: 'Brisbane home. MEL / SYD specials.',
+  },
+  {
     day: '24/7',
     airport: 'LAS · SXM · LGA · MSY · RNO · ACE',
     channel: 'Flightradar24',

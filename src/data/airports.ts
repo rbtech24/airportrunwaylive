@@ -194,6 +194,90 @@ export const airports: Airport[] = [
     ourNote: 'If you run a regular JFK live on YouTube, send it via Add a stream. We only list official channel URLs.',
     related: ['BOS', 'MCO', 'LAX'],
   },
+  {
+    code: 'AMS',
+    icao: 'EHAM',
+    name: 'Amsterdam Airport Schiphol',
+    city: 'Amsterdam',
+    region: 'europe',
+    country: 'NL',
+    intro:
+      'Europe’s multi-runway crossroads. KLM heavies, the Polderbaan, and weather that actually changes the show. AMS LIVE is the hosted channel on this board.',
+    ourNote: 'Scheduled, not 24/7. Watch on the official @AMSLIVE YouTube so they keep the view.',
+    related: ['LHR', 'MAN', 'LIS'],
+  },
+  {
+    code: 'LIS',
+    icao: 'LPPT',
+    name: 'Humberto Delgado Airport',
+    city: 'Lisbon',
+    region: 'europe',
+    country: 'PT',
+    intro:
+      'Atlantic gateway with TAP heavies and a mix you will not see in Florida. Aviation TV is the hosted listing.',
+    ourNote: 'Schedule is announced on the creator’s channel.',
+    related: ['AMS', 'LHR', 'ACE'],
+  },
+  {
+    code: 'YVR',
+    icao: 'CYVR',
+    name: 'Vancouver International',
+    city: 'Vancouver',
+    region: 'other',
+    country: 'CA',
+    intro:
+      'Pacific gateway for Canada. Airliners Live covers Vancouver when they are there — same channel as Manchester.',
+    ourNote: 'Not a 24/7 cam. Check @AirlinersLive for the next YVR show.',
+    related: ['SFO', 'LAX', 'MAN'],
+  },
+  {
+    code: 'MEL',
+    icao: 'YMML',
+    name: 'Melbourne Airport',
+    city: 'Melbourne',
+    region: 'oceania',
+    country: 'AU',
+    intro:
+      'Tullamarine is the heavy board for south-east Australia. Melbourne Flyer hosts regular lives; Julia Flights also covers MEL on specials.',
+    ourNote: 'Times are Australia/Melbourne. Convert before you sit down.',
+    related: ['BNE', 'SYD', 'SFO'],
+  },
+  {
+    code: 'BNE',
+    icao: 'YBBN',
+    name: 'Brisbane Airport',
+    city: 'Brisbane',
+    region: 'oceania',
+    country: 'AU',
+    intro:
+      'Queensland’s international field and the home base for Julia Flights. Emirates A380s, Asian heavies, and domestic jets.',
+    ourNote: 'Official channel @juliaflights. We list it. We do not restream it.',
+    related: ['MEL', 'SYD', 'SFO'],
+  },
+  {
+    code: 'SYD',
+    icao: 'YSSY',
+    name: 'Sydney Kingsford Smith',
+    city: 'Sydney',
+    region: 'oceania',
+    country: 'AU',
+    intro:
+      'Australia’s busiest airport. Julia Flights covers Sydney as specials from a Brisbane base. No dedicated 24/7 SYD cam is listed.',
+    ourNote: 'If you run a regular SYD live, send it via Add a stream.',
+    related: ['MEL', 'BNE', 'LAX'],
+  },
+  {
+    code: 'ACE',
+    icao: 'GCRR',
+    name: 'Lanzarote Airport',
+    city: 'Lanzarote',
+    region: 'europe',
+    country: 'ES',
+    intro:
+      'Canary Islands holiday field with a Flightradar24 / CamStreamer 24/7 automated camera — one of the few always-on European tiles on this board.',
+    ourNote: 'Official Flightradar24 YouTube live. Creators keep the view.',
+    related: ['LIS', 'LHR', 'AMS'],
+  },
 ];
 
 export const airportByCode = Object.fromEntries(airports.map((a) => [a.code, a])) as Record<

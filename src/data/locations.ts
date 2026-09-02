@@ -31,6 +31,12 @@ export const locations: Record<string, GeoSpot> = {
   RNO: { lat: 39.4991, lon: -119.7681, name: 'Reno-Tahoe International', city: 'Reno' },
   ACE: { lat: 28.9455, lon: -13.6052, name: 'Lanzarote Airport', city: 'Lanzarote' },
   SDF: { lat: 38.174, lon: -85.7364, name: 'Louisville Muhammad Ali International', city: 'Louisville' },
+  AMS: { lat: 52.3105, lon: 4.7683, name: 'Amsterdam Airport Schiphol', city: 'Amsterdam' },
+  LIS: { lat: 38.7742, lon: -9.1342, name: 'Humberto Delgado Airport', city: 'Lisbon' },
+  YVR: { lat: 49.1947, lon: -123.1792, name: 'Vancouver International', city: 'Vancouver' },
+  MEL: { lat: -37.669, lon: 144.841, name: 'Melbourne Airport', city: 'Melbourne' },
+  BNE: { lat: -27.3842, lon: 153.1175, name: 'Brisbane Airport', city: 'Brisbane' },
+  SYD: { lat: -33.9399, lon: 151.1753, name: 'Sydney Kingsford Smith', city: 'Sydney' },
 };
 
 export interface MapStream {
@@ -64,7 +70,29 @@ const statusRank: Record<StreamStatus, number> = {
 };
 
 const pageCodes = new Set([
-  'MCO', 'TPA', 'BOG', 'LAX', 'DFW', 'MIA', 'FLL', 'SFO', 'PHX', 'DEN', 'BOS', 'LAS', 'SXM', 'MAN', 'LHR', 'JFK',
+  'MCO',
+  'TPA',
+  'BOG',
+  'LAX',
+  'DFW',
+  'MIA',
+  'FLL',
+  'SFO',
+  'PHX',
+  'DEN',
+  'BOS',
+  'LAS',
+  'SXM',
+  'MAN',
+  'LHR',
+  'JFK',
+  'AMS',
+  'LIS',
+  'YVR',
+  'MEL',
+  'BNE',
+  'SYD',
+  'ACE',
 ]);
 
 function toMapStream(s: Stream): MapStream {

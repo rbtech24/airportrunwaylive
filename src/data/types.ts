@@ -1,6 +1,6 @@
 export type StreamType = 'hosted' | '247' | 'scheduled';
 export type StreamStatus = 'live' | '247' | 'scheduled' | 'off';
-export type Region = 'us' | 'europe' | 'caribbean' | 'latam' | 'other';
+export type Region = 'us' | 'europe' | 'caribbean' | 'latam' | 'asia' | 'oceania' | 'other';
 
 export interface Stream {
   id: string;

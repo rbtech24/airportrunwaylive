@@ -131,6 +131,13 @@ p {
   gap: 16px;
 }
 
+.arl-logo {
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
 .brand {
   display: flex;
   align-items: center;
