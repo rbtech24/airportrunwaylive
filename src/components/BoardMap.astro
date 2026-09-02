@@ -7,6 +7,7 @@ interface Props {
 const { full = false } = Astro.props;
 const points = mapPoints();
 const cams = points.filter((p) => p.status === '247').length;
+const channelCount = points.reduce((n, p) => n + p.streams.length, 0);
 ---
 <div class:list={['map-shell', { 'map-shell-full': full }]} data-map-root>
   <div class="globe-layout">
@@ -19,8 +20,8 @@ const cams = points.filter((p) => p.status === '247').length;
     ></div>
     <div class="globe-hud">
       <span class="globe-hud-kicker">ARL · WORLD BOARD</span>
-      <strong>{points.length} airports</strong>
-      <span class="muted">{cams} automated 24/7 · click a pin</span>
+      <strong>{points.length} airports · {channelCount} channels</strong>
+      <span class="muted">{cams} always-on 24/7 cams · rest are hosted / scheduled</span>
       <span class="muted" data-sun-label></span>
     </div>
     <aside class="globe-panel" data-globe-panel hidden></aside>
