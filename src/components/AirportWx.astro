@@ -1,14 +1,22 @@
 ---
+import { liveAtcUrl, RUNWAYS } from '../lib/runways';
+
 interface Props {
   icao: string;
+  code: string;
 }
-const { icao } = Astro.props;
+const { icao, code } = Astro.props;
+const hasRwy = Boolean(RUNWAYS[code]);
 ---
-<aside class="wx-board" data-wx={icao}>
+<aside class="wx-board" data-wx={icao} data-code={code}>
   <p class="kicker">Live METAR · {icao}</p>
   <p data-wx-summary class="muted">Loading observation…</p>
+  {hasRwy && <p data-wx-rwy class="wx-rwy"></p>}
   <p data-wx-raw class="tiny"></p>
-  <p class="tiny">NOAA Aviation Weather Center. Not a flight tracker. Not ATC.</p>
+  <div class="btn-row" style="margin-top:10px">
+    <a class="btn btn-ghost" href={liveAtcUrl(icao)} target="_blank" rel="noopener noreferrer">Listen on LiveATC</a>
+  </div>
+  <p class="tiny">NOAA Aviation Weather Center. Radio opens LiveATC.net. Not our audio. Not ATC.</p>
 </aside>
 <script>
   import '../scripts/airport-wx.ts';

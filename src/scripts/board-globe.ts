@@ -3,17 +3,7 @@ import Globe from 'globe.gl';
 import type { MapPoint } from '../data/locations';
 import type { StatusCache } from '../data/types';
 import { getPrefs, setPrefs } from './prefs.ts';
-
-function subsolar(date = new Date()) {
-  const start = Date.UTC(date.getUTCFullYear(), 0, 0);
-  const doy = (date.getTime() - start) / 86400000;
-  const lat = -23.44 * Math.cos((2 * Math.PI * (doy + 10)) / 365);
-  const hours = date.getUTCHours() + date.getUTCMinutes() / 60 + date.getUTCSeconds() / 3600;
-  let lng = -15 * (hours - 12);
-  if (lng > 180) lng -= 360;
-  if (lng < -180) lng += 360;
-  return { lat, lng };
-}
+import { isGoldenHour, subsolar } from '../lib/sun.ts';
 
 function label(status: MapPoint['status']): string {
   if (status === 'live') return 'LIVE';
@@ -30,10 +20,11 @@ function escapeHtml(value: string): string {
     .replaceAll('"', '&quot;');
 }
 
-function pinColor(status: MapPoint['status']): string {
-  if (status === 'live') return '#e23d3d';
-  if (status === '247') return '#e8a317';
-  if (status === 'scheduled') return '#c5d0de';
+function pinColor(point: MapPoint): string {
+  if (point.golden) return '#ffd36a';
+  if (point.status === 'live') return '#e23d3d';
+  if (point.status === '247') return '#e8a317';
+  if (point.status === 'scheduled') return '#c5d0de';
   return '#5c6b80';
 }
 
@@ -106,7 +97,7 @@ function initGlobe(root: HTMLElement) {
   };
 
   const rings = () => {
-    const on = points.filter((p) => p.status === '247' || p.status === 'live');
+    const on = points.filter((p) => p.status === '247' || p.status === 'live' || p.golden);
     if (storm) {
       const hit = points.find((p) => p.code === storm);
       if (hit && !on.some((p) => p.code === hit.code)) on.push(hit);
@@ -116,11 +107,15 @@ function initGlobe(root: HTMLElement) {
 
   let storm = '';
   const sun = subsolar();
+  for (const p of points) p.golden = isGoldenHour(p.lat, p.lon);
+  const goldenCodes = points.filter((p) => p.golden).map((p) => p.code);
   const sunHud = root.querySelector('[data-sun-label]');
   if (sunHud) {
     const ns = sun.lat >= 0 ? `${sun.lat.toFixed(0)}°N` : `${Math.abs(sun.lat).toFixed(0)}°S`;
     const ew = sun.lng >= 0 ? `${sun.lng.toFixed(0)}°E` : `${Math.abs(sun.lng).toFixed(0)}°W`;
-    sunHud.textContent = `Sun ${ns} ${ew}`;
+    sunHud.textContent = goldenCodes.length
+      ? `Sun ${ns} ${ew} · best light ${goldenCodes.slice(0, 6).join(' · ')}`
+      : `Sun ${ns} ${ew}`;
   }
 
   const globe = Globe()
@@ -137,12 +132,17 @@ function initGlobe(root: HTMLElement) {
     .pointLng('lon')
     .pointAltitude(0.02)
     .pointRadius((d) => ((d as MapPoint).status === '247' || (d as MapPoint).status === 'live' ? 0.72 : 0.48))
-    .pointColor((d) => pinColor((d as MapPoint).status))
+    .pointColor((d) => pinColor(d as MapPoint))
     .pointsMerge(false)
     .ringsData(rings())
     .ringLat('lat')
     .ringLng('lon')
-    .ringColor((d) => ((d as MapPoint).code === storm ? '#e23d3d' : pinColor((d as MapPoint).status)))
+    .ringColor((d) => {
+      const p = d as MapPoint;
+      if (p.code === storm) return '#e23d3d';
+      if (p.golden) return '#ffd36a';
+      return pinColor(p);
+    })
     .ringMaxRadius(3.2)
     .ringPropagationSpeed(2.2)
     .ringRepeatPeriod(1400)
@@ -155,7 +155,7 @@ function initGlobe(root: HTMLElement) {
       const wrap = document.createElement('div');
       const hot = point.status === 'live' || point.status === '247';
       const thumb = point.streams.find((s) => s.embedId)?.embedId;
-      wrap.innerHTML = `<button class="globe-pin globe-pin-${point.status}${hot ? ' globe-pin-hot' : ''}" type="button">${point.code}${hot && thumb ? `<img class="globe-pin-thumb" src="https://i.ytimg.com/vi/${thumb}/mqdefault.jpg" alt="">` : ''}</button>`;
+      wrap.innerHTML = `<button class="globe-pin globe-pin-${point.status}${hot ? ' globe-pin-hot' : ''}${point.golden ? ' globe-pin-golden' : ''}" type="button">${point.code}${hot && thumb ? `<img class="globe-pin-thumb" src="https://i.ytimg.com/vi/${thumb}/mqdefault.jpg" alt="">` : ''}</button>`;
       wrap.style.pointerEvents = 'auto';
       wrap.onclick = (event) => {
         event.stopPropagation();

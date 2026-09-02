@@ -6,14 +6,17 @@ import { youtubeWatchUrl, youtubeChannelUrl, youtubeThumbUrl } from '../data/cat
 interface Props {
   stream: Stream;
   compact?: boolean;
+  solari?: boolean;
+  index?: number;
 }
-const { stream, compact = false } = Astro.props;
+const { stream, compact = false, solari = false, index = 0 } = Astro.props;
 const watch = youtubeWatchUrl(stream);
 const channel = youtubeChannelUrl(stream);
 const thumb = stream.embedId ? youtubeThumbUrl(stream.embedId) : null;
 ---
 <article
-  class:list={['stream-card', { featured: stream.featured }]}
+  class:list={['stream-card', { featured: stream.featured, solari }]}
+  style={solari ? `--solari-i: ${index}` : undefined}
   data-stream-card
   data-id={stream.id}
   data-airport={stream.airport}

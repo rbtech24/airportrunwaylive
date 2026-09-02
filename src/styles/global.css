@@ -483,6 +483,33 @@ p {
   border-color: var(--amber);
 }
 
+.stream-card.solari {
+  perspective: 600px;
+}
+
+.stream-card.solari .code {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  animation: solari-flip 0.85s ease-in-out;
+  animation-delay: calc(var(--solari-i, 0) * 55ms);
+}
+
+.stream-card.solari .badge-247,
+.stream-card.solari .badge-host {
+  animation: solari-flip 0.85s ease-in-out 2.4s infinite;
+  animation-delay: calc(2.4s + var(--solari-i, 0) * 70ms);
+}
+
+@keyframes solari-flip {
+  0%,
+  100% {
+    transform: rotateX(0);
+  }
+  40% {
+    transform: rotateX(-88deg);
+  }
+}
+
 .card-top {
   display: flex;
   justify-content: space-between;
@@ -851,6 +878,12 @@ th {
   margin-bottom: 6px;
 }
 
+.wx-rwy {
+  color: var(--amber);
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
 .kicker {
   color: var(--muted);
   letter-spacing: 0.16em;
@@ -1016,6 +1049,12 @@ th {
   border-color: var(--live);
   color: #ffd2d2;
   box-shadow: 0 0 14px rgba(226, 61, 61, 0.45);
+}
+
+.globe-pin-golden {
+  border-color: #ffd36a;
+  color: #ffd36a;
+  box-shadow: 0 0 18px rgba(255, 211, 106, 0.65);
 }
 
 .globe-pin-hot {

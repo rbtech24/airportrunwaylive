@@ -1,3 +1,5 @@
+import { expectRunways } from '../lib/runways.ts';
+
 type Metar = {
   icaoId?: string;
   fltCat?: string;
@@ -37,6 +39,14 @@ async function fill(el: HTMLElement) {
     }
     if (summary) summary.textContent = line(m);
     if (raw && m.rawOb) raw.textContent = m.rawOb;
+    const rwy = el.querySelector('[data-wx-rwy]');
+    const code = el.dataset.code ?? '';
+    const dir = typeof m.wdir === 'number' ? m.wdir : Number(m.wdir);
+    const spd = typeof m.wspd === 'number' ? m.wspd : Number(m.wspd);
+    if (rwy && code && Number.isFinite(dir) && Number.isFinite(spd)) {
+      const guess = expectRunways(code, dir, spd);
+      rwy.textContent = guess ? `${guess} · spotting aid, not ATIS` : '';
+    }
   } catch {
     if (summary) {
       summary.innerHTML = `Weather proxy offline. Read the METAR on <a href="https://aviationweather.gov/data/metar/?ids=${encodeURIComponent(icao)}" target="_blank" rel="noopener noreferrer">aviationweather.gov</a>.`;

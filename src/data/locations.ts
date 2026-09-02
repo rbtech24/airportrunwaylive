@@ -65,6 +65,7 @@ export interface MapPoint {
   lon: number;
   status: StreamStatus;
   hasPage: boolean;
+  golden?: boolean;
   streams: MapStream[];
 }
 

@@ -22,7 +22,7 @@ const title = `${airport.code} live — ${airport.city} airport streams | Airpor
   <section class="section">
     <div class="wrap">
       <AirportHeader airport={airport} />
-      <AirportWx icao={airport.icao} />
+      <AirportWx icao={airport.icao} code={airport.code} />
       <div class="prose">
         <p>{airport.intro}</p>
         <p>{airport.ourNote}</p>

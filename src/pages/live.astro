@@ -5,6 +5,9 @@ import FilterBar from '../components/FilterBar.astro';
 import SearchInput from '../components/SearchInput.astro';
 import NextUp from '../components/NextUp.astro';
 import { sortedStreams } from '../data/catalog';
+import { slotsForDay } from '../data/next-up';
+
+const dueAirports = new Set(slotsForDay(new Date().getDay()).map((s) => s.airport));
 ---
 <BaseLayout
   title="Live airport streams | Airport Runways Live"
@@ -21,7 +24,9 @@ import { sortedStreams } from '../data/catalog';
       <SearchInput />
       <FilterBar />
       <div class="grid grid-4" data-grid>
-        {sortedStreams.map((s) => <StreamCard stream={s} />)}
+        {sortedStreams.map((s, i) => (
+          <StreamCard stream={s} solari={s.type === '247' || s.host || dueAirports.has(s.airport)} index={i} />
+        ))}
       </div>
       <p class="empty" data-empty data-i18n="empty">Nothing live in this filter. Try 24/7 cams.</p>
     </div>
