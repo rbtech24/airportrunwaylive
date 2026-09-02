@@ -1,0 +1,37 @@
+name: Poll YouTube lives
+
+on:
+  schedule:
+    # Three times a day: 13:00, 18:00, 23:00 UTC
+    # (9am / 2pm / 7pm Eastern)
+    - cron: "0 13,18,23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Check curated channels for lives
+        run: npm run poll:latest
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      - name: Commit status cache
+        run: |
+          git config user.name "arl-bot"
+          git config user.email "hello@airportrunwaylive.com"
+          git add public/data/status.json
+          if git diff --staged --quiet; then
+            echo "No status changes"
+          else
+            git commit -m "Update YouTube live status cache."
+            git push
+          fi

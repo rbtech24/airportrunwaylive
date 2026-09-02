@@ -129,13 +129,17 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  overflow: hidden;
 }
 
 .arl-logo {
-  width: auto;
-  height: auto;
+  width: 36px;
+  height: 36px;
+  max-width: 36px;
+  max-height: 36px;
   flex-shrink: 0;
   object-fit: contain;
+  display: block;
 }
 
 .brand {
@@ -847,85 +851,55 @@ th {
   min-width: 240px;
 }
 
-/* Leaflet board map */
 .map-shell {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
+  background: #071428;
+}
+
+.globe-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.map-shell-full .globe-layout {
+  grid-template-columns: 1fr minmax(240px, 300px);
 }
 
 .world-map {
-  height: 460px;
+  height: 480px;
   width: 100%;
   background: #071428;
 }
 
 .map-shell-full .world-map {
-  height: min(72vh, 760px);
+  height: min(74vh, 780px);
 }
 
-.leaflet-container {
-  background: #071428;
-  font-family: var(--sans);
+.world-map canvas {
+  display: block;
 }
 
-.world-map .leaflet-tile-pane {
-  filter: brightness(0.72) saturate(0.75) contrast(1.08);
-}
-
-.arl-marker {
-  background: none;
-  border: 0;
-}
-
-.arl-pin {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 48px;
-  height: 26px;
-  padding: 0 7px;
-  border-radius: 999px;
-  background: var(--navy-2);
-  border: 1px solid var(--amber);
-  color: var(--off-white);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
-}
-
-.arl-marker-live .arl-pin {
-  border-color: var(--live);
-  color: #ffd2d2;
-}
-
-.arl-marker-247 .arl-pin {
-  border-color: var(--amber);
-  color: var(--amber);
-}
-
-.arl-marker-off .arl-pin {
-  border-color: var(--off);
-  color: var(--muted);
-}
-
-.arl-popup .leaflet-popup-content-wrapper {
+.globe-panel {
   background: var(--card);
-  color: var(--off-white);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
+  border-left: 1px solid var(--line);
+  padding: 16px;
+  max-height: min(74vh, 780px);
+  overflow: auto;
 }
 
-.arl-popup .leaflet-popup-tip {
-  background: var(--card);
-}
+@media (max-width: 860px) {
+  .map-shell-full .globe-layout {
+    grid-template-columns: 1fr;
+  }
 
-.arl-popup .leaflet-popup-content {
-  margin: 12px 14px;
-  min-width: 220px;
+  .globe-panel {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    max-height: 280px;
+  }
 }
 
 .map-pop-code {

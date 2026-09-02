@@ -61,13 +61,13 @@ Default project (2026): `search.list` ~100/day; everything else 10,000 units/day
 Finished pattern:
 
 1. Curated list of channel / video IDs (not the whole of YouTube).
-2. Worker every 10 minutes checks those IDs only.
-3. Cheap call: `videos.list?part=snippet,liveStreamingDetails` — 1 unit, 50 IDs.
-4. Cache results in `public/data/status.json`.
+2. GitHub Action runs **three times a day** (13:00, 18:00, 23:00 UTC) on curated IDs only.
+3. Cheap call: `videos.list?part=snippet,liveStreamingDetails` — 1 unit, 50 IDs. `--refresh-latest` also pulls the newest upload ID per channel so a new live is picked up.
+4. Cache results in `public/data/status.json` (committed back to the repo).
 5. The website reads that cache on the client. Google is never hit on a pageview.
-6. `search.list&eventType=live` is `--discover` only, maybe once a day.
+6. `search.list&eventType=live` is `--discover` only. Do not put it on the cron.
 
-Math that works: 120 video IDs, batched 50 = 3 units/poll × 144/day = 432 units. Fine.
+Three polls a day is well inside quota. Add `YOUTUBE_API_KEY` as a GitHub Actions secret named `YOUTUBE_API_KEY`.
 
 ```bash
 copy .env.example .env
@@ -77,7 +77,7 @@ npm run poll:latest       # also fetch latest upload IDs for channels missing a 
 npm run poll:discover     # one search.list, 100 units — do not cron this
 ```
 
-Cron the fast path every 10 minutes after deploy (upload `public/data/status.json` next to the site). Without a key, `npm run poll` writes a catalog fallback and the board still renders.
+Without a key, `npm run poll` writes a catalog fallback and the board still renders.
 
 ## Stack
 

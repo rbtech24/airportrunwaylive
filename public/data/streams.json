@@ -220,12 +220,14 @@
     "country": "US",
     "region": "us",
     "name": "L.A. Flights",
-    "handle": "L.A. Flights",
-    "url": "https://www.youtube.com/results?search_query=L.A+FLIGHTS+LAX+live",
+    "handle": "@LAFLIGHTS",
+    "url": "https://www.youtube.com/channel/UC7WAqB7dyv1t8jKunD-8krA",
+    "channelId": "UC7WAqB7dyv1t8jKunD-8krA",
     "type": "scheduled",
     "status": "scheduled",
     "schedule": "Mon / Wed / Sat — LAX",
-    "notes": "Handle listed as a YouTube search until confirmed.",
+    "notes": "LAX hosted lives. Official channel; daily video IDs change.",
+    "embedId": "jzcl8kXaZiA",
     "covers": ["LAX"]
   },
   {
