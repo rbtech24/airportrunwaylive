@@ -11,6 +11,25 @@ function resendDev() {
       'astro:server:setup': ({ server }) => {
         server.middlewares.use(async (req, res, next) => {
           const path = req.url?.split('?')[0];
+          if (path === '/api/wx' && (req.method === 'GET' || !req.method)) {
+            const icao = new URL(req.url ?? '', 'http://127.0.0.1').searchParams
+              .get('icao')
+              ?.replace(/[^A-Za-z0-9]/g, '')
+              .toUpperCase();
+            if (!icao || icao.length < 3) {
+              res.statusCode = 400;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ error: 'icao required' }));
+              return;
+            }
+            const { fetchMetar } = await import('./src/lib/fetch-wx.ts');
+            const row = await fetchMetar(icao);
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Cache-Control', 'public, max-age=120');
+            res.end(JSON.stringify(row ?? {}));
+            return;
+          }
           if (path !== '/api/send' || req.method !== 'POST') {
             next();
             return;

@@ -1,0 +1,15 @@
+---
+interface Props {
+  icao: string;
+}
+const { icao } = Astro.props;
+---
+<aside class="wx-board" data-wx={icao}>
+  <p class="kicker">Live METAR · {icao}</p>
+  <p data-wx-summary class="muted">Loading observation…</p>
+  <p data-wx-raw class="tiny"></p>
+  <p class="tiny">NOAA Aviation Weather Center. Not a flight tracker. Not ATC.</p>
+</aside>
+<script>
+  import '../scripts/airport-wx.ts';
+</script>

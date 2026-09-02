@@ -327,6 +327,30 @@ export const airports: Airport[] = [
     ourNote: 'Official @aerowanderer. If you run a regular SIN live, send it via Add a stream.',
     related: ['NRT', 'MEL', 'LHR'],
   },
+  {
+    code: 'MSP',
+    icao: 'KMSP',
+    name: 'Minneapolis–St. Paul International',
+    city: 'Minneapolis',
+    region: 'us',
+    country: 'US',
+    intro:
+      'Delta’s Twin Cities hub. MSP Airport LIVE hosts from the official aircraft viewing area — winter deice ops included.',
+    ourNote: 'Scheduled hosted lives. Official channel listing only.',
+    related: ['DEN', 'BOS', 'ORD'],
+  },
+  {
+    code: 'ICN',
+    icao: 'RKSI',
+    name: 'Incheon International',
+    city: 'Seoul',
+    region: 'asia',
+    country: 'KR',
+    intro:
+      'Seoul’s main international gateway. The official Incheon Airport YouTube channel posts occasional runway and tower lives. Not a 24/7 cam.',
+    ourNote: 'Official @IncheonAirport. We list it. We do not restream it.',
+    related: ['NRT', 'HND', 'SIN'],
+  },
 ];
 
 export const airportByCode = Object.fromEntries(airports.map((a) => [a.code, a])) as Record<

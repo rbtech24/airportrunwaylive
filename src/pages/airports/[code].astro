@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AirportHeader from '../../components/AirportHeader.astro';
+import AirportWx from '../../components/AirportWx.astro';
 import StreamCard from '../../components/StreamCard.astro';
 import { airports, getAirport } from '../../data/airports';
 import { streamsForAirport } from '../../data/catalog';
@@ -21,6 +22,7 @@ const title = `${airport.code} live — ${airport.city} airport streams | Airpor
   <section class="section">
     <div class="wrap">
       <AirportHeader airport={airport} />
+      <AirportWx icao={airport.icao} />
       <div class="prose">
         <p>{airport.intro}</p>
         <p>{airport.ourNote}</p>

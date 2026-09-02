@@ -41,6 +41,8 @@ export const locations: Record<string, GeoSpot> = {
   HND: { lat: 35.5494, lon: 139.7798, name: 'Tokyo Haneda', city: 'Tokyo' },
   DXB: { lat: 25.2532, lon: 55.3657, name: 'Dubai International', city: 'Dubai' },
   SIN: { lat: 1.3644, lon: 103.9915, name: 'Singapore Changi', city: 'Singapore' },
+  MSP: { lat: 44.8848, lon: -93.2223, name: 'Minneapolis–St. Paul International', city: 'Minneapolis' },
+  ICN: { lat: 37.4602, lon: 126.4407, name: 'Incheon International', city: 'Seoul' },
 };
 
 export interface MapStream {
@@ -101,6 +103,8 @@ const pageCodes = new Set([
   'HND',
   'DXB',
   'SIN',
+  'MSP',
+  'ICN',
 ]);
 
 function toMapStream(s: Stream): MapStream {
