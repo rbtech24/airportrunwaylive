@@ -28,6 +28,7 @@ const airports = [...new Set(creator.streams.flatMap((s) => s.covers ?? [s.airpo
         <a class="btn btn-amber" href={creator.url} target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
         <a class="btn btn-ghost" href={creator.url} target="_blank" rel="noopener noreferrer">Notify on YouTube</a>
         <a class="btn btn-ghost" href="/creators">All creators</a>
+        <a class="btn btn-ghost" href={`/remove?channel=${encodeURIComponent(creator.handle)}`}>Request removal</a>
       </div>
       <div class="grid grid-3" style="margin-top: 28px">
         {creator.streams.map((s) => <StreamCard stream={s} />)}

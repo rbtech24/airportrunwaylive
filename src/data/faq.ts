@@ -16,6 +16,10 @@ export const faqs = [
     a: 'Use the Add a stream form. We only list official YouTube URLs for channels that actually cover an airport on a regular basis.',
   },
   {
+    q: 'How do I get my channel removed?',
+    a: 'If you own the YouTube channel, go to /remove. We list official URLs only and we do not restream. We will take the listing down after we can tell it is your channel.',
+  },
+  {
     q: 'Can I spot at MCO?',
     a: 'Yes, with Greater Orlando Aviation Authority approval. Complete the form at https://flymco.com/non-travelers/planespotting/ and wait for email approval before you go. Permitted areas are Terminal Top Garage L9–L10, Garage C L6, and the South Park Place Economy Lot.',
   },

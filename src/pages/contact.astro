@@ -11,7 +11,7 @@ import { site } from '../data/site';
       <p class="eyebrow">Hello</p>
       <h1>Contact</h1>
       <p class="lede">
-        Collab, add a stream, press, or a Hyatt / rooftop inquiry. Direct:{' '}
+        Collab, add a stream, remove a channel, press, or a Hyatt / rooftop inquiry. Direct:{' '}
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </p>
       <form class="form" data-mailto-form data-subject="Contact">
@@ -30,6 +30,7 @@ import { site } from '../data/site';
           <select id="topic" name="topic">
             <option>Collab</option>
             <option>Add a stream</option>
+            <option>Remove my channel</option>
             <option>Press</option>
             <option>Hyatt / roof inquiry</option>
           </select>

@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Remove my channel | Airport Runways Live"
+  description="Channel owners can ask Airport Runways Live to take their YouTube listing off the board. We do not restream. We will remove it."
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Creators</p>
+      <h1>Remove my channel</h1>
+      <p class="lede">
+        This site is a directory of official YouTube airport lives. We do not restream or proxy your video. If you own
+        the channel, we will take the listing down.
+      </p>
+      <p class="note">
+        We list a URL and an official player. Views and Super Chats stay on YouTube. A removal request is not a copyright
+        strike — it is us deleting the row from the catalog. We may ask you to confirm ownership (a Community post, an
+        About-page line, or email that matches the channel).
+      </p>
+      <ul>
+        <li>Who can ask: the YouTube channel owner or an authorized manager</li>
+        <li>What we remove: the board card, globe pin for that stream, and the creator page if nothing else is left</li>
+        <li>What we do not do: take down your YouTube video. That stays on your channel.</li>
+      </ul>
+      <form class="form" data-mailto-form data-subject="Remove my channel">
+        <div class="form-grid">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+        <div>
+          <label for="channel">Channel URL or handle</label>
+          <input
+            id="channel"
+            name="channel"
+            placeholder="https://www.youtube.com/@yourchannel"
+            required
+            data-remove-channel
+          />
+        </div>
+        <div>
+          <label for="proof">How we can tell this is your channel</label>
+          <select id="proof" name="proof" required>
+            <option value="">Choose one</option>
+            <option value="community">I will post / already posted on Community or a video comment</option>
+            <option value="about">I will add a line on the YouTube About page</option>
+            <option value="email">This email matches the channel or Google account</option>
+            <option value="other">Other — explain below</option>
+          </select>
+        </div>
+        <div>
+          <label for="notes">Anything we should know</label>
+          <textarea id="notes" name="notes" placeholder="Which airports, and how to confirm you own the channel"></textarea>
+        </div>
+        <label class="tiny" style="display:flex;gap:10px;align-items:flex-start;color:inherit">
+          <input type="checkbox" name="owner" value="yes" required style="width:auto;margin-top:4px" />
+          <span>I am the owner or authorized manager of this YouTube channel, and I want it removed from Airport Runways Live.</span>
+        </label>
+        <label class="hp" aria-hidden="true">Leave blank<input name="company" tabindex="-1" autocomplete="off" /></label>
+        <button class="btn btn-amber" type="submit">Send removal request</button>
+        <p class="tiny" data-form-status hidden></p>
+      </form>
+      <p class="tiny">
+        Direct: <a href={`mailto:${site.email}?subject=${encodeURIComponent('Remove my channel')}`}>{site.email}</a>
+        · subject “Remove my channel”
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import { bindMailtoForm } from '../scripts/mailto-form.ts';
+  bindMailtoForm();
+  const q = new URLSearchParams(window.location.search).get('channel');
+  const input = document.querySelector<HTMLInputElement>('[data-remove-channel]');
+  if (q && input && !input.value) input.value = q;
+</script>

@@ -92,11 +92,11 @@ npm run poll:discover     # one search.list, 100 units — do not cron this
 
 Without a key, `npm run poll` writes a catalog fallback and the board still renders.
 
-## Resend (contact / add a stream / host-a-cam)
+## Resend (contact / add a stream / host-a-cam / remove)
 
 1. Verify `airportrunwayslive.com` in [Resend](https://resend.com/domains).
 2. Copy `.env.example` to `.env` and set `RESEND_API_KEY`.
-3. On Cloudflare Pages, add the same vars: `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`.
+3. On Vercel (production): Project → Settings → Environment Variables → `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`. Cloudflare Pages uses the same names if you host there.
 
 Local `npm run dev` posts to `/api/send` via a Vite middleware. Vercel uses `api/send.ts`. Cloudflare Pages uses `functions/api/send.ts`. If the key is missing, the form falls back to mailto.
 
