@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AlertBanner from '../components/AlertBanner.astro';
+import { site } from '../data/site';
+import { counterpartPath, langFromPath } from '../i18n/lang';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogTitle?: string;
+}
+
+const {
+  title,
+  description = site.description,
+  canonical,
+  ogTitle = title,
+} = Astro.props;
+
+const locale = langFromPath(Astro.url.pathname);
+const computed = new URL(Astro.url.pathname, site.domain).toString().replace(/\/$/, '');
+const url = canonical ?? (computed || site.domain);
+const og = `${site.domain}/og.jpg`;
+const other = counterpartPath(Astro.url.pathname.replace(/\/$/, '') || '/', locale === 'en' ? 'es' : 'en');
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    {other && <link rel="alternate" hreflang={locale === 'en' ? 'es' : 'en'} href={new URL(other, site.domain).toString()} />}
+    {other && <link rel="alternate" hreflang={locale} href={url} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0A1F44" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={og} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          name: site.name,
+          alternateName: site.short,
+          url: site.domain,
+          email: site.email,
+          sameAs: [site.youtube],
+        },
+        {
+          '@type': 'WebSite',
+          name: site.name,
+          url: site.domain,
+          description: site.description,
+          inLanguage: ['en', 'es'],
+        },
+      ],
+    })} />
+  </head>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+    <AlertBanner />
+    <Header locale={locale} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <script>
+      import '../scripts/i18n.ts';
+      import '../scripts/board-status.ts';
+      import '../scripts/lite-player.ts';
+    </script>
+  </body>
+</html>

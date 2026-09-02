@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BoardMap from '../components/BoardMap.astro';
+---
+<BaseLayout
+  title="Airport livestream map | Airport Runways Live"
+  description="Worldwide map of airport runway livestreams. Click a marker for the official YouTube stream at that field."
+>
+  <section class="section map-page">
+    <div class="wrap">
+      <p class="eyebrow">Board map</p>
+      <h1>Worldwide runways</h1>
+      <p class="lede">
+        One marker per airport. Click it for the official YouTube lives at that field. We do not restream — Play here
+        opens one official player.
+      </p>
+    </div>
+    <div class="wrap">
+      <BoardMap full />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Contact | Airport Runways Live"
+  description="Contact Airport Runways Live for collabs, adding a stream, press, or a rooftop camera inquiry."
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Hello</p>
+      <h1>Contact</h1>
+      <p class="lede">
+        Collab, add a stream, press, or a Hyatt / rooftop inquiry. Direct:{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+      <form class="form" data-mailto-form data-subject="Contact">
+        <div class="form-grid">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+        <div>
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option>Collab</option>
+            <option>Add a stream</option>
+            <option>Press</option>
+            <option>Hyatt / roof inquiry</option>
+          </select>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn btn-amber" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import { bindMailtoForm } from '../scripts/mailto-form.ts';
+  bindMailtoForm();
+</script>

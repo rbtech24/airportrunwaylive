@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: '¿Esto es TV oficial del aeropuerto?',
+    a: 'No. Airport Runways Live es un directorio independiente de livestreams de YouTube y un canal de plane spotting. No estamos afiliados a ningún aeropuerto, aerolínea, autoridad de aviación, YouTube o Flightradar24.',
+  },
+  {
+    q: '¿Retransmiten otros canales?',
+    a: 'No. Nunca retransmitimos ni hacemos proxy del video de otro creador. Los botones Ver abren el reproductor oficial de YouTube para que el creador se quede con las vistas y los Super Chats.',
+  },
+  {
+    q: '¿Puedo ver varios a la vez?',
+    a: 'Multivista son dos reproductores oficiales de YouTube como máximo. No cargamos un muro de iframes. Dos streams ya usan muchos datos.',
+  },
+  {
+    q: '¿Cómo me agregan?',
+    a: 'Usa el formulario Añadir stream. Solo listamos URLs oficiales de YouTube de canales que cubren un aeropuerto con regularidad. Nada se publica hasta que lo aprobemos.',
+  },
+  {
+    q: '¿Puedo hacer spotting en MCO?',
+    a: 'Sí, con aprobación de GOAA. Completa el formulario en https://flymco.com/non-travelers/planespotting/ y espera el correo antes de ir. Zonas permitidas: Terminal Top Garage L9–L10, Garage C L6 y South Park Place Economy Lot.',
+  },
+  {
+    q: '¿Por qué un stream no dice EN VIVO?',
+    a: 'Nunca fingimos un badge EN VIVO. El estado sale de una caché de la API de YouTube sobre una lista curada de canales, no de una búsqueda del sitio entero. Si no lo sabemos, no está EN VIVO.',
+  },
+  {
+    q: '¿Tienen cámara 24/7 en MCO?',
+    a: 'Todavía no. No vamos a afirmar una cámara de Orlando que no existe. Aloja una cámara es la propuesta si tienes un techo con vista a la pista.',
+  },
+];
+---
+<BaseLayout
+  title="Preguntas | Airport Runways Live"
+  description="¿Es TV oficial? ¿Retransmiten? ¿Cómo me listan? ¿Puedo hacer spotting en MCO?"
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">FAQ</p>
+      <h1>Preguntas</h1>
+      <div class="faq">
+        {faqs.map((item) => (
+          <details>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

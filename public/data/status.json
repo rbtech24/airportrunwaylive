@@ -1,0 +1,152 @@
+{
+  "updatedAt": "2026-09-02T18:21:46.741Z",
+  "source": "catalog",
+  "quotaUnits": 0,
+  "streams": {
+    "arl-mco": {
+      "status": "off",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "arl-tpa": {
+      "status": "off",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "arl-bog": {
+      "status": "off",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "fr24-las": {
+      "status": "247",
+      "videoId": "V7_orOtu-oo",
+      "title": null,
+      "live": true
+    },
+    "fr24-sxm": {
+      "status": "247",
+      "videoId": "2IQmpCXbOmM",
+      "title": null,
+      "live": true
+    },
+    "fr24-lga": {
+      "status": "247",
+      "videoId": "OUBslrCqREs",
+      "title": null,
+      "live": true
+    },
+    "fr24-msy": {
+      "status": "247",
+      "videoId": "_-Qg5jD-PfA",
+      "title": null,
+      "live": true
+    },
+    "fr24-rno": {
+      "status": "247",
+      "videoId": "fFl0qD108sk",
+      "title": null,
+      "live": true
+    },
+    "fr24-ace": {
+      "status": "247",
+      "videoId": "NtbquzembC8",
+      "title": null,
+      "live": true
+    },
+    "avl-plus-lax": {
+      "status": "247",
+      "videoId": "KzsNnyN8D_Q",
+      "title": null,
+      "live": true
+    },
+    "airline-videos-lax": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "la-flights-lax": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "runway-dfw": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "theplanespotter-phx": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "sf-flights-sfo": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "miami-plane-spotting": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "planes-and-friends-mia": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "horis-box-fll": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "813-aviation-tpa": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "captain-will-den": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "logan-in-flight-bos": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "airliners-live-man": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "big-jet-tv-lhr": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    },
+    "sdf-plane-spotting": {
+      "status": "scheduled",
+      "videoId": null,
+      "title": null,
+      "live": false
+    }
+  },
+  "channelIds": {}
+}

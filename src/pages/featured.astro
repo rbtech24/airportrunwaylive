@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Featured slots | Airport Runways Live"
+  description="Paid pin on the Airport Runways Live board. Your official YouTube channel, not a restream. We send you the view."
+>
+  <section class="section">
+    <div class="wrap prose">
+      <p class="eyebrow">Board product</p>
+      <h1>Featured slots</h1>
+      <p>
+        Mid-size streamers can pin a listing on the live board. The pin sits under our MCO host card, gets a PIN badge,
+        and stays an official YouTube link. We do not restream your picture. We send you the view.
+      </p>
+      <ul>
+        <li>One card, labeled PIN, on /live and home featured</li>
+        <li>Your channel URL, your Super Chats</li>
+        <li>We can take the pin down if the stream is not a regular airport live</li>
+        <li>Not a LIVE badge. LIVE still comes from the API cache</li>
+      </ul>
+      <p>
+        This is how a mid-size channel pays the domain and the YouTube API project. Email
+        {' '}<a href={`mailto:${site.email}?subject=Featured%20slot`}>{site.email}</a>
+        with the channel URL, airports, and usual days.
+      </p>
+      <a class="btn btn-amber" href={`mailto:${site.email}?subject=Featured%20slot`}>Ask for a pin</a>
+    </div>
+  </section>
+</BaseLayout>

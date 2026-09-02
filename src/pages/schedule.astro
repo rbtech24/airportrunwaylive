@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { schedule } from '../data/schedule';
+---
+<BaseLayout
+  title="Stream schedule | Airport Runways Live"
+  description="Known airport livestream days for Airline Videos, L.A. Flights, HORI's BOX, Airliners Live, and Airport Runways Live."
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Board times</p>
+      <h1>Schedule</h1>
+      <p class="lede">Known days only. Creators change plans. Confirm on their YouTube channel before you sit down.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Airport</th>
+              <th>Channel</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {schedule.map((row) => (
+              <tr>
+                <td>{row.day}</td>
+                <td>{row.airport}</td>
+                <td>{row.channel}</td>
+                <td>{row.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

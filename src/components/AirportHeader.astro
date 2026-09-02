@@ -1,0 +1,12 @@
+---
+import type { Airport } from '../data/types';
+
+interface Props {
+  airport: Airport;
+}
+const { airport } = Astro.props;
+---
+<header class="airport-hero">
+  <p class="kicker">{airport.icao} · {airport.city}</p>
+  <h1>{airport.name} ({airport.code})</h1>
+</header>

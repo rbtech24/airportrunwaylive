@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Add a stream | Airport Runways Live"
+  description="Submit an official YouTube airport livestream to the Airport Runways Live board."
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Directory</p>
+      <h1>Add a stream</h1>
+      <p class="lede">
+        If you run a regular airport live, send the official YouTube channel. We approve listings by hand.
+        Nothing is marked LIVE and nothing is pinned until it is in the curated catalog.
+      </p>
+      <p class="note">
+        Want a paid PIN on the board? That is a <a href="/featured">featured slot</a>, not this form.
+      </p>
+      <form class="form" data-mailto-form data-subject="Add a stream">
+        <div class="form-grid">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+        <div>
+          <label for="channel">Channel URL</label>
+          <input id="channel" name="channel" type="url" placeholder="https://www.youtube.com/@" required />
+        </div>
+        <div class="form-grid">
+          <div>
+            <label for="airport">Airport(s)</label>
+            <input id="airport" name="airport" placeholder="MCO, TPA" required />
+          </div>
+          <div>
+            <label for="type">Type</label>
+            <select id="type" name="type">
+              <option value="hosted">Hosted</option>
+              <option value="247">24/7</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="days">Usual days</label>
+          <input id="days" name="days" placeholder="Tue / Thu / Sun" />
+        </div>
+        <div>
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+        <button class="btn btn-amber" type="submit">Email {site.email}</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import { bindMailtoForm } from '../scripts/mailto-form.ts';
+  bindMailtoForm();
+</script>

@@ -1,0 +1,7 @@
+---
+import { site } from '../data/site';
+const initial = site.alert.trim();
+---
+<div class="alert" data-alert-banner hidden={!initial}>
+  <div class="wrap" data-alert-text>{initial}</div>
+</div>

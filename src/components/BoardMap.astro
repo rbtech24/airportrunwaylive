@@ -1,0 +1,22 @@
+---
+import { mapPoints } from '../data/locations';
+
+interface Props {
+  full?: boolean;
+}
+const { full = false } = Astro.props;
+const points = mapPoints();
+---
+<div class:list={['map-shell', { 'map-shell-full': full }]} data-map-root>
+  <div
+    class="world-map"
+    data-board-map
+    data-full={full ? '1' : '0'}
+    role="application"
+    aria-label="World map of airport livestreams"
+  ></div>
+  <script type="application/json" data-map-points set:html={JSON.stringify(points)} />
+</div>
+<script>
+  import '../scripts/board-map.ts';
+</script>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { faqs } from '../data/faq';
+---
+<BaseLayout
+  title="FAQ | Airport Runways Live"
+  description="Is this official airport TV? Do you restream? How do I get listed? Can I spot at MCO?"
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">FAQ</p>
+      <h1>Questions</h1>
+      <div class="faq">
+        {faqs.map((item) => (
+          <details>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+interface Props {
+  href: string;
+  label?: string;
+  variant?: 'amber' | 'ghost';
+}
+const { href, label = 'Watch on YouTube', variant = 'amber' } = Astro.props;
+---
+<a class={`btn ${variant === 'ghost' ? 'btn-ghost' : 'btn-amber'}`} href={href} target="_blank" rel="noopener noreferrer">
+  {label}
+</a>

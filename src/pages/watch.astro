@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { sortedStreams, cams247 } from '../data/catalog';
+
+const cams = cams247();
+---
+<BaseLayout
+  title="Watch | Airport Runways Live"
+  description="One official YouTube embed at a time. Other streams are links, not extra iframes."
+>
+  <section class="section">
+    <div class="wrap" data-watch>
+      <p class="eyebrow">Watch</p>
+      <h1 data-watch-title>Pick a stream</h1>
+      <p class="muted" data-watch-meta>Official YouTube player only.</p>
+
+      <div class="watch-layout">
+        <div>
+          <div class="player-shell">
+            <iframe
+              data-watch-frame
+              hidden
+              title="Official YouTube player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+            <div class="player-fallback" data-watch-fallback>
+              <div>
+                <h2>We’re off air — pick a 24/7 cam</h2>
+                <p>No live video ID is on file for this listing, so we will not fake a player.</p>
+                <div class="btn-row">
+                  <a class="btn btn-amber" data-watch-yt href={site.youtube} target="_blank" rel="noopener noreferrer">
+                    Open on YouTube
+                  </a>
+                  <a class="btn btn-ghost" href={site.youtube} target="_blank" rel="noopener noreferrer">Our channel</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="note" style="margin-top: 14px" data-watch-notes>
+            Official YouTube player only. We do not restream.
+          </p>
+          <div class="btn-row" style="margin-top: 16px" data-watch-cams>
+            {cams.slice(0, 6).map((c) => (
+              <a class="btn btn-ghost" href={`/watch?id=${c.id}`}>{c.airport} 24/7</a>
+            ))}
+          </div>
+        </div>
+        <aside>
+          <h2>Other streams</h2>
+          <p class="muted">Links, not extra iframes. One player on this page.</p>
+          <div class="side-list">
+            {sortedStreams.map((s) => (
+              <a class="side-link" data-watch-link={s.id} href={`/watch?id=${s.id}`}>
+                <span>
+                  <strong>{s.airport}</strong> {s.name}
+                  <br />
+                  <span class="muted">{s.handle}</span>
+                </span>
+                <span class={`badge badge-${s.status === '247' ? '247' : s.status}`}>
+                  {s.status === 'live' ? 'LIVE' : s.status === '247' ? '24/7' : s.status === 'scheduled' ? 'SCHEDULED' : 'OFF'}
+                </span>
+              </a>
+            ))}
+          </div>
+        </aside>
+      </div>
+      <script type="application/json" id="stream-catalog" set:html={JSON.stringify(sortedStreams)} />
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import '../scripts/watch-board.ts';
+</script>

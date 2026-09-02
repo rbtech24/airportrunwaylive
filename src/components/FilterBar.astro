@@ -1,0 +1,21 @@
+---
+const chips = [
+  { id: 'all', label: 'All', i18n: 'filter_all' },
+  { id: 'live', label: 'Live', i18n: 'filter_live' },
+  { id: '247', label: '24/7', i18n: 'filter_247' },
+  { id: 'hosted', label: 'Hosted', i18n: 'filter_hosted' },
+  { id: 'us', label: 'US', i18n: 'filter_us' },
+  { id: 'europe', label: 'Europe', i18n: 'filter_europe' },
+  { id: 'caribbean', label: 'Caribbean', i18n: 'filter_caribbean' },
+  { id: 'ours', label: 'Ours', i18n: 'filter_ours' },
+];
+---
+<div class="filter-bar" data-filter-bar role="toolbar" aria-label="Stream filters">
+  {
+    chips.map((c, i) => (
+      <button class="chip" type="button" data-filter={c.id} data-i18n={c.i18n} aria-pressed={i === 0 ? 'true' : 'false'}>
+        {c.label}
+      </button>
+    ))
+  }
+</div>

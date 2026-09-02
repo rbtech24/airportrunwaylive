@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { embeddableStreams, youtubeEmbedUrl } from '../data/catalog';
+
+const options = embeddableStreams();
+const a = options[0];
+const b = options[1] ?? options[0];
+---
+<BaseLayout
+  title="Multiview | Airport Runways Live"
+  description="Two official YouTube airport players max. Pause others. Watch your data use."
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">V3</p>
+      <h1>Multiview</h1>
+      <p class="lede">Two streams max. Official YouTube players only. This uses a lot of data.</p>
+      <p class="note">We will not load a wall of iframes. If a listing has no video ID, it stays a YouTube link.</p>
+
+      <div class="multiview" data-multiview>
+        <div class="slot">
+          <label for="slot-a">Slot A</label>
+          <select id="slot-a" data-slot="a">
+            {options.map((s) => (
+              <option value={s.id} selected={s.id === a.id}>
+                {s.airport} — {s.name}
+              </option>
+            ))}
+          </select>
+          <div class="player-shell" style="margin-top: 10px">
+            <iframe
+              data-frame="a"
+              src={youtubeEmbedUrl(a) ?? ''}
+              title="Official YouTube player A"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            />
+          </div>
+        </div>
+        <div class="slot">
+          <label for="slot-b">Slot B</label>
+          <select id="slot-b" data-slot="b">
+            {options.map((s) => (
+              <option value={s.id} selected={s.id === b.id}>
+                {s.airport} — {s.name}
+              </option>
+            ))}
+          </select>
+          <div class="player-shell" style="margin-top: 10px">
+            <iframe
+              data-frame="b"
+              src={youtubeEmbedUrl(b) ?? ''}
+              title="Official YouTube player B"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<script define:vars={{ catalog: options.map((s) => ({ id: s.id, embedId: s.embedId })) }}>
+  const embeds = Object.fromEntries(catalog.map((s) => [s.id, s.embedId]));
+  function srcFor(id) {
+    const vid = embeds[id];
+    return vid ? `https://www.youtube-nocookie.com/embed/${vid}?rel=0` : '';
+  }
+  document.querySelectorAll('[data-slot]').forEach((select) => {
+    select.addEventListener('change', () => {
+      const slot = select.getAttribute('data-slot');
+      const frame = document.querySelector(`[data-frame="${slot}"]`);
+      if (frame) frame.src = srcFor(select.value);
+    });
+  });
+</script>

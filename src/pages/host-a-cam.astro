@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Host a 24/7 airport camera | Airport Runways Live"
+  description="Pitch for rooftop, hotel, and warehouse hosts who want a 24/7 runway camera via Axis PTZ, CamStreamer, and Flightradar24."
+>
+  <section class="section">
+    <div class="wrap prose">
+      <p class="eyebrow">V4</p>
+      <h1>Host a cam</h1>
+      <p>
+        Got a rooftop, hotel, or warehouse with a runway view? The industry path for a real 24/7 airport camera is an
+        Axis PTZ, CamStreamer’s PlaneTracker app, and a Flightradar24 partnership for ADS-B overlay and YouTube
+        distribution.
+      </p>
+      <p>
+        We do not claim a 24/7 MCO camera that does not exist. If no roof ever happens, the company is still complete.
+        The cam is an upgrade: a tile on the board and a 24/7 YouTube (or FR24 partner) stream. It is not a substitute
+        for talking on mic.
+      </p>
+      <ul>
+        <li>Clear, legal sightline to a runway or final</li>
+        <li>Power, network, and a place the camera can live for years</li>
+        <li>Property-owner permission. No drones in Class B without authorization.</li>
+      </ul>
+      <p>
+        CamStreamer’s host program:{' '}
+        <a href="https://camstreamer.com/planetracker-about" target="_blank" rel="noopener noreferrer">
+          camstreamer.com/planetracker-about
+        </a>
+      </p>
+    </div>
+    <div class="wrap">
+      <form class="form" data-mailto-form data-subject="Host a cam">
+        <div class="form-grid">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+        <div>
+          <label for="place">Property / city / airport</label>
+          <input id="place" name="place" required />
+        </div>
+        <div>
+          <label for="message">What can you see?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn btn-amber" type="submit">Email {site.email}</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import { bindMailtoForm } from '../scripts/mailto-form.ts';
+  bindMailtoForm();
+</script>

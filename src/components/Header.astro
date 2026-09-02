@@ -1,0 +1,63 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../data/site';
+import { strings, type Lang } from '../i18n/strings';
+import { counterpartPath } from '../i18n/lang';
+
+interface Props {
+  locale?: Lang;
+}
+const { locale = 'en' } = Astro.props;
+const t = strings[locale];
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const esHref = counterpartPath(path, 'es') ?? `${path}?lang=es`;
+const enHref = counterpartPath(path, 'en') ?? path;
+
+const links = [
+  { href: '/live', key: 'nav_live' as const, label: t.nav_live },
+  { href: '/map', key: 'nav_map' as const, label: t.nav_map },
+  { href: '/airports', key: 'nav_airports' as const, label: t.nav_airports },
+  { href: '/cams', key: 'nav_cams' as const, label: t.nav_cams },
+  { href: '/channel', key: 'nav_channel' as const, label: t.nav_channel },
+  { href: locale === 'es' ? '/es/about' : '/about', key: 'nav_about' as const, label: t.nav_about },
+  { href: '/add', key: 'nav_add' as const, label: t.nav_add },
+];
+
+function current(href: string) {
+  if (href === '/') return path === '/' || path === '/es';
+  return path === href || path.startsWith(href + '/') || path === `/es${href}` || path.startsWith(`/es${href}/`);
+}
+---
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href={locale === 'es' ? '/es' : '/'} aria-label={`${site.name} home`}>
+      <Logo size={36} />
+      <span class="brand-text">
+        <strong>ARL</strong>
+        <small>OPS BOARD</small>
+      </span>
+    </a>
+    <nav class="nav" data-nav id="mobile-nav">
+      {links.map((l) => (
+        <a href={l.href} data-i18n={l.key} aria-current={current(l.href) ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+    <div class="header-right">
+      <div class="lang-switch" role="navigation" aria-label="Language">
+        <a href={enHref} data-lang="en" class:list={{ 'is-on': locale === 'en' }}>EN</a>
+        <span aria-hidden="true">/</span>
+        <a href={esHref} data-lang="es" class:list={{ 'is-on': locale === 'es' }}>ES</a>
+      </div>
+      <a class="btn btn-amber" href={site.youtube} target="_blank" rel="noopener noreferrer" data-i18n="youtube">{t.youtube}</a>
+      <button class="menu-toggle" type="button" data-menu aria-expanded="false" aria-controls="mobile-nav" data-i18n="nav_menu">{t.nav_menu}</button>
+    </div>
+  </div>
+</header>
+<script>
+  const btn = document.querySelector('[data-menu]');
+  const nav = document.querySelector('[data-nav]');
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

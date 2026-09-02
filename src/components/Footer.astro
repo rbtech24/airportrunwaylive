@@ -1,0 +1,64 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../data/site';
+import { strings, type Lang } from '../i18n/strings';
+
+interface Props {
+  locale?: Lang;
+}
+const { locale = 'en' } = Astro.props;
+const t = strings[locale];
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom: 10px">
+          <Logo size={32} />
+          <strong>ARL</strong>
+        </div>
+        <p class="muted" data-i18n="footer_blurb">{t.footer_blurb}</p>
+      </div>
+      <div class="footer-cols">
+        <strong data-i18n="footer_watch">{t.footer_watch}</strong>
+        <a href="/live" data-i18n="footer_board">{t.footer_board}</a>
+        <a href="/map" data-i18n="footer_map">{t.footer_map}</a>
+        <a href="/watch" data-i18n="footer_watch_page">{t.footer_watch_page}</a>
+        <a href="/multiview" data-i18n="footer_multiview">{t.footer_multiview}</a>
+        <a href="/cams" data-i18n="footer_cams">{t.footer_cams}</a>
+        <a href="/schedule" data-i18n="footer_schedule">{t.footer_schedule}</a>
+      </div>
+      <div class="footer-cols">
+        <strong data-i18n="footer_airports">{t.footer_airports}</strong>
+        <a href="/airports" data-i18n="footer_all_airports">{t.footer_all_airports}</a>
+        <a href="/airports/mco">MCO</a>
+        <a href="/airports/tpa">TPA</a>
+        <a href="/airports/lax">LAX</a>
+        <a href="/creators" data-i18n="footer_creators">{t.footer_creators}</a>
+      </div>
+      <div class="footer-cols">
+        <strong data-i18n="footer_channel">{t.footer_channel}</strong>
+        <a href="/channel" data-i18n="footer_our_yt">{t.footer_our_yt}</a>
+        <a href="/desk" data-i18n="footer_desk">{t.footer_desk}</a>
+        <a href="/about" data-i18n="footer_about">{t.footer_about}</a>
+        <a href="/add" data-i18n="footer_add">{t.footer_add}</a>
+        <a href="/featured" data-i18n="footer_featured">{t.footer_featured}</a>
+        <a href="/host-a-cam" data-i18n="footer_host">{t.footer_host}</a>
+        <a href="/contact" data-i18n="footer_contact">{t.footer_contact}</a>
+      </div>
+      <div class="footer-cols">
+        <strong data-i18n="footer_legal">{t.footer_legal}</strong>
+        <a href="/legal/disclaimer" data-i18n="footer_disclaimer">{t.footer_disclaimer}</a>
+        <a href="/legal/privacy" data-i18n="footer_privacy">{t.footer_privacy}</a>
+        <a href="/legal/terms" data-i18n="footer_terms">{t.footer_terms}</a>
+        <a href={site.youtube} target="_blank" rel="noopener noreferrer">{site.youtubeHandle}</a>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+    </div>
+    <div class="legal-lines">
+      <p data-i18n="legal_1">{t.legal_1}</p>
+      <p data-i18n="legal_2">{t.legal_2}</p>
+      <p>© {site.year} {site.name} · airportrunwaylive.com</p>
+    </div>
+  </div>
+</footer>

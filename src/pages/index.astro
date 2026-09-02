@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StreamCard from '../components/StreamCard.astro';
+import BoardMap from '../components/BoardMap.astro';
+import { site } from '../data/site';
+import { featuredStreams, sortedStreams, cams247 } from '../data/catalog';
+
+const featured = featuredStreams(4);
+const preview = sortedStreams.slice(0, 8);
+const cams = cams247();
+---
+<BaseLayout title="Airport Runways Live — airport livestreams on YouTube">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-i18n="home_eyebrow">Airport Runways Live</p>
+      <h1 data-i18n="home_h1">Watch the runways. Live.</h1>
+      <p class="lede" data-i18n="home_lede">
+        A live board of airport streams on YouTube — and our hosted shows from Orlando.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-amber" href="/live" data-i18n="home_cta_live">See who’s live</a>
+        <a class="btn btn-ghost" href={site.youtube} target="_blank" rel="noopener noreferrer" data-i18n="home_cta_yt">Our YouTube</a>
+      </div>
+      <p class="tiny" data-i18n="home_tiny">We don’t restream. Click through and the creator keeps the view.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Featured</h2>
+        <a href="/channel">Our channel →</a>
+      </div>
+      <div class="grid grid-4">
+        {featured.map((s) => <StreamCard stream={s} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Live board</h2>
+        <a href="/live">Full board →</a>
+      </div>
+      <div class="grid grid-4">
+        {preview.map((s) => <StreamCard stream={s} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Worldwide map</h2>
+        <a href="/map">Full map →</a>
+      </div>
+      <p class="muted" style="margin-top:-8px;margin-bottom:12px">Click a marker for the official YouTube stream at that airport.</p>
+      <BoardMap />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>24/7 cams</h2>
+        <a href="/cams">All automated cams →</a>
+      </div>
+      <div class="strip">
+        {cams.map((s) => <StreamCard stream={s} compact />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How it works</h2>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <strong>We list</strong>
+          <p>A board of official airport livestreams on YouTube, plus our hosted shows from MCO, TPA, and BOG.</p>
+        </article>
+        <article class="step">
+          <strong>We don’t steal</strong>
+          <p>We never restream or proxy another creator’s video. No fake LIVE badges. No viewer-count theater.</p>
+        </article>
+        <article class="step">
+          <strong>You watch on YouTube</strong>
+          <p>Every Watch button opens the official player so the creator keeps the views and the Super Chats.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Our channel</h2>
+          <p>
+            Hosted plane spotting from Orlando International with GOAA approval. Tampa is the practice field.
+            Bogotá is the special. Schedule is announced on YouTube until it is weekly.
+          </p>
+        </div>
+        <a class="btn btn-amber" href="/channel">Open the hub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Aviation Live Desk</h2>
+          <p>Weekly: who’s live right now, weather that matters, heavies due at MCO, links on screen to this board.</p>
+        </div>
+        <a class="btn btn-ghost" href="/desk">The desk</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Run a regular airport live?</h2>
+          <p>Send the official YouTube channel. If it belongs on the board, we’ll list it.</p>
+        </div>
+        <a class="btn btn-ghost" href="/add">Add a stream</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

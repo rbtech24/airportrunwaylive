@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Aviation Live Desk | Airport Runways Live"
+  description="Weekly Aviation Live Desk: who’s live right now, weather that matters, heavies due at MCO, and links to the board."
+>
+  <section class="section">
+    <div class="wrap prose">
+      <p class="eyebrow">Product 4</p>
+      <h1>Aviation Live Desk</h1>
+      <p>
+        The desk is how the directory and the channel feed each other. A weekly hosted stream from home or a Hyatt —
+        not a 24/7 cam, not a restream of someone else.
+      </p>
+      <ul>
+        <li>Here’s who’s live right now on the board</li>
+        <li>Weather that actually changes the show</li>
+        <li>Heavies due at MCO</li>
+        <li>Links on screen to airportrunwaylive.com</li>
+      </ul>
+      <p>
+        Target window: Wednesday 4–7pm Eastern, announced on YouTube until it is weekly. Super Chat and memberships
+        stay on YouTube. This domain does not take tips.
+      </p>
+      <p>
+        If a 24/7 roof cam ever exists, it is a tile on the board. It does not replace talking on mic.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-amber" href={site.youtube} target="_blank" rel="noopener noreferrer">Watch the desk on YouTube</a>
+        <a class="btn btn-ghost" href="/live">Open the board</a>
+        <a class="btn btn-ghost" href="/schedule">Schedule</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

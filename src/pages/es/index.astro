@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StreamCard from '../../components/StreamCard.astro';
+import BoardMap from '../../components/BoardMap.astro';
+import { site } from '../../data/site';
+import { featuredStreams, sortedStreams, cams247 } from '../../data/catalog';
+
+const featured = featuredStreams(4);
+const preview = sortedStreams.slice(0, 8);
+const cams = cams247();
+---
+<BaseLayout
+  title="Airport Runways Live — streams de aeropuertos en YouTube"
+  description="Mira las pistas en vivo. Un tablero de streams de aeropuertos en YouTube y cobertura desde Orlando (MCO)."
+>
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Airport Runways Live</p>
+      <h1>Mira las pistas. En vivo.</h1>
+      <p class="lede">
+        Un tablero de streams de aeropuertos en YouTube — y nuestros programas desde Orlando.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-amber" href="/live">Ver quién está en vivo</a>
+        <a class="btn btn-ghost" href={site.youtube} target="_blank" rel="noopener noreferrer">Nuestro YouTube</a>
+      </div>
+      <p class="tiny">No retransmitimos. Entras a YouTube y el creador se queda con la vista.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Destacados</h2>
+        <a href="/channel">Nuestro canal →</a>
+      </div>
+      <div class="grid grid-4">
+        {featured.map((s) => <StreamCard stream={s} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tablero en vivo</h2>
+        <a href="/live">Tablero completo →</a>
+      </div>
+      <div class="grid grid-4">
+        {preview.map((s) => <StreamCard stream={s} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Mapa mundial</h2>
+        <a href="/map">Mapa completo →</a>
+      </div>
+      <p class="muted" style="margin-top:-8px;margin-bottom:12px">Haz clic en un marcador para el live oficial de YouTube en ese aeropuerto.</p>
+      <BoardMap />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cámaras 24/7</h2>
+        <a href="/cams">Todas las cámaras →</a>
+      </div>
+      <div class="strip">
+        {cams.map((s) => <StreamCard stream={s} compact />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="steps">
+        <article class="step">
+          <strong>Listamos</strong>
+          <p>Un tablero de lives oficiales de aeropuertos en YouTube, más nuestros programas desde MCO, TPA y BOG.</p>
+        </article>
+        <article class="step">
+          <strong>No robamos</strong>
+          <p>Nunca retransmitimos ni hacemos proxy del video de otro creador. Sin badges EN VIVO falsos.</p>
+        </article>
+        <article class="step">
+          <strong>Ves en YouTube</strong>
+          <p>Cada botón Ver abre el reproductor oficial para que el creador se quede con las vistas y los Super Chats.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

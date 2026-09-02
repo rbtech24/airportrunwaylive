@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { airports } from '../../data/airports';
+import { streamsForAirport } from '../../data/catalog';
+---
+<BaseLayout
+  title="Airport livestreams | Airport Runways Live"
+  description="Index of airports with YouTube runway livestreams, including Orlando MCO, Tampa, LAX, and more."
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Airports</p>
+      <h1>Airport index</h1>
+      <p class="lede">Each page lists the official YouTube lives that cover that field. We are not the airport.</p>
+      <div class="grid grid-3">
+        {airports.map((a) => {
+          const n = streamsForAirport(a.code).length;
+          return (
+            <a class="stream-card" href={`/airports/${a.code.toLowerCase()}`} style="text-decoration:none;color:inherit">
+              <div class="code">{a.code}</div>
+              <div class="city">{a.icao}</div>
+              <div class="channel">{a.name}</div>
+              <div class="handle">{a.city} · {n} stream{n === 1 ? '' : 's'}</div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import type { Stream } from '../data/types';
+
+interface Props {
+  stream: Stream;
+}
+const { stream } = Astro.props;
+
+const statusLabel =
+  stream.status === 'live'
+    ? 'LIVE'
+    : stream.status === '247'
+      ? '24/7'
+      : stream.status === 'scheduled'
+        ? 'SCHEDULED'
+        : 'OFF';
+---
+<div class="badges">
+  {stream.host && <span class="badge badge-host">HOST</span>}
+  {stream.featuredSlot && <span class="badge badge-host">PIN</span>}
+  <span class={`badge badge-${stream.status === '247' ? '247' : stream.status}`}>
+    {stream.status === 'live' && <span class="dot" aria-hidden="true" />}
+    {statusLabel}
+  </span>
+</div>

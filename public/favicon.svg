@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#0A1F44" stroke="#E8A317" stroke-width="2.4"/>
+  <path fill="#F5F7FA" d="M11.5 36.2c0-.5.35-1 1.05-1.35L30 27.4l3.1-8.8c.25-.7 1.05-1 1.7-.6l1.15.75c.45.3.6.9.4 1.4L34.8 28.4l13.4 2.1c1.25.2 1.2 1.25.15 1.6l-9.5 2.5-5 7.2c-.35.5-1.1.6-1.55.25l-1.1-.85c-.4-.3-.5-.85-.25-1.25l3.15-5.3H21.8l-6.2 3.15c-.45.25-1.1.15-1.45-.25l-.5-.6c-.35-.4-.4-.85-.15-1.35z"/>
+  <text x="32" y="51" text-anchor="middle" fill="#F5F7FA" font-size="9" font-family="Arial, sans-serif" font-weight="800" letter-spacing="1.5">ARL</text>
+</svg>

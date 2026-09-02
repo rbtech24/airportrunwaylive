@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StreamCard from '../components/StreamCard.astro';
+import FilterBar from '../components/FilterBar.astro';
+import SearchInput from '../components/SearchInput.astro';
+import { sortedStreams } from '../data/catalog';
+---
+<BaseLayout
+  title="Live airport streams | Airport Runways Live"
+  description="Full directory of airport livestreams on YouTube. Filter by live, 24/7, hosted, region, or our channel."
+>
+  <section class="section">
+    <div class="wrap" data-live-board>
+      <p class="eyebrow" data-i18n="live_eyebrow">Directory</p>
+      <h1 data-i18n="live_h1">Live board</h1>
+      <p class="lede" data-i18n="live_lede">Official YouTube lives only. LIVE means the API cache says the channel is on. We never fake it.</p>
+      <p class="tiny" data-board-stamp>Board cache: catalog (poller off until YOUTUBE_API_KEY is set).</p>
+      <SearchInput />
+      <FilterBar />
+      <div class="grid grid-4" data-grid>
+        {sortedStreams.map((s) => <StreamCard stream={s} />)}
+      </div>
+      <p class="empty" data-empty data-i18n="empty">Nothing live in this filter. Try 24/7 cams.</p>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import '../scripts/live-board.ts';
+</script>

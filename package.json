@@ -1,0 +1,27 @@
+{
+  "name": "airportrunwaylive",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Airport Runways Live — a directory of airport livestreams on YouTube, plus hosted coverage from Orlando.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 4321",
+    "build": "node scripts/sync-data.mjs && astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 4321",
+    "sync-data": "node scripts/sync-data.mjs",
+    "poll": "node scripts/poll-youtube.mjs",
+    "poll:latest": "node scripts/poll-youtube.mjs --refresh-latest",
+    "poll:discover": "node scripts/poll-youtube.mjs --discover"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.2",
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.22"
+  }
+}

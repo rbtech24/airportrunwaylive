@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StreamCard from '../components/StreamCard.astro';
+import { cams247 } from '../data/catalog';
+
+const cams = cams247();
+---
+<BaseLayout
+  title="24/7 airport cameras | Airport Runways Live"
+  description="Automated airport cameras only — Flightradar24 and CamStreamer PTZ feeds, plus LAX hotel cams. Official YouTube lives."
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Automated</p>
+      <h1>24/7 cams</h1>
+      <p class="lede">
+        These are fixed, automated cameras — not a person behind a lens. Most of the FR24 board uses an Axis PTZ
+        running CamStreamer’s PlaneTracker app, with ADS-B from Flightradar24 on the overlay. The stream lives on
+        the official Flightradar24 YouTube channel.
+      </p>
+      <p>
+        Channel:{' '}
+        <a href="https://www.youtube.com/@Flightradar24DotCom/streams" target="_blank" rel="noopener noreferrer">
+          @Flightradar24DotCom/streams
+        </a>
+      </p>
+      <div class="grid grid-3">
+        {cams.map((s) => <StreamCard stream={s} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

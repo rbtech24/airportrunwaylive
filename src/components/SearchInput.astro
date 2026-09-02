@@ -1,0 +1,16 @@
+---
+interface Props {
+  placeholder?: string;
+}
+const { placeholder = 'Search airport, city, or channel' } = Astro.props;
+---
+<label class="sr-only" for="board-search">Search streams</label>
+<input
+  id="board-search"
+  class="search"
+  data-search
+  data-i18n-placeholder="search"
+  type="search"
+  placeholder={placeholder}
+  autocomplete="off"
+/>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AirportHeader from '../../components/AirportHeader.astro';
+import StreamCard from '../../components/StreamCard.astro';
+import { airports, getAirport } from '../../data/airports';
+import { streamsForAirport } from '../../data/catalog';
+
+export function getStaticPaths() {
+  return airports.map((a) => ({ params: { code: a.code.toLowerCase() } }));
+}
+
+const code = Astro.params.code ?? '';
+const airport = getAirport(code);
+if (!airport) {
+  return Astro.redirect('/404');
+}
+const list = streamsForAirport(airport.code);
+const title = `${airport.code} live — ${airport.city} airport streams | Airport Runways Live`;
+---
+<BaseLayout title={title} description={airport.intro}>
+  <section class="section">
+    <div class="wrap">
+      <AirportHeader airport={airport} />
+      <div class="prose">
+        <p>{airport.intro}</p>
+        <p>{airport.ourNote}</p>
+        {airport.code === 'MCO' && (
+          <p>
+            Official spotting form:{' '}
+            <a href="https://flymco.com/non-travelers/planespotting/" target="_blank" rel="noopener noreferrer">
+              flymco.com/non-travelers/planespotting/
+            </a>
+          </p>
+        )}
+      </div>
+
+      <h2>Streams covering {airport.code}</h2>
+      {list.length ? (
+        <div class="grid grid-3">
+          {list.map((s) => <StreamCard stream={s} />)}
+        </div>
+      ) : (
+        <p class="note">
+          No stream on the board covers {airport.code} yet.
+          <a href="/add"> Add a channel</a> if you run one.
+        </p>
+      )}
+
+      <h2>Related airports</h2>
+      <div class="related">
+        {airport.related.map((c) => (
+          <a href={`/airports/${c.toLowerCase()}`}>{c}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

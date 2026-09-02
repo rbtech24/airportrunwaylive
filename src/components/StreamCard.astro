@@ -1,0 +1,82 @@
+---
+import type { Stream } from '../data/types';
+import StatusBadge from './StatusBadge.astro';
+import { youtubeWatchUrl, youtubeChannelUrl, youtubeThumbUrl } from '../data/catalog';
+
+interface Props {
+  stream: Stream;
+  compact?: boolean;
+}
+const { stream, compact = false } = Astro.props;
+const watch = youtubeWatchUrl(stream);
+const channel = youtubeChannelUrl(stream);
+const thumb = stream.embedId ? youtubeThumbUrl(stream.embedId) : null;
+---
+<article
+  class:list={['stream-card', { featured: stream.featured }]}
+  data-stream-card
+  data-id={stream.id}
+  data-airport={stream.airport}
+  data-city={stream.city}
+  data-name={stream.name}
+  data-handle={stream.handle}
+  data-status={stream.status}
+  data-type={stream.type}
+  data-region={stream.region}
+  data-host={stream.host ? '1' : '0'}
+  data-featured={stream.featured ? '1' : '0'}
+  data-slot={stream.featuredSlot ? '1' : '0'}
+  data-channel-id={stream.channelId ?? ''}
+  data-embed-id={stream.embedId ?? ''}
+>
+  <div class="card-media" data-player-slot data-embed-id={stream.embedId ?? ''}>
+    {
+      thumb ? (
+        <button class="facade" type="button" data-facade data-play aria-label={`Play ${stream.name} on official YouTube player`}>
+          <img
+            src={thumb}
+            alt={`${stream.airport} — ${stream.name}`}
+            width="480"
+            height="270"
+            loading="lazy"
+            decoding="async"
+            data-thumb
+          />
+          <span class="play-btn" aria-hidden="true"></span>
+        </button>
+      ) : (
+        <a
+          class="facade facade-off"
+          href={watch}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${stream.name} on YouTube`}
+        >
+          <img src="/images/hero-runway.jpg" alt="" width="480" height="270" loading="lazy" decoding="async" />
+          <span class="poster-code">{stream.airport}</span>
+          <span class="play-btn play-btn-link" aria-hidden="true"></span>
+        </a>
+      )
+    }
+  </div>
+  <div class="card-body">
+    <div class="card-top">
+      <div>
+        <div class="code">{stream.airport}</div>
+        <div class="city">{stream.city}</div>
+      </div>
+      <StatusBadge stream={stream} />
+    </div>
+    <div class="channel">{stream.name}</div>
+    <div class="handle">{stream.handle}</div>
+    {
+      !compact && (
+        <div class="card-actions">
+          <a class="btn btn-amber" data-watch-out data-i18n="watch_yt" href={watch} target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          <a class="btn btn-ghost" data-i18n="open_here" href={`/watch?id=${stream.id}`}>Open here</a>
+          <a class="btn btn-ghost" data-i18n="channel" href={channel} target="_blank" rel="noopener noreferrer">Channel</a>
+        </div>
+      )
+    }
+  </div>
+</article>
