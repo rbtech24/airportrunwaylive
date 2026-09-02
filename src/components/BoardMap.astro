@@ -6,6 +6,7 @@ interface Props {
 }
 const { full = false } = Astro.props;
 const points = mapPoints();
+const cams = points.filter((p) => p.status === '247').length;
 ---
 <div class:list={['map-shell', { 'map-shell-full': full }]} data-map-root>
   <div class="globe-layout">
@@ -16,9 +17,13 @@ const points = mapPoints();
       role="application"
       aria-label="Rotating globe of airport livestreams"
     ></div>
-    <aside class="globe-panel" data-globe-panel hidden>
-      <p class="muted">Click a pin on the globe.</p>
-    </aside>
+    <div class="globe-hud">
+      <span class="globe-hud-kicker">ARL · WORLD BOARD</span>
+      <strong>{points.length} airports</strong>
+      <span class="muted">{cams} automated 24/7 · click a pin</span>
+      <span class="muted" data-sun-label></span>
+    </div>
+    <aside class="globe-panel" data-globe-panel hidden></aside>
   </div>
   <script type="application/json" data-map-points set:html={JSON.stringify(points)} />
 </div>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StreamCard from '../components/StreamCard.astro';
 import BoardMap from '../components/BoardMap.astro';
+import NextUp from '../components/NextUp.astro';
 import { site } from '../data/site';
 import { featuredStreams, sortedStreams, cams247 } from '../data/catalog';
 
@@ -41,23 +42,25 @@ const cams = cams247();
   <section class="section">
     <div class="wrap">
       <div class="section-head">
+        <h2>Worldwide globe</h2>
+        <a href="/map">Full globe →</a>
+      </div>
+      <p class="muted" style="margin-top:-8px;margin-bottom:12px">Click a pin for the official YouTube stream at that airport.</p>
+      <BoardMap />
+    </div>
+  </section>
+
+  <NextUp />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
         <h2>Live board</h2>
         <a href="/live">Full board →</a>
       </div>
       <div class="grid grid-4">
         {preview.map((s) => <StreamCard stream={s} />)}
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Worldwide globe</h2>
-        <a href="/map">Full globe →</a>
-      </div>
-      <p class="muted" style="margin-top:-8px;margin-bottom:12px">Click a pin for the official YouTube stream at that airport.</p>
-      <BoardMap />
     </div>
   </section>
 

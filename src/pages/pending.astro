@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import pending from '../data/pending.json';
+
+interface PendingRow {
+  name: string;
+  airport: string;
+  channel: string;
+  notes?: string;
+}
+
+const rows = pending as PendingRow[];
+---
+<BaseLayout
+  title="Add-stream queue | Airport Runways Live"
+  description="Channels waiting for approval onto the Airport Runways Live board. Nothing is LIVE until we list it."
+>
+  <section class="section">
+    <div class="wrap prose">
+      <p class="eyebrow">Directory</p>
+      <h1>Add-stream queue</h1>
+      <p>
+        Creators apply via <a href="/add">Add a stream</a>. We approve by hand into
+        <code>src/data/streams.json</code>. Nothing is marked LIVE and nothing is pinned until then.
+      </p>
+      {
+        rows.length ? (
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Airport</th>
+                  <th>Channel</th>
+                  <th>From</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r) => (
+                  <tr>
+                    <td>{r.airport}</td>
+                    <td>
+                      <a href={r.channel} target="_blank" rel="noopener noreferrer">
+                        {r.channel}
+                      </a>
+                    </td>
+                    <td>{r.name}</td>
+                    <td>{r.notes ?? ''}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p class="note">No pending channels right now. If you run a regular airport live, send the official YouTube URL.</p>
+        )
+      }
+      <p>
+        Featured PIN is a separate product: <a href="/featured">featured slots</a>. Set
+        <code>featuredSlot: true</code> on a catalog row when someone pays. No Stripe until the first email.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

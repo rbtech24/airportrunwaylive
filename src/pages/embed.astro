@@ -1,0 +1,28 @@
+---
+import EmbedLayout from '../layouts/EmbedLayout.astro';
+import { cams247, sortedStreams, youtubeWatchUrl } from '../data/catalog';
+
+const live = sortedStreams.filter((s) => s.status === 'live');
+const cams = cams247();
+const rows = [...live, ...cams].slice(0, 8);
+---
+<EmbedLayout title="Airport Runways Live — embed">
+  <p class="embed-lead">Who’s on the board. Click through — we don’t restream.</p>
+  <div class="embed-list">
+    {
+      rows.map((s) => (
+        <a class="embed-row" href={youtubeWatchUrl(s)} target="_blank" rel="noopener noreferrer">
+          <span class="code">{s.airport}</span>
+          <span>
+            <strong>{s.name}</strong>
+            <br />
+            <span class="muted">{s.handle}</span>
+          </span>
+          <span class={`badge badge-${s.status === '247' ? '247' : s.status}`}>
+            {s.status === 'live' ? 'LIVE' : s.status === '247' ? '24/7' : s.status.toUpperCase()}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</EmbedLayout>

@@ -535,5 +535,41 @@
     "schedule": "Posted on the channel — BNE home, also MEL / SYD / FRA / ZRH specials",
     "notes": "Based at Brisbane. Specials at other fields stay on this channel.",
     "covers": ["BNE", "MEL", "SYD"]
+  },
+  {
+    "id": "love-flight-jack-nrt",
+    "featured": false,
+    "host": false,
+    "airport": "NRT",
+    "icao": "RJAA",
+    "city": "Tokyo",
+    "country": "JP",
+    "region": "asia",
+    "name": "Love Flight Jack",
+    "handle": "@loveflightjack",
+    "url": "https://www.youtube.com/@loveflightjack",
+    "type": "scheduled",
+    "status": "scheduled",
+    "schedule": "Posted on the channel — Narita hosted lives",
+    "notes": "Tokyo Narita. Regular Japanese hosted spotting. Official YouTube.",
+    "covers": ["NRT"]
+  },
+  {
+    "id": "live-jet-hnd",
+    "featured": false,
+    "host": false,
+    "airport": "HND",
+    "icao": "RJTT",
+    "city": "Tokyo",
+    "country": "JP",
+    "region": "asia",
+    "name": "Live Jet",
+    "handle": "@livejet",
+    "url": "https://www.youtube.com/@livejet",
+    "type": "scheduled",
+    "status": "scheduled",
+    "schedule": "Posted on the channel — Haneda hosted lives",
+    "notes": "Tokyo Haneda. Official YouTube. Irregular but real hosted spotting.",
+    "covers": ["HND"]
   }
 ]

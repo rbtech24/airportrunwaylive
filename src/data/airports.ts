@@ -278,6 +278,43 @@ export const airports: Airport[] = [
     ourNote: 'Official Flightradar24 YouTube live. Creators keep the view.',
     related: ['LIS', 'LHR', 'AMS'],
   },
+  {
+    code: 'NRT',
+    icao: 'RJAA',
+    name: 'Narita International',
+    city: 'Tokyo',
+    region: 'asia',
+    country: 'JP',
+    intro:
+      'Tokyo’s long-haul gateway. Love Flight Jack hosts regular lives from Narita — JAL, ANA, and the heavies from Europe and the US.',
+    ourNote: 'Scheduled hosted lives on @loveflightjack. We list the official channel. We do not restream.',
+    related: ['SFO', 'LAX', 'AMS'],
+  },
+  {
+    code: 'HND',
+    icao: 'RJTT',
+    name: 'Tokyo Haneda',
+    city: 'Tokyo',
+    region: 'asia',
+    country: 'JP',
+    intro:
+      'Tokyo’s close-in international. Live Jet hosts from Haneda when they go out. Four-runway ops, JAL and ANA heavies.',
+    ourNote: 'Scheduled on @livejet. Not a 24/7 cam.',
+    related: ['NRT', 'SFO', 'LAX'],
+  },
+  {
+    code: 'DXB',
+    icao: 'OMDB',
+    name: 'Dubai International',
+    city: 'Dubai',
+    region: 'asia',
+    country: 'AE',
+    intro:
+      'One of the busiest international hubs on earth. There is no honest public 24/7 runway cam from DXB that we will list. Simulator streams and VODs do not belong on this board.',
+    ourNote:
+      'If you run a regular, real DXB live on YouTube, send it via Add a stream. We will not fake one.',
+    related: ['NRT', 'LHR', 'AMS'],
+  },
 ];
 
 export const airportByCode = Object.fromEntries(airports.map((a) => [a.code, a])) as Record<

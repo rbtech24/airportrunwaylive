@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/images/logo-mark-256.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="embed-body">
+    <header class="embed-bar">
+      <a class="brand" href={site.domain} target="_blank" rel="noopener noreferrer">
+        <img src="/images/logo-mark.png" width="28" height="28" alt="" style="width:28px;height:28px" />
+        <strong>ARL</strong>
+      </a>
+      <a class="btn btn-amber" href={`${site.domain}/live`} target="_blank" rel="noopener noreferrer">Open board</a>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <p class="embed-foot">Official YouTube links. Creators keep the views. · airportrunwaylive.com</p>
+  </body>
+</html>

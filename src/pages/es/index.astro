@@ -44,23 +44,23 @@ const cams = cams247();
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Tablero en vivo</h2>
-        <a href="/live">Tablero completo →</a>
+        <h2>Globo mundial</h2>
+        <a href="/map">Globo completo →</a>
       </div>
-      <div class="grid grid-4">
-        {preview.map((s) => <StreamCard stream={s} />)}
-      </div>
+      <p class="muted" style="margin-top:-8px;margin-bottom:12px">Haz clic en un pin para el live oficial de YouTube en ese aeropuerto.</p>
+      <BoardMap />
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Mapa mundial</h2>
-        <a href="/map">Mapa completo →</a>
+        <h2>Tablero en vivo</h2>
+        <a href="/live">Tablero completo →</a>
       </div>
-      <p class="muted" style="margin-top:-8px;margin-bottom:12px">Haz clic en un marcador para el live oficial de YouTube en ese aeropuerto.</p>
-      <BoardMap />
+      <div class="grid grid-4">
+        {preview.map((s) => <StreamCard stream={s} />)}
+      </div>
     </div>
   </section>
 

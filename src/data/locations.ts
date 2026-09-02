@@ -37,6 +37,9 @@ export const locations: Record<string, GeoSpot> = {
   MEL: { lat: -37.669, lon: 144.841, name: 'Melbourne Airport', city: 'Melbourne' },
   BNE: { lat: -27.3842, lon: 153.1175, name: 'Brisbane Airport', city: 'Brisbane' },
   SYD: { lat: -33.9399, lon: 151.1753, name: 'Sydney Kingsford Smith', city: 'Sydney' },
+  NRT: { lat: 35.7647, lon: 140.3864, name: 'Narita International', city: 'Tokyo' },
+  HND: { lat: 35.5494, lon: 139.7798, name: 'Tokyo Haneda', city: 'Tokyo' },
+  DXB: { lat: 25.2532, lon: 55.3657, name: 'Dubai International', city: 'Dubai' },
 };
 
 export interface MapStream {
@@ -93,6 +96,9 @@ const pageCodes = new Set([
   'BNE',
   'SYD',
   'ACE',
+  'NRT',
+  'HND',
+  'DXB',
 ]);
 
 function toMapStream(s: Stream): MapStream {

@@ -1,0 +1,30 @@
+---
+---
+<section class="section" data-next-up>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What’s up next</h2>
+      <a href="/schedule">Full schedule →</a>
+    </div>
+    <p class="tiny">Today on your clock. Hosted days are known slots, not a fake LIVE crawl. 24/7 cams are always on.</p>
+    <div class="next-strip" data-next-list></div>
+  </div>
+</section>
+<script>
+  import { slotsForDay } from '../data/next-up.ts';
+
+  const day = new Date().getDay();
+  const names = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const slots = slotsForDay(day);
+  document.querySelectorAll('[data-next-list]').forEach((el) => {
+    el.innerHTML = slots
+      .map(
+        (s) => `<a class="next-card" href="${s.href}">
+          <span class="code">${s.airport}</span>
+          <strong>${s.channel}</strong>
+          <span class="muted">${s.always ? '24/7' : names[day] + ' · ' + s.note}</span>
+        </a>`,
+      )
+      .join('');
+  });
+</script>

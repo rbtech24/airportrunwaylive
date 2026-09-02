@@ -1,3 +1,5 @@
+import { getPrefs, setPrefs } from './prefs.ts';
+
 export function initLiveBoard() {
   const root = document.querySelector<HTMLElement>('[data-live-board]');
   if (!root) return;
@@ -41,10 +43,17 @@ export function initLiveBoard() {
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       filter = chip.dataset.filter ?? 'all';
+      setPrefs({ filter });
       chips.forEach((c) => c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'));
       apply();
     });
   });
+
+  const saved = getPrefs().filter;
+  if (saved && chips.some((c) => c.dataset.filter === saved)) {
+    filter = saved;
+    chips.forEach((c) => c.setAttribute('aria-pressed', c.dataset.filter === saved ? 'true' : 'false'));
+  }
 
   search?.addEventListener('input', apply);
   apply();

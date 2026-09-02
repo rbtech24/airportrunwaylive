@@ -1,4 +1,5 @@
 import type { Stream } from '../data/types';
+import { getPrefs, setPrefs } from './prefs.ts';
 
 function badgeLabel(status: Stream['status']): string {
   if (status === 'live') return 'LIVE';
@@ -12,7 +13,7 @@ function watchUrl(stream: Stream): string {
 }
 
 function embedUrl(stream: Stream): string | null {
-  return stream.embedId ? `https://www.youtube-nocookie.com/embed/${stream.embedId}?rel=0` : null;
+  return stream.embedId ? `https://www.youtube-nocookie.com/embed/${stream.embedId}?rel=0&mute=1` : null;
 }
 
 export function initWatchBoard() {
@@ -37,6 +38,7 @@ export function initWatchBoard() {
     const embed = embedUrl(stream);
     if (title) title.textContent = `${stream.airport} · ${stream.name}`;
     if (meta) meta.textContent = `${stream.city} · ${stream.handle} · ${badgeLabel(stream.status)}`;
+    setPrefs({ stream: stream.id, pin: stream.airport });
     if (notes) notes.textContent = `Official YouTube player only. We do not restream. ${stream.notes}`;
     if (yt) {
       yt.href = watchUrl(stream);
@@ -58,7 +60,8 @@ export function initWatchBoard() {
     }
   }
 
-  const requested = new URLSearchParams(window.location.search).get('id') ?? 'arl-mco';
+  const requested =
+    new URLSearchParams(window.location.search).get('id') ?? getPrefs().stream ?? 'arl-mco';
   render(requested);
 }
 
