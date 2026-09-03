@@ -23,8 +23,6 @@ const {
   robots = 'index, follow',
 } = Astro.props;
 
-const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
-
 const locale = langFromPath(Astro.url.pathname);
 const computed = new URL(Astro.url.pathname, site.domain).toString().replace(/\/$/, '');
 const url = canonical ?? (computed || site.domain);
@@ -41,7 +39,7 @@ const enHref = locale === 'es' ? (counterpartPath(path, 'en') ?? '/') : url;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
-    {gsc && <meta name="google-site-verification" content={gsc} />}
+    <meta name="google-site-verification" content={site.googleSiteVerification} />
     <link rel="canonical" href={url} />
     <link rel="alternate" hreflang="x-default" href={locale === 'es' ? new URL(enHref, site.domain).toString() : url} />
     <link rel="alternate" hreflang="en" href={locale === 'es' ? new URL(enHref, site.domain).toString() : url} />

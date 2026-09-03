@@ -5,6 +5,7 @@ export const site = {
   youtube: 'https://www.youtube.com/@AirportRunwaysLive',
   youtubeHandle: '@AirportRunwaysLive',
   email: 'hello@airportrunwayslive.com',
+  googleSiteVerification: 'UtpUArXhuuPMwF7vp4MyxuAtYv2o0TZrKQqUNZ_dggs',
   alert: '',
   tagline: 'Watch the runways. Live.',
   year: 2026,

@@ -109,7 +109,7 @@ Airport pages load the latest **METAR** from the NOAA Aviation Weather Center (`
 The board is crawlable (`robots.txt` allows Googlebot, sitemap is live, no `noindex` on public pages). Google still shows **zero pages** until the property is verified and the sitemap is submitted — this domain is new.
 
 1. Open [Google Search Console](https://search.google.com/search-console) → **Add property** → **Domain** `airportrunwayslive.com` (covers apex + www).
-2. Verify with the DNS TXT record at the registrar (or HTML tag: set Vercel env `PUBLIC_GSC_VERIFICATION` to the content value and redeploy).
+2. Verify with the HTML tag already on every page (`google-site-verification`), or a DNS TXT at the registrar.
 3. **Sitemaps** → submit `https://www.airportrunwayslive.com/sitemap-index.xml`
 4. **URL inspection** → request indexing for `/`, `/live`, `/airports/mco`, `/airports/tpa`, `/cams` (quota is a handful per day).
 
