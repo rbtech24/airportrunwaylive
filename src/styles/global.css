@@ -1035,6 +1035,10 @@ th {
   line-height: 1.35;
 }
 
+.globe-layout:has(.globe-panel:not([hidden])) .globe-hud {
+  opacity: 0;
+}
+
 .globe-panel {
   position: absolute;
   left: 14px;
@@ -1371,17 +1375,29 @@ th {
   }
 
   .globe-hud {
-    top: 8px;
+    top: auto;
+    bottom: 8px;
     left: 8px;
+    right: 8px;
+    max-width: none;
     padding: 8px 10px;
-    max-width: calc(100% - 16px);
+  }
+
+  .globe-hud-kicker,
+  .globe-hud .muted {
+    display: none;
+  }
+
+  .globe-hud strong {
+    font-size: 0.92rem;
   }
 
   .globe-panel {
     left: 8px;
+    right: 8px;
     bottom: 8px;
-    width: calc(100% - 16px);
-    max-height: 42%;
+    width: auto;
+    max-height: 38%;
   }
 }
 
