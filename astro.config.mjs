@@ -69,7 +69,7 @@ function resendDev() {
   };
 }
 
-const sitemapSkip = new Set(['/overlay', '/embed', '/watch', '/pending', '/sitemap.xml']);
+const sitemapSkip = new Set(['/overlay', '/embed', '/watch', '/pending']);
 
 export default defineConfig({
   site: 'https://www.airportrunwayslive.com',
@@ -100,6 +100,5 @@ export default defineConfig({
   ],
   redirects: {
     '/mco': '/airports/mco',
-    '/sitemap.xml': '/sitemap-index.xml',
   },
 });

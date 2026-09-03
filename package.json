@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "astro dev --host 127.0.0.1 --port 4321",
-    "build": "node scripts/sync-data.mjs && astro build",
+    "build": "node scripts/sync-data.mjs && astro build && node scripts/write-sitemap.mjs",
     "preview": "astro preview --host 127.0.0.1 --port 4321",
     "sync-data": "node scripts/sync-data.mjs",
     "poll": "node scripts/poll-youtube.mjs",

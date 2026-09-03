@@ -110,7 +110,7 @@ The board is crawlable (`robots.txt` allows Googlebot, sitemap is live, no `noin
 
 1. Open [Google Search Console](https://search.google.com/search-console) → **Add property** → **Domain** `airportrunwayslive.com` (covers apex + www).
 2. Verify with the HTML tag already on every page (`google-site-verification`), or a DNS TXT at the registrar.
-3. **Sitemaps** → submit `https://www.airportrunwayslive.com/sitemap-index.xml`
+3. **Sitemaps** → submit `https://www.airportrunwayslive.com/sitemap.xml` (the URL list). Do not submit `/sitemap.xml` from an old deploy — that used to be an HTML redirect and looked blank.
 4. **URL inspection** → request indexing for `/`, `/live`, `/airports/mco`, `/airports/tpa`, `/cams` (quota is a handful per day).
 
 Also put `https://www.airportrunwayslive.com` in the YouTube channel **About** links. Google discovers new sites from links, not from hope.

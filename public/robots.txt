@@ -4,5 +4,4 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
-Sitemap: https://www.airportrunwayslive.com/sitemap-index.xml
-Sitemap: https://www.airportrunwayslive.com/sitemap-0.xml
+Sitemap: https://www.airportrunwayslive.com/sitemap.xml

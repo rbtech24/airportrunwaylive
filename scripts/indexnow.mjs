@@ -1,7 +1,7 @@
 const HOST = 'www.airportrunwayslive.com';
 const KEY = 'c4e8f1a27b9d40c6a5e13f8d2b7c90e1';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const SITEMAP = `https://${HOST}/sitemap-0.xml`;
+const SITEMAP = `https://${HOST}/sitemap.xml`;
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 
 const keyRes = await fetch(KEY_LOCATION);
