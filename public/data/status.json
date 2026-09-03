@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T00:59:45.969Z",
+  "updatedAt": "2026-09-03T16:57:38.987Z",
   "source": "youtube",
   "quotaUnits": 1,
   "streams": {
@@ -64,16 +64,16 @@
       "live": true
     },
     "airline-videos-lax": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "uCJOh0fxIZU",
       "title": "🔴LIVE LOS ANGELES (LAX) AIRPORT ACTION!  (September 2nd, 2026)",
-      "live": true
+      "live": false
     },
     "la-flights-lax": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "jzcl8kXaZiA",
       "title": "🔴LIVE LOS ANGELES LAX AIRPORT! | September 2, 2026 | LAX PLANE SPOTTING",
-      "live": true
+      "live": false
     },
     "runway-dfw": {
       "status": "scheduled",
@@ -94,10 +94,10 @@
       "live": false
     },
     "cali-planes-sfo": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "aoqhzsRV5vs",
       "title": "KSFO LIVE |  Sept 2, 2026 | SAN FRANCISCO INT AIRPORT LIVE STREAM WEBCAM IRL PLANESPOTTING",
-      "live": true
+      "live": false
     },
     "miami-plane-spotting": {
       "status": "scheduled",
@@ -160,10 +160,10 @@
       "live": false
     },
     "aviacao-tv-lis": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "Iig6K9MqlSA",
       "title": "🔴 LIVE 24/7 Lisbon Airport Live Cam 02.09.2026 • Plane Spotting • Direto Aeroporto Lisboa Ao Vivo",
-      "live": true
+      "live": false
     },
     "airliners-live-yvr": {
       "status": "scheduled",
@@ -208,10 +208,10 @@
       "live": false
     },
     "msp-airport-live": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "4Dp_DuX8zAY",
       "title": "🔴 LIVE NONSTOP AIRPORT ACTION & TWIN CITIES PLANE SPOTTING! ✈ MSP/KMSP AIRPORT ✈ 9/2/26",
-      "live": true
+      "live": false
     },
     "incheon-airport": {
       "status": "scheduled",
