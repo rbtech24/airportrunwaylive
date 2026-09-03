@@ -1,18 +1,15 @@
 import { strings, type Lang } from '../i18n/strings';
-import { counterpartPath } from '../i18n/lang';
+import { langFromPath } from '../i18n/lang';
 
-const KEY = 'arl-lang';
-
+/** English is the default. Spanish only on /es routes (or an explicit ?lang=es). */
 export function currentLang(): Lang {
-  const html = document.documentElement.lang;
-  if (html === 'es') return 'es';
-  const stored = localStorage.getItem(KEY);
-  return stored === 'es' ? 'es' : 'en';
+  if (langFromPath(window.location.pathname) === 'es') return 'es';
+  if (new URLSearchParams(window.location.search).get('lang') === 'es') return 'es';
+  return 'en';
 }
 
 export function applyLang(lang: Lang) {
   document.documentElement.lang = lang;
-  localStorage.setItem(KEY, lang);
   const dict = strings[lang];
   document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n as keyof typeof dict;
@@ -28,20 +25,13 @@ export function applyLang(lang: Lang) {
 }
 
 export function initI18n() {
-  const path = window.location.pathname.replace(/\/$/, '') || '/';
-  const fromPath = path === '/es' || path.startsWith('/es/') ? 'es' : 'en';
-  const lang = fromPath === 'es' ? 'es' : currentLang();
-  applyLang(lang);
+  try {
+    localStorage.removeItem('arl-lang');
+  } catch {
+    /* ignore */
+  }
 
-  document.querySelectorAll<HTMLAnchorElement>('[data-lang]').forEach((a) => {
-    a.addEventListener('click', (event) => {
-      const target = (a.getAttribute('data-lang') ?? 'en') as Lang;
-      const mapped = counterpartPath(path, target);
-      if (mapped) return;
-      event.preventDefault();
-      applyLang(target);
-    });
-  });
+  applyLang(currentLang());
 }
 
 initI18n();

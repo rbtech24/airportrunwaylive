@@ -10,8 +10,8 @@ interface Props {
 const { locale = 'en' } = Astro.props;
 const t = strings[locale];
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const esHref = counterpartPath(path, 'es') ?? `${path}?lang=es`;
-const enHref = counterpartPath(path, 'en') ?? path;
+const esHref = counterpartPath(path, 'es') ?? '/es';
+const enHref = locale === 'es' ? (counterpartPath(path, 'en') ?? '/') : path;
 
 const links = [
   { href: '/live', key: 'nav_live' as const, label: t.nav_live },
