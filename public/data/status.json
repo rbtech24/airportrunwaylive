@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T23:32:19.264Z",
+  "updatedAt": "2026-09-03T00:59:45.969Z",
   "source": "youtube",
   "quotaUnits": 1,
   "streams": {
@@ -130,10 +130,10 @@
       "live": false
     },
     "logan-in-flight-bos": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "HOEpmh2nCFs",
       "title": "LIVE Plane Spotting at Boston Logan International Airport | KBOS",
-      "live": true
+      "live": false
     },
     "airliners-live-man": {
       "status": "scheduled",
