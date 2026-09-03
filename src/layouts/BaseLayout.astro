@@ -12,6 +12,7 @@ interface Props {
   description?: string;
   canonical?: string;
   ogTitle?: string;
+  robots?: string;
 }
 
 const {
@@ -19,7 +20,10 @@ const {
   description = site.description,
   canonical,
   ogTitle = title,
+  robots = 'index, follow',
 } = Astro.props;
+
+const gsc = import.meta.env.PUBLIC_GSC_VERIFICATION;
 
 const locale = langFromPath(Astro.url.pathname);
 const computed = new URL(Astro.url.pathname, site.domain).toString().replace(/\/$/, '');
@@ -36,6 +40,8 @@ const enHref = locale === 'es' ? (counterpartPath(path, 'en') ?? '/') : url;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    {gsc && <meta name="google-site-verification" content={gsc} />}
     <link rel="canonical" href={url} />
     <link rel="alternate" hreflang="x-default" href={locale === 'es' ? new URL(enHref, site.domain).toString() : url} />
     <link rel="alternate" hreflang="en" href={locale === 'es' ? new URL(enHref, site.domain).toString() : url} />
@@ -70,6 +76,7 @@ const enHref = locale === 'es' ? (counterpartPath(path, 'en') ?? '/') : url;
           alternateName: site.short,
           url: site.domain,
           email: site.email,
+          logo: `${site.domain}/images/logo-mark-256.png`,
           sameAs: [site.youtube],
         },
         {

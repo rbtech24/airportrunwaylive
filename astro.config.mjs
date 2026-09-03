@@ -69,11 +69,37 @@ function resendDev() {
   };
 }
 
+const sitemapSkip = new Set(['/overlay', '/embed', '/watch', '/pending', '/sitemap.xml']);
+
 export default defineConfig({
   site: 'https://www.airportrunwayslive.com',
   trailingSlash: 'never',
-  integrations: [sitemap(), resendDev()],
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        const path = new URL(page).pathname.replace(/\/$/, '') || '/';
+        return !sitemapSkip.has(path);
+      },
+      serialize(item) {
+        const path = new URL(item.url).pathname.replace(/\/$/, '') || '/';
+        const daily =
+          path === '/' ||
+          path === '/live' ||
+          path === '/cams' ||
+          path === '/schedule' ||
+          path === '/airports' ||
+          path.startsWith('/airports/');
+        item.lastmod = new Date();
+        item.changefreq = daily ? 'daily' : 'weekly';
+        item.priority =
+          path === '/' ? 1 : path === '/live' ? 0.9 : path.startsWith('/airports/') ? 0.8 : 0.6;
+        return item;
+      },
+    }),
+    resendDev(),
+  ],
   redirects: {
     '/mco': '/airports/mco',
+    '/sitemap.xml': '/sitemap-index.xml',
   },
 });

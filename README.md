@@ -104,6 +104,19 @@ Local `npm run dev` posts to `/api/send` via a Vite middleware. Vercel uses `api
 
 Airport pages load the latest **METAR** from the NOAA Aviation Weather Center (`aviationweather.gov`). No API key. AWC does not allow browser CORS, so `/api/wx?icao=KMCO` proxies it (Vercel `api/wx.ts`, local Vite middleware). Not a flight tracker. Not ATC.
 
+## Google Search Console (why `site:` is empty)
+
+The board is crawlable (`robots.txt` allows Googlebot, sitemap is live, no `noindex` on public pages). Google still shows **zero pages** until the property is verified and the sitemap is submitted — this domain is new.
+
+1. Open [Google Search Console](https://search.google.com/search-console) → **Add property** → **Domain** `airportrunwayslive.com` (covers apex + www).
+2. Verify with the DNS TXT record at the registrar (or HTML tag: set Vercel env `PUBLIC_GSC_VERIFICATION` to the content value and redeploy).
+3. **Sitemaps** → submit `https://www.airportrunwayslive.com/sitemap-index.xml`
+4. **URL inspection** → request indexing for `/`, `/live`, `/airports/mco`, `/airports/tpa`, `/cams` (quota is a handful per day).
+
+Also put `https://www.airportrunwayslive.com` in the YouTube channel **About** links. Google discovers new sites from links, not from hope.
+
+Bing/Yandex: `npm run indexnow` after a deploy (key file must already be live).
+
 ## Stack
 
 Astro 7 static site. Client JS: `/live` filters, status-cache badges, i18n chrome, `/multiview`, forms (Resend with mailto fallback).

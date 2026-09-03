@@ -14,7 +14,8 @@
     "sync-data": "node scripts/sync-data.mjs",
     "poll": "node scripts/poll-youtube.mjs",
     "poll:latest": "node scripts/poll-youtube.mjs --refresh-latest",
-    "poll:discover": "node scripts/poll-youtube.mjs --discover"
+    "poll:discover": "node scripts/poll-youtube.mjs --discover",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
