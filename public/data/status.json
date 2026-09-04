@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T20:39:56.307Z",
+  "updatedAt": "2026-09-04T00:50:24.809Z",
   "source": "youtube",
   "quotaUnits": 1,
   "streams": {
@@ -76,10 +76,10 @@
       "live": false
     },
     "runway-dfw": {
-      "status": "scheduled",
+      "status": "live",
       "videoId": "wLcU8PBEIgg",
       "title": "LIVE 🔴 DFW Airport ✈️ plane spotting at night 🌟 September 3, 2026",
-      "live": false
+      "live": true
     },
     "theplanespotter-phx": {
       "status": "scheduled",
