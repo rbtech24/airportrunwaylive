@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-09-05T01:17:24.590Z",
+  "updatedAt": "2026-09-05T15:50:45.159Z",
   "source": "youtube",
-  "quotaUnits": 4,
+  "quotaUnits": 1,
   "streams": {
     "arl-mco": {
       "status": "off",
       "videoId": "7iCr3bWyDM0",
-      "title": "Outdoor Kitchens Houston",
+      "title": null,
       "live": false
     },
     "arl-tpa": {
       "status": "off",
       "videoId": "7iCr3bWyDM0",
-      "title": "Outdoor Kitchens Houston",
+      "title": null,
       "live": false
     },
     "arl-bog": {
       "status": "off",
       "videoId": "7iCr3bWyDM0",
-      "title": "Outdoor Kitchens Houston",
+      "title": null,
       "live": false
     },
     "fr24-las": {
@@ -94,10 +94,10 @@
       "live": false
     },
     "metal-birds-dfw": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "RdVLWZRRvwQ",
       "title": "🔴 LIVE DFW Plane Spotting ✈️ FRIDAY EVENING RUSH | Heavy Jets • Sunset to Midnight • LIVE ATC",
-      "live": true
+      "live": false
     },
     "theplanespotter-phx": {
       "status": "scheduled",
@@ -256,10 +256,10 @@
       "live": false
     },
     "curious-spotter-ord": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "dC-2Cg_aBfA",
       "title": "[v] 🔴  LIVE: NONSTOP TRAFFIC ✈️🔥at CHICAGO O'HARE",
-      "live": true
+      "live": false
     }
   },
   "channelIds": {
