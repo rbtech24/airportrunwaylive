@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import StreamCard from '../../components/StreamCard.astro';
-import { creators, getCreator } from '../../data/catalog';
+import { creators, getCreator, youtubeChannelUrl } from '../../data/catalog';
+import { getAirport } from '../../data/airports';
+import { site } from '../../data/site';
 
 export function getStaticPaths() {
   return creators().map((c) => ({ params: { slug: c.slug } }));
@@ -12,26 +14,110 @@ const creator = getCreator(slug);
 if (!creator) {
   return Astro.redirect('/creators');
 }
-const airports = [...new Set(creator.streams.flatMap((s) => s.covers ?? [s.airport]))];
+const airportCodes = [...new Set(creator.streams.flatMap((s) => s.covers ?? [s.airport]))];
+const airportPages = airportCodes.map((c) => ({ code: c, meta: getAirport(c) }));
+const has247 = creator.streams.some((s) => s.type === '247');
+const fields = airportCodes.join(', ');
+const title = `${creator.name} live — ${fields} on YouTube | Airport Runways Live`;
+const description = `Watch ${creator.name} (${creator.handle}) on official YouTube. Airports: ${fields}. We list the channel. We do not restream. Super Chats stay on their page.`;
+const pageUrl = `${site.domain}/creators/${creator.slug}`;
+
+const faqs = [
+  {
+    q: `Does Airport Runways Live restream ${creator.name}?`,
+    a: `No. We list ${creator.handle} as an official YouTube URL. Watch on their channel so they keep the views and Super Chats.`,
+  },
+  {
+    q: `Which airports does ${creator.name} cover?`,
+    a: `${fields}. Open those airport pages for weather and every other channel on that field.`,
+  },
+  {
+    q: `Is ${creator.name} a 24/7 camera?`,
+    a: has247
+      ? `This listing includes an always-on camera on official YouTube. Hosted shows on the same channel are still scheduled.`
+      : `No. This is a hosted / scheduled channel. LIVE is only stamped when the YouTube cache says they are actually live.`,
+  },
+];
+
+const schema = [
+  {
+    '@type': 'Organization',
+    name: creator.name,
+    url: creator.url,
+    sameAs: [creator.url],
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  },
+  {
+    '@type': 'ItemList',
+    name: `${creator.name} livestreams`,
+    url: pageUrl,
+    numberOfItems: creator.streams.length,
+    itemListElement: creator.streams.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.name,
+      url: youtubeChannelUrl(s),
+    })),
+  },
+];
 ---
-<BaseLayout
-  title={`${creator.name} | Airport Runways Live`}
-  description={`Official YouTube for ${creator.name}. Airports: ${airports.join(', ')}. We list the channel. We do not restream.`}
->
+<BaseLayout title={title} description={description} schema={schema}>
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">Creator</p>
       <h1>{creator.name}</h1>
-      <p class="lede">{creator.handle} · {airports.join(' · ')}</p>
-      <p class="note">Official YouTube only. Super Chats stay on their channel.</p>
+      <p class="lede">
+        {creator.handle} on official YouTube. Covering {fields}. We list the channel. We do not restream.
+      </p>
+      <p class="note">Super Chats, memberships, and ads stay on their YouTube. The bell lives there too.</p>
       <div class="btn-row">
         <a class="btn btn-amber" href={creator.url} target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
         <a class="btn btn-ghost" href={creator.url} target="_blank" rel="noopener noreferrer">Notify on YouTube</a>
         <a class="btn btn-ghost" href="/creators">All creators</a>
         <a class="btn btn-ghost" href={`/remove?channel=${encodeURIComponent(creator.handle)}`}>Request removal</a>
       </div>
-      <div class="grid grid-3" style="margin-top: 28px">
+
+      <h2>Airports on this channel</h2>
+      <div class="related">
+        {airportPages.map(({ code, meta }) =>
+          meta ? (
+            <a href={`/airports/${code.toLowerCase()}`}>{code} · {meta.city}</a>
+          ) : (
+            <span>{code}</span>
+          )
+        )}
+      </div>
+
+      <h2>Streams we list</h2>
+      <div class="grid grid-3" style="margin-top: 16px">
         {creator.streams.map((s) => <StreamCard stream={s} />)}
+      </div>
+
+      <div class="prose" style="margin-top: 32px">
+        <h2>About this listing</h2>
+        <p>
+          {creator.name} is on the Airport Runways Live board because it is a real YouTube channel that covers
+          {airportCodes.length === 1 ? ` ${airportCodes[0]}` : ` ${fields}`}.
+          Cards on this page open their official player. Channel owners can
+          {' '}<a href={`/remove?channel=${encodeURIComponent(creator.handle)}`}>request removal</a>.
+        </p>
+      </div>
+
+      <h2>{creator.name} FAQ</h2>
+      <div class="faq">
+        {faqs.map((item) => (
+          <details>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
       </div>
     </div>
   </section>

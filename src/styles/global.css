@@ -897,6 +897,33 @@ th {
   margin-bottom: 0.2em;
 }
 
+.airport-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin: 0 0 22px;
+}
+
+.airport-facts div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 6.5rem;
+}
+
+.airport-facts dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.airport-facts dd {
+  margin: 2px 0 0;
+  font-weight: 700;
+}
+
 .wx-board {
   margin: 0 0 22px;
   padding: 14px 16px;

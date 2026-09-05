@@ -47,8 +47,8 @@ export const airports: Airport[] = [
     country: 'US',
     intro:
       'Four parallels, two complexes, and the densest hosted-livestream scene in the U.S. South-side 24/7 hotel cameras sit on 25L/25R; hosted shows rotate in from Airline Videos and L.A. Flights.',
-    ourNote: 'We list official LAX YouTube lives only. We do not restream them.',
-    related: ['SFO', 'LAS', 'PHX'],
+    ourNote: 'We list official LAX YouTube lives only. We do not restream them. 24/7 hotel cams are on Airline Videos Live+.',
+    related: ['SAN', 'SFO', 'LAS'],
   },
   {
     code: 'DFW',
@@ -94,9 +94,9 @@ export const airports: Airport[] = [
     region: 'us',
     country: 'US',
     intro:
-      'Marine layer, bay approaches, and a Pacific widebody mix. SF FLIGHTS is the hosted channel on this board.',
-    ourNote: 'Scheduled, not 24/7. SF FLIGHTS and Cali Planes are the hosted listings. Check their channels for the next show.',
-    related: ['LAX', 'LAS', 'PHX'],
+      'Marine layer, bay approaches, and a Pacific widebody mix. SF FLIGHTS and Cali Planes are the hosted channels on this board.',
+    ourNote: 'Scheduled, not 24/7. Check their channels for the next show. We do not restream them.',
+    related: ['LAX', 'SAN', 'LAS'],
   },
   {
     code: 'PHX',
@@ -178,8 +178,8 @@ export const airports: Airport[] = [
     region: 'europe',
     country: 'GB',
     intro:
-      'The European heavy board. Big Jet TV is the hosted listing we carry for Heathrow and other UK weather days — official YouTube, not a scrape.',
-    ourNote: 'No 24/7 Heathrow cam is listed on this board. Do not expect a fake LIVE badge.',
+      'The European heavy board. Big Jet TV hosts weather-day lives; Flight Focus 365 runs a dedicated Heathrow camera from dawn to dusk. Official YouTube only.',
+    ourNote: 'Neither listing is a fake 24/7 badge. Watch on their channels so they keep the view.',
     related: ['MAN', 'BOS', 'JFK'],
   },
   {
@@ -190,9 +190,9 @@ export const airports: Airport[] = [
     region: 'us',
     country: 'US',
     intro:
-      'New York’s international gateway. We do not currently list a JFK-specific hosted live. The nearest automated 24/7 camera on this board is LaGuardia (LGA).',
-    ourNote: 'If you run a regular JFK live on YouTube, send it via Add a stream. We only list official channel URLs.',
-    related: ['BOS', 'MCO', 'LAX'],
+      'New York’s international gateway. PLANES & FRIENDS hosts JFK lives from the known spotting points, including 04 arrivals with the Manhattan skyline. The nearest automated 24/7 camera on this board is LaGuardia (LGA).',
+    ourNote: 'Official @PlanesAndFriends. We list it. We do not restream it. If you run another regular JFK live, send it via Add a stream.',
+    related: ['LGA', 'BOS', 'LAX'],
   },
   {
     code: 'AMS',
@@ -262,8 +262,8 @@ export const airports: Airport[] = [
     region: 'oceania',
     country: 'AU',
     intro:
-      'Australia’s busiest airport. Julia Flights covers Sydney as specials from a Brisbane base. No dedicated 24/7 SYD cam is listed.',
-    ourNote: 'If you run a regular SYD live, send it via Add a stream.',
+      'Australia’s busiest airport. SydSquad hosts regular Sydney lives; Julia Flights covers SYD as specials from a Brisbane base. No 24/7 SYD cam is listed.',
+    ourNote: 'Official @sydsquad. We list it. We do not restream it.',
     related: ['MEL', 'BNE', 'LAX'],
   },
   {
@@ -350,6 +350,90 @@ export const airports: Airport[] = [
       'Seoul’s main international gateway. The official Incheon Airport YouTube channel posts occasional runway and tower lives. Not a 24/7 cam.',
     ourNote: 'Official @IncheonAirport. We list it. We do not restream it.',
     related: ['NRT', 'HND', 'SIN'],
+  },
+  {
+    code: 'ORD',
+    icao: 'KORD',
+    name: 'Chicago O’Hare International',
+    city: 'Chicago',
+    region: 'us',
+    country: 'US',
+    intro:
+      'One of the world’s busiest airports by movements. Four pairs of parallels, United and American hubs, snow, crosswinds, and cargo heavies. The Curious Spotter hosts regular O’Hare lives.',
+    ourNote: 'Official @TheCuriousSpotter. We list it. We do not restream it. Schedule is posted on the channel.',
+    related: ['MSP', 'DFW', 'DEN'],
+  },
+  {
+    code: 'ATL',
+    icao: 'KATL',
+    name: 'Hartsfield–Jackson Atlanta International',
+    city: 'Atlanta',
+    region: 'us',
+    country: 'US',
+    intro:
+      'The world’s busiest airport by passengers. Delta’s fortress, five parallels, and a domestic rush that does not quit. ThePlaneSpotter hosts regular ATL lives from a Phoenix home base.',
+    ourNote: 'Official @ThePlaneSpotter1. Same channel as Phoenix Sky Harbor. We list it. We do not restream it.',
+    related: ['MCO', 'MIA', 'DFW'],
+  },
+  {
+    code: 'SAN',
+    icao: 'KSAN',
+    name: 'San Diego International',
+    city: 'San Diego',
+    region: 'us',
+    country: 'US',
+    intro:
+      'A single close-in runway between downtown and the bay. Arrivals over the hill, departures over the water. L.A. Flights takes the LAX show on the road here.',
+    ourNote: 'Official @LAFLIGHTS. SAN is a special, not a weekly slot. Check the channel for the next San Diego live.',
+    related: ['LAX', 'SFO', 'PHX'],
+  },
+  {
+    code: 'LGA',
+    icao: 'KLGA',
+    name: 'LaGuardia',
+    city: 'New York',
+    region: 'us',
+    country: 'US',
+    intro:
+      'New York’s close-in domestic field. The Flightradar24 automated cam looks at 13/31 with the skyline in the background — Axis PTZ, CamStreamer tracking, ADS-B overlay.',
+    ourNote: 'This is an official Flightradar24 YouTube live. We link it. We do not restream it. For JFK hosted lives, see the JFK page.',
+    related: ['JFK', 'BOS', 'MCO'],
+  },
+  {
+    code: 'MSY',
+    icao: 'KMSY',
+    name: 'Louis Armstrong New Orleans International',
+    city: 'New Orleans',
+    region: 'us',
+    country: 'US',
+    intro:
+      'Gulf Coast hub with a Flightradar24 / CamStreamer 24/7 automated camera. Weather that actually changes the show — thunderstorms, fog, and the occasional heavy.',
+    ourNote: 'Official Flightradar24 YouTube live. Creators keep the view.',
+    related: ['MIA', 'FLL', 'DFW'],
+  },
+  {
+    code: 'RNO',
+    icao: 'KRNO',
+    name: 'Reno-Tahoe International',
+    city: 'Reno',
+    region: 'us',
+    country: 'US',
+    intro:
+      'High desert field with a view from the Grand Sierra Resort. The Flightradar24 automated cam is one of the few always-on mountain-west tiles on this board.',
+    ourNote: 'Official Flightradar24 YouTube live. We link it. We do not restream it.',
+    related: ['LAS', 'SFO', 'LAX'],
+  },
+  {
+    code: 'SDF',
+    icao: 'KSDF',
+    name: 'Louisville Muhammad Ali International',
+    city: 'Louisville',
+    region: 'us',
+    country: 'US',
+    intro:
+      'UPS Worldport. The largest cargo airport in the United States: 747s, 767s, MD-11 memories, and a night sort that is the show. SDF Plane Spotting hosts Tuesday and Sunday lives.',
+    ourNote: 'Official @SDFPlaneSpotting. Tue 4pm ET and Sun 3pm ET. We list it. We do not restream it.',
+    related: ['DFW', 'ORD', 'MSP'],
   },
 ];
 

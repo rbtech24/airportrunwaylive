@@ -38,6 +38,13 @@ export const nextSlots: NextSlot[] = [
     note: 'Wed 4–7pm ET (target)',
   },
   {
+    days: [2, 0],
+    airport: 'SDF',
+    channel: 'SDF Plane Spotting',
+    href: '/watch?id=sdf-plane-spotting',
+    note: 'Tue 4pm / Sun 3pm ET',
+  },
+  {
     days: [0, 1, 2, 3, 4, 5, 6],
     airport: 'LAS',
     channel: 'FR24 24/7',

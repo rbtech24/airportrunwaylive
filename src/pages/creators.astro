@@ -1,19 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { creators } from '../data/catalog';
+import { site } from '../data/site';
 
 const list = creators();
+const description = `${list.length} YouTube channels listed on the Airport Runways Live board — hosted plane-spotting lives and 24/7 airport cameras. Official links only. We do not restream.`;
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: 'Airport livestream creators',
+    url: `${site.domain}/creators`,
+    numberOfItems: list.length,
+    itemListElement: list.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      url: `${site.domain}/creators/${c.slug}`,
+    })),
+  },
+];
 ---
 <BaseLayout
-  title="Creators | Airport Runways Live"
-  description="YouTube channels listed on the Airport Runways Live board. Official links only."
+  title="YouTube airport livestream creators | Airport Runways Live"
+  description={description}
+  schema={schema}
 >
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">Directory</p>
       <h1>Creators</h1>
       <p class="lede">
-        Every listing is an official YouTube channel. Featured flags exist for a future paid slot — none are sold yet.
+        {list.length} official YouTube channels. Each creator page names the airports they cover and opens their player — Super Chats stay on their channel.
         Channel owners can <a href="/remove">ask us to take a listing down</a>.
       </p>
       <div class="grid grid-2">
@@ -21,7 +38,7 @@ const list = creators();
           <article class="stream-card">
             <div class="channel">{c.name}</div>
             <div class="handle">{c.handle}</div>
-            <p class="muted">{c.streams.map((s) => s.airport).join(' · ')}</p>
+            <p class="muted">{[...new Set(c.streams.flatMap((s) => s.covers ?? [s.airport]))].join(' · ')}</p>
             <div class="card-actions">
               <a class="btn btn-amber" href={c.url} target="_blank" rel="noopener noreferrer">YouTube</a>
               <a class="btn btn-ghost" href={`/creators/${c.slug}`}>Page</a>

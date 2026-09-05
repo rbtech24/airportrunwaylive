@@ -13,10 +13,40 @@ export const schedule: ScheduleRow[] = [
     notes: 'Hosted LAX shows. Exact days posted on @AIRLINEVIDEOS.',
   },
   {
+    day: '24/7',
+    airport: 'LAX',
+    channel: 'Airline Videos Live+',
+    notes: 'H Hotel south 25L/25R and north 24L/24R cams.',
+  },
+  {
     day: 'Mon / Wed / Sat',
     airport: 'LAX',
     channel: 'L.A. Flights',
-    notes: 'Regular LAX hosted live.',
+    notes: 'Regular LAX hosted live. SAN specials posted on the channel.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'ORD',
+    channel: 'The Curious Spotter',
+    notes: 'Chicago O’Hare hosted lives.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'ATL',
+    channel: 'ThePlaneSpotter',
+    notes: 'Hartsfield-Jackson hosted lives. Same channel as PHX.',
+  },
+  {
+    day: 'Tue 4pm ET / Sun 3pm ET',
+    airport: 'SDF',
+    channel: 'SDF Plane Spotting',
+    notes: 'UPS Worldport cargo hub.',
+  },
+  {
+    day: 'Dawn to dusk',
+    airport: 'LHR',
+    channel: 'Flight Focus 365',
+    notes: 'Dedicated Heathrow camera. Official YouTube.',
   },
   {
     day: 'Tue / Thu / Sun',
@@ -65,11 +95,5 @@ export const schedule: ScheduleRow[] = [
     airport: 'LAS · SXM · LGA · MSY · RNO · ACE',
     channel: 'Flightradar24',
     notes: 'Automated CamStreamer PTZ cameras.',
-  },
-  {
-    day: '24/7',
-    airport: 'LAX',
-    channel: 'Airline Videos Live+',
-    notes: 'Hotel cams on the north and south complexes.',
   },
 ];

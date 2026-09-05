@@ -4,7 +4,8 @@ import AirportHeader from '../../components/AirportHeader.astro';
 import AirportWx from '../../components/AirportWx.astro';
 import StreamCard from '../../components/StreamCard.astro';
 import { airports, getAirport } from '../../data/airports';
-import { streamsForAirport } from '../../data/catalog';
+import { streamsForAirport, youtubeChannelUrl } from '../../data/catalog';
+import { site } from '../../data/site';
 
 export function getStaticPaths() {
   return airports.map((a) => ({ params: { code: a.code.toLowerCase() } }));
@@ -16,12 +17,94 @@ if (!airport) {
   return Astro.redirect('/404');
 }
 const list = streamsForAirport(airport.code);
-const title = `${airport.code} live — ${airport.city} airport streams | Airport Runways Live`;
+const has247 = list.some((s) => s.type === '247');
+const hosted = list.filter((s) => s.type !== '247');
+const channelNames = [...new Set(list.map((s) => s.name.replace(/ \(.+\)$/, '')))];
+const channelLine = channelNames.length
+  ? channelNames.join(', ')
+  : 'none listed yet';
+const watchKind = has247
+  ? hosted.length
+    ? 'a 24/7 camera plus hosted YouTube lives'
+    : 'a 24/7 YouTube camera'
+  : hosted.length
+    ? 'hosted YouTube lives posted on the channel'
+    : 'no listed stream yet';
+
+const title = `${airport.code} live — ${airport.name} runway streams | Airport Runways Live`;
+const description = `Watch ${airport.name} (${airport.code} / ${airport.icao}) live on YouTube from ${airport.city}. Official ${watchKind}. We list the channels. We do not restream.`;
+const pageUrl = `${site.domain}/airports/${airport.code.toLowerCase()}`;
+
+const faqs = [
+  {
+    q: `Is this official ${airport.name} TV?`,
+    a: `No. Airport Runways Live is an independent directory. We are not affiliated with ${airport.name}, ${airport.city}, or any airline. The streams below are official YouTube channels that cover ${airport.code}.`,
+  },
+  {
+    q: `Which YouTube channels cover ${airport.code}?`,
+    a: list.length
+      ? `${channelLine}. Every Watch button opens their official YouTube player so they keep the views and Super Chats.`
+      : `None yet. If you run a regular ${airport.code} live, send it via Add a stream. We only list official YouTube URLs.`,
+  },
+  {
+    q: `Is there a 24/7 camera at ${airport.code}?`,
+    a: has247
+      ? `Yes. The 24/7 listing on this page is an automated camera on an official YouTube live. We link it. We do not restream it.`
+      : `Not on this board. ${airport.code} listings are hosted lives until a real always-on camera exists. We will not fake a 24/7 badge.`,
+  },
+  {
+    q: `Do you restream ${airport.code} channels?`,
+    a: 'No. We never restream or proxy another creator’s video. Watch on their YouTube so they keep the views.',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'Airport',
+    name: airport.name,
+    iataCode: airport.code,
+    icaoCode: airport.icao,
+    url: pageUrl,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: airport.city,
+      addressCountry: airport.country,
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  },
+  {
+    '@type': 'ItemList',
+    name: `${airport.code} YouTube livestreams`,
+    numberOfItems: list.length,
+    itemListElement: list.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.name,
+      url: youtubeChannelUrl(s),
+    })),
+  },
+];
 ---
-<BaseLayout title={title} description={airport.intro}>
+<BaseLayout title={title} description={description} schema={schema}>
   <section class="section">
     <div class="wrap">
       <AirportHeader airport={airport} />
+      <p class="lede">
+        Official YouTube runway livestreams covering {airport.name} in {airport.city}. {watchKind[0].toUpperCase() + watchKind.slice(1)}.
+      </p>
+      <dl class="airport-facts">
+        <div><dt>IATA</dt><dd>{airport.code}</dd></div>
+        <div><dt>ICAO</dt><dd>{airport.icao}</dd></div>
+        <div><dt>City</dt><dd>{airport.city}</dd></div>
+        <div><dt>Streams</dt><dd>{list.length}</dd></div>
+      </dl>
       <AirportWx icao={airport.icao} code={airport.code} />
       <div class="prose">
         <p>{airport.intro}</p>
@@ -36,7 +119,10 @@ const title = `${airport.code} live — ${airport.city} airport streams | Airpor
         )}
       </div>
 
-      <h2>Streams covering {airport.code}</h2>
+      <h2>Watch {airport.code} live</h2>
+      <p class="note">
+        Every card is an official YouTube channel. Creators keep the views. Status is LIVE only when the YouTube cache says so.
+      </p>
       {list.length ? (
         <div class="grid grid-3">
           {list.map((s) => <StreamCard stream={s} />)}
@@ -47,6 +133,27 @@ const title = `${airport.code} live — ${airport.city} airport streams | Airpor
           <a href="/add"> Add a channel</a> if you run one.
         </p>
       )}
+
+      <h2>How to watch</h2>
+      <div class="prose">
+        <ol>
+          <li>Open the official YouTube live from the cards above. We do not restream.</li>
+          <li>Use the YouTube bell on that channel for the next show. We will not fake a push notification here.</li>
+          <li>
+            Live weather on this page is NOAA METAR for {airport.icao} — wind, vis, VFR/IFR. It is not a flight tracker.
+          </li>
+        </ol>
+      </div>
+
+      <h2>{airport.code} FAQ</h2>
+      <div class="faq">
+        {faqs.map((item) => (
+          <details>
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </div>
 
       <h2>Related airports</h2>
       <div class="related">

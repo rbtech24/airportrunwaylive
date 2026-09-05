@@ -2,28 +2,54 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { airports } from '../../data/airports';
 import { streamsForAirport } from '../../data/catalog';
+import { site } from '../../data/site';
+
+const rows = airports.map((a) => ({
+  ...a,
+  n: streamsForAirport(a.code).length,
+  has247: streamsForAirport(a.code).some((s) => s.type === '247'),
+}));
+const withStreams = rows.filter((a) => a.n > 0).length;
+const description = `Index of ${airports.length} airports with official YouTube runway livestreams — Orlando MCO, Chicago ORD, LAX, Atlanta ATL, Heathrow, and more. ${withStreams} fields have at least one listed channel.`;
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: 'Airport livestreams',
+    url: `${site.domain}/airports`,
+    numberOfItems: airports.length,
+    itemListElement: rows.map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${a.code} — ${a.name}`,
+      url: `${site.domain}/airports/${a.code.toLowerCase()}`,
+    })),
+  },
+];
 ---
 <BaseLayout
-  title="Airport livestreams | Airport Runways Live"
-  description="Index of airports with YouTube runway livestreams, including Orlando MCO, Tampa, LAX, and more."
+  title="Airport livestreams by field | Airport Runways Live"
+  description={description}
+  schema={schema}
 >
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">Airports</p>
       <h1>Airport index</h1>
-      <p class="lede">Each page lists the official YouTube lives that cover that field. We are not the airport.</p>
+      <p class="lede">
+        {airports.length} airport pages. Each one lists official YouTube lives for that field, live METAR, and how to watch without a restream. We are not the airport.
+      </p>
       <div class="grid grid-3">
-        {airports.map((a) => {
-          const n = streamsForAirport(a.code).length;
-          return (
-            <a class="stream-card" href={`/airports/${a.code.toLowerCase()}`} style="text-decoration:none;color:inherit">
-              <div class="code">{a.code}</div>
-              <div class="city">{a.icao}</div>
-              <div class="channel">{a.name}</div>
-              <div class="handle">{a.city} · {n} stream{n === 1 ? '' : 's'}</div>
-            </a>
-          );
-        })}
+        {rows.map((a) => (
+          <a class="stream-card" href={`/airports/${a.code.toLowerCase()}`} style="text-decoration:none;color:inherit">
+            <div class="code">{a.code}</div>
+            <div class="city">{a.icao}</div>
+            <div class="channel">{a.name}</div>
+            <div class="handle">
+              {a.city} · {a.n} stream{a.n === 1 ? '' : 's'}
+              {a.has247 ? ' · 24/7' : ''}
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>

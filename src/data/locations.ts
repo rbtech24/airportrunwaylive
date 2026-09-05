@@ -1,4 +1,5 @@
 import type { Stream, StreamStatus } from './types';
+import { airports } from './airports';
 import { streams, youtubeThumbUrl, youtubeWatchUrl } from './catalog';
 
 export interface GeoSpot {
@@ -43,6 +44,9 @@ export const locations: Record<string, GeoSpot> = {
   SIN: { lat: 1.3644, lon: 103.9915, name: 'Singapore Changi', city: 'Singapore' },
   MSP: { lat: 44.8848, lon: -93.2223, name: 'Minneapolis–St. Paul International', city: 'Minneapolis' },
   ICN: { lat: 37.4602, lon: 126.4407, name: 'Incheon International', city: 'Seoul' },
+  ORD: { lat: 41.9742, lon: -87.9073, name: 'Chicago O’Hare International', city: 'Chicago' },
+  ATL: { lat: 33.6407, lon: -84.4277, name: 'Hartsfield–Jackson Atlanta International', city: 'Atlanta' },
+  SAN: { lat: 32.7338, lon: -117.1933, name: 'San Diego International', city: 'San Diego' },
 };
 
 export interface MapStream {
@@ -76,37 +80,7 @@ const statusRank: Record<StreamStatus, number> = {
   off: 3,
 };
 
-const pageCodes = new Set([
-  'MCO',
-  'TPA',
-  'BOG',
-  'LAX',
-  'DFW',
-  'MIA',
-  'FLL',
-  'SFO',
-  'PHX',
-  'DEN',
-  'BOS',
-  'LAS',
-  'SXM',
-  'MAN',
-  'LHR',
-  'JFK',
-  'AMS',
-  'LIS',
-  'YVR',
-  'MEL',
-  'BNE',
-  'SYD',
-  'ACE',
-  'NRT',
-  'HND',
-  'DXB',
-  'SIN',
-  'MSP',
-  'ICN',
-]);
+const pageCodes = new Set(airports.map((a) => a.code));
 
 function toMapStream(s: Stream): MapStream {
   return {
