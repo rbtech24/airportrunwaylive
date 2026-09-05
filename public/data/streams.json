@@ -287,6 +287,26 @@
     "covers": ["DFW"]
   },
   {
+    "id": "metal-birds-dfw",
+    "featured": false,
+    "host": false,
+    "airport": "DFW",
+    "icao": "KDFW",
+    "city": "Dallas",
+    "country": "US",
+    "region": "us",
+    "name": "Metal Birds Aviation",
+    "handle": "@Metalbirdsaviation",
+    "channelId": "UCuTBDbnc6IzZ-AYrDSoNKDA",
+    "url": "https://www.youtube.com/@Metalbirdsaviation",
+    "type": "scheduled",
+    "status": "scheduled",
+    "schedule": "Posted on the channel — regular DFW hosted lives",
+    "notes": "Dallas/Fort Worth hosted spotting with ATC. Official channel.",
+    "embedId": "RdVLWZRRvwQ",
+    "covers": ["DFW"]
+  },
+  {
     "id": "theplanespotter-phx",
     "featured": false,
     "host": false,

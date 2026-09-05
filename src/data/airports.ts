@@ -58,8 +58,8 @@ export const airports: Airport[] = [
     region: 'us',
     country: 'US',
     intro:
-      'American’s fortress hub. Seven runways, wide cargo and passenger mix, and long sightlines from the perimeter. Runway DFW is the hosted channel we list.',
-    ourNote: 'Status is taken from the catalog, not guessed. If it is not live, the badge says so.',
+      'American’s fortress hub. Seven runways, wide cargo and passenger mix, and long sightlines from Founders Plaza. Runway DFW and Metal Birds Aviation both host regular DFW lives.',
+    ourNote: 'Official @RunwayDFW and @Metalbirdsaviation. We list them. We do not restream them.',
     related: ['PHX', 'DEN', 'MIA'],
   },
   {

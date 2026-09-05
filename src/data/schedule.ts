@@ -37,6 +37,12 @@ export const schedule: ScheduleRow[] = [
     notes: 'Hartsfield-Jackson hosted lives. Same channel as PHX.',
   },
   {
+    day: 'Posted on channel',
+    airport: 'DFW',
+    channel: 'Metal Birds Aviation',
+    notes: 'Dallas/Fort Worth hosted lives with ATC.',
+  },
+  {
     day: 'Tue 4pm ET / Sun 3pm ET',
     airport: 'SDF',
     channel: 'SDF Plane Spotting',
