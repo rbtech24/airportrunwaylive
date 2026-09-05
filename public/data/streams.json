@@ -389,12 +389,12 @@
     "country": "US",
     "region": "us",
     "name": "Miami Plane Spotting",
-    "handle": "Miami Plane Spotting",
-    "url": "https://www.youtube.com/results?search_query=Miami+Plane+Spotting+live",
+    "handle": "@TheTravelingNews",
+    "url": "https://www.youtube.com/@TheTravelingNews",
     "type": "scheduled",
     "status": "scheduled",
-    "schedule": "Posted on the channel",
-    "notes": "Miami International hosted spotting / The Traveling News.",
+    "schedule": "Weekdays — MIA hosted lives",
+    "notes": "Miami International hosted spotting. Official channel @TheTravelingNews (channel title Miami Plane Spotting).",
     "covers": ["MIA"]
   },
   {

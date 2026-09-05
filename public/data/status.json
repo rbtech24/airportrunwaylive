@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-05T00:41:14.577Z",
+  "updatedAt": "2026-09-05T01:17:24.590Z",
   "source": "youtube",
-  "quotaUnits": 1,
+  "quotaUnits": 4,
   "streams": {
     "arl-mco": {
       "status": "off",
@@ -63,6 +63,12 @@
       "title": "🔴LIVE 24/7 LAX Airport Action Runways 25L & 25R | LIVE Plane Spotting with ATC!",
       "live": true
     },
+    "avl-plus-lax-north": {
+      "status": "247",
+      "videoId": "n4I0d44oBEs",
+      "title": "🔴LIVE 24/7 LAX Airport Action Runways 24L & 24R | LIVE Plane Spotting with ATC!",
+      "live": true
+    },
     "airline-videos-lax": {
       "status": "scheduled",
       "videoId": "uCJOh0fxIZU",
@@ -75,16 +81,34 @@
       "title": "🔴LIVE LOS ANGELES LAX AIRPORT! | September 2, 2026 | LAX PLANE SPOTTING",
       "live": false
     },
+    "la-flights-san": {
+      "status": "scheduled",
+      "videoId": "W-GyjvYPXsg",
+      "title": "🔴LIVE SAN DIEGO AIRPORT! PART 2 | September 3, 2026",
+      "live": false
+    },
     "runway-dfw": {
       "status": "scheduled",
       "videoId": "wLcU8PBEIgg",
       "title": "LIVE 🔴 DFW Airport ✈️ plane spotting at night 🌟 September 3, 2026",
       "live": false
     },
+    "metal-birds-dfw": {
+      "status": "live",
+      "videoId": "RdVLWZRRvwQ",
+      "title": "🔴 LIVE DFW Plane Spotting ✈️ FRIDAY EVENING RUSH | Heavy Jets • Sunset to Midnight • LIVE ATC",
+      "live": true
+    },
     "theplanespotter-phx": {
       "status": "scheduled",
       "videoId": "zhxCU0Doqfs",
       "title": "Air missions in gta5 online",
+      "live": false
+    },
+    "theplanespotter-atl": {
+      "status": "scheduled",
+      "videoId": "zqqO3KUG1Zs",
+      "title": "🔴 LIVE Plane Spotting | HOLIDAY TRAFFIC Phoenix Sky Harbor International Airport (PHX) ✈️ | 9/4/26",
       "live": false
     },
     "sf-flights-sfo": {
@@ -101,11 +125,17 @@
     },
     "miami-plane-spotting": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "_CZ5pJP23uw",
+      "title": "24h LIVE MIAMI INTERNATIONAL AIRPORT",
       "live": false
     },
     "planes-and-friends-mia": {
+      "status": "scheduled",
+      "videoId": "TdcqJbI7XcY",
+      "title": "🔴 NEW YORK LGA LIVE | NONSTOP RUNWAY 4 ACTION  | MONDAY ARRIVING RUSH",
+      "live": false
+    },
+    "planes-and-friends-jfk": {
       "status": "scheduled",
       "videoId": "TdcqJbI7XcY",
       "title": "🔴 NEW YORK LGA LIVE | NONSTOP RUNWAY 4 ACTION  | MONDAY ARRIVING RUSH",
@@ -125,8 +155,8 @@
     },
     "captain-will-den": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "jwfl29yxeeU",
+      "title": "🔴LIVE LAX Airport | Busy LAX Action | Los Angeles Plane Spotting",
       "live": false
     },
     "logan-in-flight-bos": {
@@ -147,10 +177,16 @@
       "title": "BIG JET TV is live AS101 Push & start",
       "live": false
     },
+    "flight-focus-365-lhr": {
+      "status": "scheduled",
+      "videoId": "mQK6lEbEYSs",
+      "title": "Heathrow Airport Live - WINDY Friday 4th September 2026",
+      "live": false
+    },
     "sdf-plane-spotting": {
       "status": "scheduled",
-      "videoId": null,
-      "title": null,
+      "videoId": "-sSkofiEm3o",
+      "title": "UPS MD-11F “N259UP” takeoff at SDF one month before crash of flight 2976 😢 #shorts",
       "live": false
     },
     "ams-live": {
@@ -218,6 +254,12 @@
       "videoId": "gVlBHlOohU4",
       "title": "오늘 나만의 플랜은?｜Smart Pass💙",
       "live": false
+    },
+    "curious-spotter-ord": {
+      "status": "live",
+      "videoId": "dC-2Cg_aBfA",
+      "title": "[v] 🔴  LIVE: NONSTOP TRAFFIC ✈️🔥at CHICAGO O'HARE",
+      "live": true
     }
   },
   "channelIds": {
@@ -253,6 +295,16 @@
     "aerowanderer-sin": "UCF9PerxOyDKRQUPk40geAmA",
     "sydsquad-syd": "UC8tLfsImEWybHQB_3CI-JDQ",
     "msp-airport-live": "UCm9WVBYC-aFjJss4GTGYm0A",
-    "incheon-airport": "UC5rNAdQWDhaw_Z4PEK7TPJw"
+    "incheon-airport": "UC5rNAdQWDhaw_Z4PEK7TPJw",
+    "avl-plus-lax-north": "UCox5yCEEjk4iYbhLgyj90EQ",
+    "la-flights-san": "UC7WAqB7dyv1t8jKunD-8krA",
+    "metal-birds-dfw": "UCuTBDbnc6IzZ-AYrDSoNKDA",
+    "theplanespotter-atl": "UCiBrYMk3gywQ6TzBaALCqxw",
+    "planes-and-friends-jfk": "UCWRF4e8eNqvbLXDk-rPhx3w",
+    "captain-will-den": "UCkKHN861aj_9UixrDR_B8ug",
+    "flight-focus-365-lhr": "UC6q_hfBThkGdmQ5Vb4kWjWA",
+    "sdf-plane-spotting": "UCxjIN9IWHF3Jfk6W3LG-Bkw",
+    "curious-spotter-ord": "UCtNU9KHJgefhdU5N0mFUU8g",
+    "miami-plane-spotting": "UC74_r6PCtp5BZ1gpz3ONFsQ"
   }
 }

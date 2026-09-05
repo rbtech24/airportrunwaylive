@@ -8,34 +8,64 @@ import { site } from '../data/site';
 >
   <section class="section">
     <div class="wrap prose">
-      <p class="eyebrow">Weekly</p>
+      <p class="eyebrow">Weekly · Wed 4–7pm ET</p>
       <h1>Aviation Live Desk</h1>
       <p class="lede" data-desk-next>
-        Wednesday 4–7pm Eastern when the Desk is on. Watch the date on YouTube.
+        Wednesday 4–7pm Eastern when the Desk is on. Next: Wednesday 9 September 2026.
       </p>
       <p>
         The desk is the front page of the stream. This site is the scoreboard — not a competitor.
-        Super Chat and memberships stay on YouTube.
+        Super Chat and memberships stay on YouTube. Send viewers to other creators’ official channels.
       </p>
-      <h2>On the show</h2>
-      <ul>
-        <li>Who’s live right now on the board</li>
-        <li>Weather that actually changes the show</li>
-        <li>Heavies due at MCO</li>
-        <li>Second screen: the globe. Say “go to airportrunwayslive.com/map?icao=LAS”</li>
-      </ul>
-      <h2>Second-screen run of show</h2>
+
+      <h2>Run of show (3 hours)</h2>
       <ol>
-        <li>Open <a href="/">airportrunwayslive.com</a> on the desk monitor</li>
-        <li>Open <a href="/map">/map</a> full screen on the other</li>
-        <li>Deep-link a field: <code>/map?icao=MCO</code>, <code>/map?icao=LAS</code>, <code>/map?icao=SXM</code></li>
-        <li>Lower-third overlay for OBS: <a href="/overlay">/overlay</a></li>
+        <li>
+          <strong>Open (5 min).</strong> Who we are. Bell on YouTube. Say
+          airportrunwayslive.com out loud.
+        </li>
+        <li>
+          <strong>Who’s live.</strong> Open <a href="/live">/live</a>. Name the creator and the field.
+          Click through to <em>their</em> YouTube — we do not restream.
+        </li>
+        <li>
+          <strong>Weather that changes ops.</strong> METAR on the overlay
+          (<a href="/overlay?icao=KMCO">/overlay?icao=KMCO</a>) and on
+          <a href="/airports/mco">/airports/mco</a>. Only talk wind, vis, and category if it changes the show.
+        </li>
+        <li>
+          <strong>Heavies due at MCO.</strong> Say them out loud from a public arrivals board. No scraped Flightradar24 map.
+        </li>
+        <li>
+          <strong>Second screen.</strong> “Go to airportrunwayslive.com/map?icao=MCO” — then LAS, SXM, ORD as the board moves.
+        </li>
+        <li>
+          <strong>Close.</strong> Next live date, subscribe, airportrunwayslive.com.
+        </li>
       </ol>
+
+      <h2>OBS</h2>
+      <ol>
+        <li>Scene: host cam + browser source <a href="/overlay">/overlay</a> (transparent, METAR under the bumper).</li>
+        <li>Scene: <a href="/live">/live</a> or <a href="/map?icao=MCO">/map?icao=MCO</a> full screen.</li>
+        <li>Scene: starting soon — logo + “Desk at 4pm ET”.</li>
+        <li>Audio: host mic only. No ATC unless you are at the field.</li>
+        <li>Unlisted 10 minutes early. Public at 4:00pm ET.</li>
+      </ol>
+
+      <h2>Before you go live</h2>
+      <ul>
+        <li>Set <code>tonight</code>, <code>tonightDate</code>, and <code>deskNext</code> in <code>public/data/site-config.json</code>.</li>
+        <li>If it is an ops night, set <code>alert</code> and <code>stormAirport</code> (IATA). The banner links that airport page.</li>
+        <li>Confirm the YouTube title: <code>Aviation Live Desk — Who’s Live, Weather, Heavies (September 9, 2026)</code>.</li>
+      </ul>
+
       <div class="btn-row">
         <a class="btn btn-amber" href={site.youtube} target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
         <a class="btn btn-ghost" href={site.youtube} target="_blank" rel="noopener noreferrer">Notify on YouTube</a>
         <a class="btn btn-ghost" href="/desk.ics">Add to calendar</a>
-        <a class="btn btn-ghost" href="/map">Open the globe</a>
+        <a class="btn btn-ghost" href="/map?icao=MCO">Globe · MCO</a>
+        <a class="btn btn-ghost" href="/overlay?icao=KMCO">OBS overlay</a>
       </div>
     </div>
   </section>

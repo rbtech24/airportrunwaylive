@@ -4,10 +4,8 @@ import StreamCard from '../components/StreamCard.astro';
 import BoardMap from '../components/BoardMap.astro';
 import NextUp from '../components/NextUp.astro';
 import { site } from '../data/site';
-import { featuredStreams, sortedStreams, cams247 } from '../data/catalog';
+import { sortedStreams, cams247 } from '../data/catalog';
 
-const featured = featuredStreams(4);
-const preview = sortedStreams.slice(0, 8);
 const cams = cams247();
 ---
 <BaseLayout title="Airport Runways Live — airport livestreams on YouTube">
@@ -30,11 +28,14 @@ const cams = cams247();
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Featured</h2>
-        <a href="/channel">Our channel →</a>
+        <h2>On now</h2>
+        <a href="/live">Full board →</a>
       </div>
-      <div class="grid grid-4">
-        {featured.map((s) => <StreamCard stream={s} />)}
+      <p class="muted" style="margin-top:-8px;margin-bottom:12px">
+        LIVE first, then 24/7 cameras, then the Desk. Badges come from the YouTube cache — we do not guess.
+      </p>
+      <div class="grid grid-4" data-grid data-limit="4">
+        {sortedStreams.map((s) => <StreamCard stream={s} />)}
       </div>
     </div>
   </section>
@@ -54,12 +55,12 @@ const cams = cams247();
 
   <section class="section">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Live board</h2>
-        <a href="/live">Full board →</a>
-      </div>
-      <div class="grid grid-4">
-        {preview.map((s) => <StreamCard stream={s} />)}
+      <div class="cta-band">
+        <div>
+          <h2>Live board</h2>
+          <p>Filter by live, 24/7, region, or our channel. Official YouTube only.</p>
+        </div>
+        <a class="btn btn-ghost" href="/live">Open the board</a>
       </div>
     </div>
   </section>

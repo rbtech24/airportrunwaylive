@@ -25,10 +25,13 @@ function renderBadge(host: boolean, featuredSlot: boolean, status: StreamStatus)
 function sortCards(grid: HTMLElement) {
   const cards = [...grid.querySelectorAll<HTMLElement>('[data-stream-card]')];
   cards.sort((a, b) => {
-    if (a.dataset.featured !== b.dataset.featured) return a.dataset.featured === '1' ? -1 : 1;
-    if (a.dataset.slot !== b.dataset.slot) return a.dataset.slot === '1' ? -1 : 1;
-    const sr = rank[(a.dataset.status as StreamStatus) ?? 'off'] - rank[(b.dataset.status as StreamStatus) ?? 'off'];
+    const sr =
+      rank[(a.dataset.status as StreamStatus) ?? 'off'] -
+      rank[(b.dataset.status as StreamStatus) ?? 'off'];
     if (sr !== 0) return sr;
+    if (a.dataset.slot !== b.dataset.slot) return a.dataset.slot === '1' ? -1 : 1;
+    if (a.dataset.featured !== b.dataset.featured) return a.dataset.featured === '1' ? -1 : 1;
+    if (a.dataset.host !== b.dataset.host) return a.dataset.host === '1' ? -1 : 1;
     return (a.dataset.airport ?? '').localeCompare(b.dataset.airport ?? '');
   });
   for (const card of cards) grid.append(card);
@@ -84,13 +87,26 @@ export async function applyAlert() {
       alert?: string;
       tonight?: string;
       tonightDate?: string;
+      stormAirport?: string;
     };
-    const text = (cfg.alert ?? '').trim();
+    const storm = (cfg.stormAirport ?? '').trim().toUpperCase();
+    const text =
+      (cfg.alert ?? '').trim() ||
+      (storm ? `Ops night at ${storm} — watch the lives on the board.` : '');
     if (banner) {
       if (!text) banner.hidden = true;
       else {
         const inner = banner.querySelector('[data-alert-text]');
         if (inner) inner.textContent = text;
+        const link = banner.querySelector<HTMLAnchorElement>('[data-alert-link]');
+        if (link) {
+          if (storm) {
+            link.href = `/airports/${storm.toLowerCase()}`;
+            link.removeAttribute('aria-disabled');
+          } else {
+            link.removeAttribute('href');
+          }
+        }
         banner.hidden = false;
       }
     }

@@ -12,12 +12,12 @@ const statusRank: Record<StreamStatus, number> = {
 
 export function sortStreams(list: Stream[]): Stream[] {
   return [...list].sort((a, b) => {
-    if (a.featured !== b.featured) return a.featured ? -1 : 1;
+    const sr = statusRank[a.status] - statusRank[b.status];
+    if (sr !== 0) return sr;
     const aPaid = Boolean(a.featuredSlot);
     const bPaid = Boolean(b.featuredSlot);
     if (aPaid !== bPaid) return aPaid ? -1 : 1;
-    const sr = statusRank[a.status] - statusRank[b.status];
-    if (sr !== 0) return sr;
+    if (a.featured !== b.featured) return a.featured ? -1 : 1;
     if (a.host !== b.host) return a.host ? -1 : 1;
     return a.airport.localeCompare(b.airport) || a.name.localeCompare(b.name);
   });
@@ -38,11 +38,13 @@ export function streamsForAirport(code: string): Stream[] {
   );
 }
 
+/** Who is on right now: LIVE, then 24/7, then the Desk / host pin. */
 export function featuredStreams(limit = 4): Stream[] {
   const live = sortedStreams.filter((s) => s.status === 'live');
-  const ours = sortedStreams.filter((s) => s.featured);
+  const cams = sortedStreams.filter((s) => s.type === '247' || s.status === '247');
+  const desk = sortedStreams.filter((s) => s.featured || s.host);
   const merged: Stream[] = [];
-  for (const s of [...ours, ...live]) {
+  for (const s of [...live, ...cams, ...desk, ...sortedStreams]) {
     if (!merged.some((m) => m.id === s.id)) merged.push(s);
     if (merged.length >= limit) break;
   }

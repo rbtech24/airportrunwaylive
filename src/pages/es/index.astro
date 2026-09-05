@@ -3,10 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import StreamCard from '../../components/StreamCard.astro';
 import BoardMap from '../../components/BoardMap.astro';
 import { site } from '../../data/site';
-import { featuredStreams, sortedStreams, cams247 } from '../../data/catalog';
+import { sortedStreams, cams247 } from '../../data/catalog';
 
-const featured = featuredStreams(4);
-const preview = sortedStreams.slice(0, 8);
 const cams = cams247();
 ---
 <BaseLayout
@@ -32,11 +30,14 @@ const cams = cams247();
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Destacados</h2>
-        <a href="/channel">Nuestro canal →</a>
+        <h2>En vivo ahora</h2>
+        <a href="/live">Tablero completo →</a>
       </div>
-      <div class="grid grid-4">
-        {featured.map((s) => <StreamCard stream={s} />)}
+      <p class="muted" style="margin-top:-8px;margin-bottom:12px">
+        Primero EN VIVO, luego cámaras 24/7, luego el Desk. El badge sale del cache de YouTube.
+      </p>
+      <div class="grid grid-4" data-grid data-limit="4">
+        {sortedStreams.map((s) => <StreamCard stream={s} />)}
       </div>
     </div>
   </section>
@@ -54,12 +55,12 @@ const cams = cams247();
 
   <section class="section">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Tablero en vivo</h2>
-        <a href="/live">Tablero completo →</a>
-      </div>
-      <div class="grid grid-4">
-        {preview.map((s) => <StreamCard stream={s} />)}
+      <div class="cta-band">
+        <div>
+          <h2>Tablero en vivo</h2>
+          <p>Filtra por en vivo, 24/7, región o nuestro canal. Solo YouTube oficial.</p>
+        </div>
+        <a class="btn btn-ghost" href="/live">Abrir el tablero</a>
       </div>
     </div>
   </section>

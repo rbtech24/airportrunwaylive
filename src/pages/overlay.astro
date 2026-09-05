@@ -9,10 +9,16 @@
     <meta name="robots" content="noindex" />
     <style>
       html, body { margin: 0; background: transparent; font-family: Inter, system-ui, sans-serif; }
-      .lower-third {
+      .stack {
         position: fixed;
         left: 32px;
         bottom: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 560px;
+      }
+      .lower-third, .metar {
         display: flex;
         gap: 14px;
         align-items: center;
@@ -27,25 +33,84 @@
       .lower-third strong { display: block; letter-spacing: 0.12em; font-size: 15px; }
       .lower-third span { display: block; color: #e8a317; font-weight: 700; font-size: 18px; }
       .lower-third em { display: block; color: #8a97ab; font-style: normal; font-size: 13px; margin-top: 2px; }
+      .metar { padding: 10px 16px; gap: 10px; }
+      .metar .cat {
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        font-size: 14px;
+        color: #3ddc97;
+      }
+      .metar .cat.ifr, .metar .cat.lifr { color: #e23d3d; }
+      .metar .cat.mvfr { color: #e8a317; }
+      .metar .line { font-size: 14px; color: #f5f7fa; }
+      .metar .icao { color: #e8a317; font-weight: 700; }
     </style>
   </head>
   <body>
-    <div class="lower-third">
-      <img src="/images/logo-mark.png" width="48" height="48" alt="" />
-      <div>
-        <strong>AIRPORT RUNWAYS LIVE</strong>
-        <span>airportrunwayslive.com</span>
-        <em data-overlay-tonight></em>
+    <div class="stack">
+      <div class="lower-third">
+        <img src="/images/logo-mark.png" width="48" height="48" alt="" />
+        <div>
+          <strong>AIRPORT RUNWAYS LIVE</strong>
+          <span>airportrunwayslive.com</span>
+          <em data-overlay-tonight></em>
+        </div>
+      </div>
+      <div class="metar" data-overlay-wx hidden>
+        <span class="cat" data-wx-cat></span>
+        <div>
+          <div class="line"><span class="icao" data-wx-icao></span> · <span data-wx-line></span></div>
+        </div>
       </div>
     </div>
     <script>
+      const params = new URLSearchParams(location.search);
+      const fallbackIcao = 'KMCO';
+
+      function metarLine(m) {
+        const bits = [];
+        if (typeof m.temp === 'number') bits.push(`${Math.round(m.temp)}°C`);
+        if (m.wdir != null && m.wspd != null) bits.push(`wind ${m.wdir}°/${m.wspd}kt`);
+        if (m.visib != null) bits.push(`vis ${m.visib}`);
+        if (m.cover) bits.push(m.cover);
+        if (m.wxString) bits.push(m.wxString);
+        return bits.join(' · ') || 'Observation received';
+      }
+
+      function fillWx(icao) {
+        const box = document.querySelector('[data-overlay-wx]');
+        if (!icao || !box) return;
+        fetch(`/api/wx?icao=${encodeURIComponent(icao)}`, { cache: 'no-store' })
+          .then((r) => (r.ok ? r.json() : null))
+          .then((m) => {
+            if (!m || (!m.rawOb && !m.fltCat)) return;
+            const cat = document.querySelector('[data-wx-cat]');
+            const line = document.querySelector('[data-wx-line]');
+            const code = document.querySelector('[data-wx-icao]');
+            const flt = String(m.fltCat || '').toUpperCase();
+            if (cat) {
+              cat.textContent = flt || 'METAR';
+              cat.classList.remove('ifr', 'lifr', 'mvfr');
+              if (flt === 'IFR' || flt === 'LIFR' || flt === 'MVFR') cat.classList.add(flt.toLowerCase());
+            }
+            if (code) code.textContent = icao;
+            if (line) line.textContent = metarLine(m);
+            box.hidden = false;
+          })
+          .catch(() => undefined);
+      }
+
       fetch('/data/site-config.json', { cache: 'no-store' })
         .then((r) => r.json())
         .then((cfg) => {
           const el = document.querySelector('[data-overlay-tonight]');
           if (el && cfg.tonight) el.textContent = cfg.tonight;
+          const icao = (params.get('icao') || cfg.overlayIcao || fallbackIcao)
+            .replace(/[^A-Za-z0-9]/g, '')
+            .toUpperCase();
+          fillWx(icao);
         })
-        .catch(() => undefined);
+        .catch(() => fillWx(fallbackIcao));
     </script>
   </body>
 </html>
