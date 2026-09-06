@@ -202,8 +202,8 @@ export const airports: Airport[] = [
     region: 'europe',
     country: 'NL',
     intro:
-      'Europe’s multi-runway crossroads. KLM heavies, the Polderbaan, and weather that actually changes the show. AMS LIVE is the hosted channel on this board.',
-    ourNote: 'Scheduled, not 24/7. Watch on the official @AMSLIVE YouTube so they keep the view.',
+      'Europe’s multi-runway crossroads. KLM heavies, the Polderbaan, and weather that actually changes the show. AMS LIVE and JOE ADAM both host Schiphol lives.',
+    ourNote: 'Scheduled, not 24/7. Official @AMSLIVE and @joeadamchannel. We list them. We do not restream them.',
     related: ['LHR', 'MAN', 'LIS'],
   },
   {
@@ -238,8 +238,8 @@ export const airports: Airport[] = [
     region: 'oceania',
     country: 'AU',
     intro:
-      'Tullamarine is the heavy board for south-east Australia. Melbourne Flyer hosts regular lives; Julia Flights also covers MEL on specials.',
-    ourNote: 'Times are Australia/Melbourne. Convert before you sit down.',
+      'Tullamarine is the heavy board for south-east Australia. Melbourne Flyer and Skystar320 host MEL lives; Julia Flights also covers MEL on specials.',
+    ourNote: 'Times are Australia/Melbourne. Convert before you sit down. Official channels only.',
     related: ['BNE', 'SYD', 'SFO'],
   },
   {

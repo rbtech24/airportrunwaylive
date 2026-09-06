@@ -85,6 +85,18 @@ export const schedule: ScheduleRow[] = [
     notes: 'Amsterdam Schiphol hosted lives.',
   },
   {
+    day: 'Posted on channel',
+    airport: 'AMS',
+    channel: 'JOE ADAM',
+    notes: 'Schiphol hosted lives. Official @joeadamchannel.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'MEL',
+    channel: 'Skystar320',
+    notes: 'Melbourne Tullamarine hosted lives.',
+  },
+  {
     day: 'Weekly',
     airport: 'MEL',
     channel: 'Melbourne Flyer',

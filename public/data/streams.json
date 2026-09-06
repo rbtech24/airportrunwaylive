@@ -599,6 +599,26 @@
     "covers": ["AMS"]
   },
   {
+    "id": "joe-adam-ams",
+    "featured": false,
+    "host": false,
+    "airport": "AMS",
+    "icao": "EHAM",
+    "city": "Amsterdam",
+    "country": "NL",
+    "region": "europe",
+    "name": "JOE ADAM",
+    "handle": "@joeadamchannel",
+    "channelId": "UCK55q-7SjiqlONJuCF-qHgg",
+    "url": "https://www.youtube.com/@joeadamchannel",
+    "type": "scheduled",
+    "status": "scheduled",
+    "schedule": "Posted on the channel — Schiphol hosted lives",
+    "notes": "Amsterdam Schiphol hosted spotting. Official YouTube @joeadamchannel.",
+    "embedId": "g2mqe-753CY",
+    "covers": ["AMS"]
+  },
+  {
     "id": "aviacao-tv-lis",
     "featured": false,
     "host": false,
@@ -653,6 +673,26 @@
     "covers": ["MEL"]
   },
   {
+    "id": "skystar320-mel",
+    "featured": false,
+    "host": false,
+    "airport": "MEL",
+    "icao": "YMML",
+    "city": "Melbourne",
+    "country": "AU",
+    "region": "oceania",
+    "name": "Skystar320",
+    "handle": "@skystar-320",
+    "channelId": "UCaP-_ADDg9QLXXo72r84pWw",
+    "url": "https://www.youtube.com/@skystar-320",
+    "type": "scheduled",
+    "status": "scheduled",
+    "schedule": "Posted on the channel — MEL hosted lives",
+    "notes": "Melbourne Tullamarine hosted spotting. Official YouTube.",
+    "embedId": "K3kChLnAYgk",
+    "covers": ["MEL"]
+  },
+  {
     "id": "julia-flights-bne",
     "featured": false,
     "host": false,
@@ -681,11 +721,13 @@
     "region": "asia",
     "name": "Love Flight Jack",
     "handle": "@loveflightjack",
+    "channelId": "UCH1R8j9ReS3GSV3wi58Xu1A",
     "url": "https://www.youtube.com/@loveflightjack",
     "type": "scheduled",
     "status": "scheduled",
     "schedule": "Posted on the channel — Narita hosted lives",
     "notes": "Tokyo Narita. Regular Japanese hosted spotting. Official YouTube.",
+    "embedId": "Qb3vPmpYg8k",
     "covers": ["NRT"]
   },
   {
