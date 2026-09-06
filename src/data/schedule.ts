@@ -97,6 +97,48 @@ export const schedule: ScheduleRow[] = [
     notes: 'Melbourne Tullamarine hosted lives.',
   },
   {
+    day: 'Posted on channel',
+    airport: 'FNC',
+    channel: 'Madeira Airport Spotting',
+    notes: 'Madeira / Funchal crosswind lives.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'MAN',
+    channel: 'Macc Aviation',
+    notes: 'Manchester hosted lives. Also EDI / GLA.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'BNE',
+    channel: 'Only Planes Network',
+    notes: 'Brisbane hosted lives.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'YUL · YVR',
+    channel: 'Wake Turbulence Aviation',
+    notes: 'Montréal home. Vancouver specials.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'ANC',
+    channel: 'Caveman Aviation',
+    notes: 'Anchorage cargo heavies.',
+  },
+  {
+    day: 'Posted on channel',
+    airport: 'CHC',
+    channel: 'Airport Streams',
+    notes: 'Christchurch sunrise-to-sunset lives.',
+  },
+  {
+    day: 'Several / week',
+    airport: 'DUB',
+    channel: 'Airports Live TV',
+    notes: 'Dublin-based hosted lives.',
+  },
+  {
     day: 'Weekly',
     airport: 'MEL',
     channel: 'Melbourne Flyer',

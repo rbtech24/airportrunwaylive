@@ -47,6 +47,11 @@ export const locations: Record<string, GeoSpot> = {
   ORD: { lat: 41.9742, lon: -87.9073, name: 'Chicago O’Hare International', city: 'Chicago' },
   ATL: { lat: 33.6407, lon: -84.4277, name: 'Hartsfield–Jackson Atlanta International', city: 'Atlanta' },
   SAN: { lat: 32.7338, lon: -117.1933, name: 'San Diego International', city: 'San Diego' },
+  FNC: { lat: 32.6979, lon: -16.7745, name: 'Madeira Cristiano Ronaldo Airport', city: 'Funchal' },
+  YUL: { lat: 45.4706, lon: -73.7408, name: 'Montréal–Trudeau International', city: 'Montreal' },
+  ANC: { lat: 61.1743, lon: -149.9962, name: 'Ted Stevens Anchorage International', city: 'Anchorage' },
+  CHC: { lat: -43.4894, lon: 172.532, name: 'Christchurch Airport', city: 'Christchurch' },
+  DUB: { lat: 53.4264, lon: -6.2499, name: 'Dublin Airport', city: 'Dublin' },
 };
 
 export interface MapStream {

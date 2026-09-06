@@ -166,8 +166,8 @@ export const airports: Airport[] = [
     region: 'europe',
     country: 'GB',
     intro:
-      'North of England hub with a regular holiday-charter and long-haul mix. Airliners Live hosts on Wednesday, Friday, and Sunday (UK time).',
-    ourNote: 'Times are UK. Convert before you sit down with coffee.',
+      'North of England hub with a regular holiday-charter and long-haul mix. Airliners Live hosts Wed / Fri / Sun (UK time). Macc Aviation also hosts Manchester lives.',
+    ourNote: 'Times are UK. Official @AirlinersLive and @maccaviation. We do not restream them.',
     related: ['LHR', 'BOS', 'JFK'],
   },
   {
@@ -226,8 +226,8 @@ export const airports: Airport[] = [
     region: 'other',
     country: 'CA',
     intro:
-      'Pacific gateway for Canada. Airliners Live covers Vancouver when they are there — same channel as Manchester.',
-    ourNote: 'Not a 24/7 cam. Check @AirlinersLive for the next YVR show.',
+      'Pacific gateway for Canada. Airliners Live covers Vancouver when they are there. Wake Turbulence Aviation also hosts YVR lives from a Montréal home base.',
+    ourNote: 'Not a 24/7 cam. Official @AirlinersLive and @waketurbulence747.',
     related: ['SFO', 'LAX', 'MAN'],
   },
   {
@@ -250,8 +250,8 @@ export const airports: Airport[] = [
     region: 'oceania',
     country: 'AU',
     intro:
-      'Queensland’s international field and the home base for Julia Flights. Emirates A380s, Asian heavies, and domestic jets.',
-    ourNote: 'Official channel @juliaflights. We list it. We do not restream it.',
+      'Queensland’s international field. Julia Flights and Only Planes Network both host Brisbane lives — Emirates A380s, Asian heavies, and domestic jets.',
+    ourNote: 'Official @juliaflights and @onlyplanesnetwork. Named on BNE’s own plane-spotters page.',
     related: ['MEL', 'SYD', 'SFO'],
   },
   {
@@ -434,6 +434,66 @@ export const airports: Airport[] = [
       'UPS Worldport. The largest cargo airport in the United States: 747s, 767s, MD-11 memories, and a night sort that is the show. SDF Plane Spotting hosts Tuesday and Sunday lives.',
     ourNote: 'Official @SDFPlaneSpotting. Tue 4pm ET and Sun 3pm ET. We list it. We do not restream it.',
     related: ['DFW', 'ORD', 'MSP'],
+  },
+  {
+    code: 'FNC',
+    icao: 'LPMA',
+    name: 'Madeira Cristiano Ronaldo Airport',
+    city: 'Funchal',
+    region: 'europe',
+    country: 'PT',
+    intro:
+      'Runway on stilts between mountain and Atlantic. Crosswinds, go-arounds, and one of the most watched approaches on YouTube. Madeira Airport Spotting hosts the regular lives.',
+    ourNote: 'Official @MadeiraAirport. We list it. We do not restream it.',
+    related: ['LIS', 'ACE', 'LHR'],
+  },
+  {
+    code: 'YUL',
+    icao: 'CYUL',
+    name: 'Montréal–Trudeau International',
+    city: 'Montreal',
+    region: 'other',
+    country: 'CA',
+    intro:
+      'Canada’s east-coast international hub. Wake Turbulence Aviation hosts regular Montréal lives and takes the show to Vancouver.',
+    ourNote: 'Official @waketurbulence747. We list it. We do not restream it.',
+    related: ['YVR', 'BOS', 'JFK'],
+  },
+  {
+    code: 'ANC',
+    icao: 'PANC',
+    name: 'Ted Stevens Anchorage International',
+    city: 'Anchorage',
+    region: 'us',
+    country: 'US',
+    intro:
+      'The cargo crossroads of the North Pacific. 747s, MD-11 memories, C-17s, and wind that actually changes the show. Caveman Aviation hosts Anchorage lives.',
+    ourNote: 'Official @cavemanaviationlive. We list it. We do not restream it.',
+    related: ['NRT', 'SDF', 'ORD'],
+  },
+  {
+    code: 'CHC',
+    icao: 'NZCH',
+    name: 'Christchurch Airport',
+    city: 'Christchurch',
+    region: 'oceania',
+    country: 'NZ',
+    intro:
+      'South Island international, Southern Alps on the horizon. Airport Streams hosts long sunrise-to-sunset Christchurch lives and Queenstown specials.',
+    ourNote: 'Official @AirportStreams. Times are New Zealand. Convert before you sit down.',
+    related: ['SYD', 'MEL', 'BNE'],
+  },
+  {
+    code: 'DUB',
+    icao: 'EIDW',
+    name: 'Dublin Airport',
+    city: 'Dublin',
+    region: 'europe',
+    country: 'IE',
+    intro:
+      'Ireland’s main international gateway. Aer Lingus, transatlantic heavies, and a busy European mix. Airports Live TV hosts several lives a week.',
+    ourNote: 'Official @AirportsLiveTV. We list it. We do not restream it.',
+    related: ['MAN', 'LHR', 'BOS'],
   },
 ];
 
