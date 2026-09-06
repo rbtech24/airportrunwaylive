@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-06T00:58:23.919Z",
+  "updatedAt": "2026-09-06T16:01:18.111Z",
   "source": "youtube",
-  "quotaUnits": 1,
+  "quotaUnits": 17,
   "streams": {
     "arl-mco": {
       "status": "off",
@@ -220,10 +220,10 @@
       "live": false
     },
     "skystar320-mel": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "K3kChLnAYgk",
       "title": "🔴LIVE - Melbourne Airport Plane Spotting - With Greg & Steven [6th Sept 2026] 09:30 am",
-      "live": true
+      "live": false
     },
     "julia-flights-bne": {
       "status": "scheduled",
@@ -232,10 +232,10 @@
       "live": false
     },
     "love-flight-jack-nrt": {
-      "status": "live",
+      "status": "scheduled",
       "videoId": "Qb3vPmpYg8k",
       "title": "🔴LIVE at NARITA International Airport Plane Spotting　2026.09.06 成田空港ライブカメラ 成田空港　NRT/RJAA",
-      "live": true
+      "live": false
     },
     "live-jet-hnd": {
       "status": "scheduled",
@@ -271,6 +271,54 @@
       "status": "scheduled",
       "videoId": "dC-2Cg_aBfA",
       "title": "[v] 🔴  LIVE: NONSTOP TRAFFIC ✈️🔥at CHICAGO O'HARE",
+      "live": false
+    },
+    "madeira-airport-spotting": {
+      "status": "scheduled",
+      "videoId": "UauqPp6NYHk",
+      "title": "LIVE Action at Madeira Island Airport 06.09.2026",
+      "live": false
+    },
+    "macc-aviation-man": {
+      "status": "scheduled",
+      "videoId": "vfdJXXDhzww",
+      "title": "Saudia 787-9 Dreamliner touchdown! #foryou #upnext #saudia",
+      "live": false
+    },
+    "only-planes-network-bne": {
+      "status": "scheduled",
+      "videoId": "_rHyg8P7fV4",
+      "title": "🔴 LIVE BRISBANE RIVERFIRE | RAAF F/A-18F & C-17A through CBD + Fireworks Display 🔴",
+      "live": false
+    },
+    "wake-turbulence-yul": {
+      "status": "scheduled",
+      "videoId": "zfEhxEugQgc",
+      "title": "🔴 LIVE Plane Spotting at Toronto Pearson (YYZ) | Holiday Inn Express Exclusive View | Sep 1",
+      "live": false
+    },
+    "wake-turbulence-yvr": {
+      "status": "scheduled",
+      "videoId": "zfEhxEugQgc",
+      "title": "🔴 LIVE Plane Spotting at Toronto Pearson (YYZ) | Holiday Inn Express Exclusive View | Sep 1",
+      "live": false
+    },
+    "caveman-aviation-anc": {
+      "status": "scheduled",
+      "videoId": "3K1JBxxLpko",
+      "title": "🔴💨GUSTY WINDS! ANCHORAGE AIRPORT LIVE | NONSTOP B747 ACTION | SEPTEMBER 5, 2026",
+      "live": false
+    },
+    "airport-streams-chc": {
+      "status": "scheduled",
+      "videoId": "vaxXpOwEtwo",
+      "title": "JETSTAR GOES AROUND! 😳 Wind Shear Forces Aborted Landing on Runway 29 #airportstreams",
+      "live": false
+    },
+    "airports-live-tv-dub": {
+      "status": "scheduled",
+      "videoId": "FRfA5n3zN30",
+      "title": "LARGEST commercial aircraft ever to depart Dublin International Airport! Air China Boeing 747-89L",
       "live": false
     }
   },
@@ -319,6 +367,14 @@
     "curious-spotter-ord": "UCtNU9KHJgefhdU5N0mFUU8g",
     "miami-plane-spotting": "UC74_r6PCtp5BZ1gpz3ONFsQ",
     "joe-adam-ams": "UCK55q-7SjiqlONJuCF-qHgg",
-    "skystar320-mel": "UCaP-_ADDg9QLXXo72r84pWw"
+    "skystar320-mel": "UCaP-_ADDg9QLXXo72r84pWw",
+    "madeira-airport-spotting": "UCY7O4L08pmGiwHAegzcHMBA",
+    "macc-aviation-man": "UCzunsM1zsg11ERGC3Axvxxw",
+    "only-planes-network-bne": "UCWgNxEKv9P7WI97UQS3bUFA",
+    "wake-turbulence-yul": "UCmUoZewl3NCgUm8uJ7jqkiw",
+    "wake-turbulence-yvr": "UCmUoZewl3NCgUm8uJ7jqkiw",
+    "caveman-aviation-anc": "UCEewCSdgZ-1l0jeyNqpunxA",
+    "airport-streams-chc": "UCfpi32rf5Qixib_bbh2lZJQ",
+    "airports-live-tv-dub": "UCUVIuMwnyxYJJ2fYGXk2Egw"
   }
 }
