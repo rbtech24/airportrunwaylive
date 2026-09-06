@@ -4,9 +4,10 @@ import StreamCard from '../components/StreamCard.astro';
 import BoardMap from '../components/BoardMap.astro';
 import NextUp from '../components/NextUp.astro';
 import { site } from '../data/site';
-import { sortedStreams, cams247 } from '../data/catalog';
+import { sortedStreams, cams247, streamsForAirport } from '../data/catalog';
 
 const cams = cams247();
+const mia = streamsForAirport('MIA');
 ---
 <BaseLayout title="Airport Runways Live — airport livestreams on YouTube">
   <section class="hero">
@@ -22,6 +23,23 @@ const cams = cams247();
         <a class="btn btn-ghost" href={site.youtube} target="_blank" rel="noopener noreferrer" data-i18n="home_cta_yt">Our YouTube</a>
       </div>
       <p class="tiny" data-i18n="home_tiny">We don’t restream. Click through and the creator keeps the view.</p>
+    </div>
+  </section>
+
+  <section class="section ops-night" id="mia">
+    <div class="wrap">
+      <p class="eyebrow">Breaking · MIA</p>
+      <h2>Miami ground stop</h2>
+      <p class="lede">
+        A Prime Air Boeing 767 (21 Air flight 7598 from San Juan) overran runway 30 at Miami International around 2pm Eastern, 6 September 2026. The FAA and Miami-Dade Fire Rescue confirmed the overrun; the aircraft struck vehicles and caught fire. All runways and taxiways were closed and a ground stop is in effect. Injury details were not confirmed at the time we posted this.
+      </p>
+      <p class="note">
+        Official YouTube lives covering MIA are below. We do not restream news helicopters or other creators. Watch on their channels.
+        <a href="/airports/mia">Miami airport page →</a>
+      </p>
+      <div class="grid grid-4">
+        {mia.map((s) => <StreamCard stream={s} />)}
+      </div>
     </div>
   </section>
 

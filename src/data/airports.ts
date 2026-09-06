@@ -70,8 +70,8 @@ export const airports: Airport[] = [
     region: 'us',
     country: 'US',
     intro:
-      'The Latin American gateway and a cargo heaven: 747s, MD-11 memories, and a passenger mix you will not see at most U.S. fields. Several independent hosts cover MIA on a schedule.',
-    ourNote: 'HORI’s BOX also covers MIA from a Fort Lauderdale base. PLANES & FRIENDS and Miami Plane Spotting are listed when they go live.',
+      'The Latin American gateway and a cargo heaven: 747s, MD-11 memories, and a passenger mix you will not see at most U.S. fields. PTZtv runs a 24/7 runway 9/27 webcam. PLANES & FRIENDS and Miami Plane Spotting host. HORI’s BOX covers MIA from Fort Lauderdale.',
+    ourNote: 'Official YouTube only. We list them. We do not restream them. Ops-night notes go on the home alert, not as a fake LIVE badge.',
     related: ['FLL', 'MCO', 'TPA'],
   },
   {
