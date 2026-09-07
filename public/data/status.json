@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-06T20:07:08.225Z",
+  "updatedAt": "2026-09-07T00:44:52.844Z",
   "source": "youtube",
   "quotaUnits": 1,
   "streams": {
@@ -134,6 +134,12 @@
       "videoId": "TdcqJbI7XcY",
       "title": "🔴 NEW YORK LGA LIVE | NONSTOP RUNWAY 4 ACTION  | MONDAY ARRIVING RUSH",
       "live": false
+    },
+    "ptztv-mia": {
+      "status": "247",
+      "videoId": "_GUsXnlVJmo",
+      "title": "LIVE Miami Airport -- Watch runway 9/27 with tower radio traffic!",
+      "live": true
     },
     "planes-and-friends-jfk": {
       "status": "scheduled",
@@ -375,6 +381,7 @@
     "wake-turbulence-yvr": "UCmUoZewl3NCgUm8uJ7jqkiw",
     "caveman-aviation-anc": "UCEewCSdgZ-1l0jeyNqpunxA",
     "airport-streams-chc": "UCfpi32rf5Qixib_bbh2lZJQ",
-    "airports-live-tv-dub": "UCUVIuMwnyxYJJ2fYGXk2Egw"
+    "airports-live-tv-dub": "UCUVIuMwnyxYJJ2fYGXk2Egw",
+    "ptztv-mia": "UCG8-xn6zUbEqmqlnsvrD33Q"
   }
 }
