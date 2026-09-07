@@ -268,15 +268,6 @@ p {
   font-size: 0.95rem;
 }
 
-.ops-night {
-  background: #2a1408;
-  border-top: 1px solid var(--amber);
-  border-bottom: 1px solid var(--amber);
-}
-
-.ops-night .eyebrow {
-  color: var(--live-red);
-}
 
 .tonight-inner {
   display: flex;

@@ -1,9 +1,9 @@
 {
-  "alert": "MIA ground stop — Prime Air 767 (21 Air / CSB7598) overran RWY 30 ~2pm ET. All runways closed. Watch official Miami lives. We do not restream.",
-  "stormAirport": "MIA",
-  "tonight": "MIA ops night — ground stop after Prime Air 767 overrun. Official Miami lives on the board.",
-  "tonightDate": "Sun Sep 6",
+  "alert": "",
+  "stormAirport": "",
+  "tonight": "Aviation Live Desk — who’s live, weather, heavies at MCO",
+  "tonightDate": "Wed Sep 9",
   "deskNext": "2026-09-09T16:00:00-04:00",
-  "overlayIcao": "KMIA",
-  "updatedAt": "2026-09-06T21:30:00Z"
+  "overlayIcao": "KMCO",
+  "updatedAt": "2026-09-07T12:00:00Z"
 }
