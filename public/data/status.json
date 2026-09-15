@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T17:31:12.727Z",
+  "updatedAt": "2026-09-15T20:58:13.918Z",
   "source": "youtube",
   "quotaUnits": 1,
   "streams": {
@@ -52,10 +52,10 @@
       "live": true
     },
     "fr24-ace": {
-      "status": "247",
+      "status": "off",
       "videoId": "NtbquzembC8",
       "title": "ACE Lanzarote Airport LIVE 24/7 - Canary Islands SPAIN",
-      "live": true
+      "live": false
     },
     "avl-plus-lax": {
       "status": "247",
