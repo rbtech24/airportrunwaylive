@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T01:50:25.297Z",
+  "updatedAt": "2026-10-01T18:43:29.238Z",
   "source": "youtube",
   "quotaUnits": 1,
   "streams": {
@@ -40,10 +40,10 @@
       "live": true
     },
     "fr24-msy": {
-      "status": "247",
+      "status": "off",
       "videoId": "MH0_mPt-VXE",
       "title": "FR24 - MSY New Orleans LIVE 24/7",
-      "live": true
+      "live": false
     },
     "fr24-rno": {
       "status": "247",
