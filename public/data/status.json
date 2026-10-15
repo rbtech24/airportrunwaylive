@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T01:16:52.597Z",
+  "updatedAt": "2026-10-15T17:38:48.348Z",
   "source": "youtube",
   "quotaUnits": 1,
   "streams": {
@@ -30,7 +30,7 @@
     "fr24-sxm": {
       "status": "247",
       "videoId": "2IQmpCXbOmM",
-      "title": "Iconic SXM Airport LIVE 24/7 – Sint Maarten Maho Beach",
+      "title": "Iconic SXM Airport LIVE 24/7 • Sint Maarten Maho Beach",
       "live": true
     },
     "fr24-lga": {
@@ -48,7 +48,7 @@
     "fr24-rno": {
       "status": "247",
       "videoId": "fFl0qD108sk",
-      "title": "RNO Reno Airport LIVE 24/7",
+      "title": "RNO Airport LIVE 24/7 • Reno",
       "live": true
     },
     "fr24-ace": {
